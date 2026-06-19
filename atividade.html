@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Atividade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-body: #0b0f19;
+            --bg-card: #111827;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --border: #1e293b;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        header { margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+        .btn-voltar { display: inline-block; color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; margin-bottom: 16px; }
+        h1 { font-size: 2rem; font-weight: 700; color: #ffffff; margin: 0; }
+        .conteudo-atividade { background-color: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 30px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); }
+        h2 { font-size: 1.25rem; color: #ffffff; margin-top: 0; margin-bottom: 12px; }
+        p { color: var(--text-muted); margin-bottom: 24px; white-space: pre-line; }
+        .btn-link { display: inline-block; background-color: var(--primary); color: white; padding: 10px 20px; border-radius: 6px; font-size: 0.9rem; font-weight: 500; text-decoration: none; margin-right: 12px; }
+        .btn-secundario { background-color: #1e293b; border: 1px solid var(--border); color: #e2e8f0; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <a href="index.html" class="btn-voltar">← Voltar para a Lista</a>
+            <h1 id="titulo-pagina">Carregando atividade...</h1>
+        </header>
+
+        <main class="conteudo-atividade">
+            <h2 id="sub-titulo">Relatório Técnico</h2>
+            <p id="descricao-pagina">Buscando os detalhes da atividade selecionada...</p>
+            
+            <div class="links-container">
+                <a id="link-classroom" href="#" target="_blank" class="btn-link">🔗 Ver no Classroom</a>
+                <a id="link-github" href="#" target="_blank" class="btn-link btn-secundario">📂 Código Fonte</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // SEU BANCO DE DADOS DE TEXTOS E LINKS AQUI:
+        const dadosAtividades = {
+            "1": {
+                titulo: "Atividade 1: Dimensionamento do Conversor Buck-Boost",
+                descricao: "Relatório completo contendo os cálculos de indutância crítica, escolha do MOSFET e gráficos de ripple de tensão simulados no PSIM/LTSpice.",
+                classroom: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1",
+                github: "https://github.com/Exoticos55/exoticos55.github.io"
+            },
+            "2": {
+                titulo: "Atividade 2: Implementação do Algoritmo MPPT",
+                descricao: "Código-fonte em C com a lógica de Perturba e Observa (P&O) otimizada para microcontroladores, visando máxima eficiência do barramento.",
+                classroom: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1",
+                github: "https://github.com/Exoticos55/exoticos55.github.io"
+            },
+            "3": {
+                titulo: "Atividade 3: Modelagem do Inversor Trifásico",
+                descricao: "Análise matemática e relatórios lógicos sobre a redução de Distorção Harmônica Total (THD) utilizando chaves semicondutoras de SiC.",
+                classroom: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1",
+                github: "https://github.com/Exoticos55/exoticos55.github.io"
+            }
+        };
+
+        // Lógica para ler qual botão foi clicado e mudar a tela
+        const urlParams = new URLSearchParams(window.location.search);
+        const atividadeId = urlParams.get('id');
+
+        if (atividadeId && dadosAtividades[atividadeId]) {
+            const dados = dadosAtividades[atividadeId];
+            document.getElementById('titulo-pagina').innerText = dados.titulo;
+            document.getElementById('descricao-pagina').innerText = dados.descricao;
+            document.getElementById('link-classroom').href = dados.classroom;
+            document.getElementById('link-github').href = dados.github;
+            document.title = dados.titulo;
+        } else {
+            document.getElementById('titulo-pagina').innerText = "Erro";
+            document.getElementById('descricao-pagina').innerText = "Atividade não encontrada.";
+        }
+    </script>
+</body>
+</html>
