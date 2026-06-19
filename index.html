@@ -3,58 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio de Entregas & Atividades</title>
+    <title>Central de Atividades e Entregas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-main: #0b0f19;
-            --bg-card: #111827;
-            --bg-telemetry: #0f172a;
-            --border-color: #1e293b;
-            --accent-green: #3ddc97;
-            --accent-yellow: #e8b33d;
-            --accent-blue: #5b8fa8;
-            --text-main: #cdd6f4;
-            --text-muted: #a6adc8;
-            --text-dark: #64748b;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #16a34a;
+            --border: #e2e8f0;
         }
 
         *, *::before, *::after { box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        .mono { font-family: 'JetBrains Mono', monospace; }
         
-        header { border-bottom: 2px solid var(--border-color); padding-bottom: 30px; margin-bottom: 40px; }
-        .subtitle { color: var(--accent-blue); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 8px; }
-        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; color: #ffffff; margin: 0 0 10px 0; text-transform: uppercase; }
-        .lead { font-size: 1.1rem; color: var(--text-muted); margin: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
 
-        h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; color: var(--accent-green); border-left: 4px solid var(--accent-green); padding-left: 15px; margin-top: 40px; margin-bottom: 20px; text-transform: uppercase; }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-        /* Painel de Status Geral */
-        .status-box { background-color: var(--bg-telemetry); border: 1px dashed var(--accent-green); border-radius: 6px; padding: 20px; margin: 25px 0; }
-        .status-title { color: var(--accent-green); font-size: 0.85rem; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
-        .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; }
-        .status-stat { background-color: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: 4px; padding: 15px; text-align: center; }
-        .status-val { font-size: 1.8rem; font-weight: 700; color: #ffffff; }
-        .status-lbl { font-size: 0.75rem; color: var(--text-dark); text-transform: uppercase; margin-top: 5px; font-weight: 600; }
+        header {
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 24px;
+        }
 
-        /* Lista de Tarefas */
-        .task-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-left: 4px solid var(--accent-blue); border-radius: 0 6px 6px 0; padding: 20px; margin-bottom: 20px; position: relative; }
-        .task-card.done { border-left-color: var(--accent-green); }
-        .task-title { font-size: 1.2rem; font-weight: 700; color: #ffffff; margin: 0 0 5px 0; font-family: 'Space Grotesk', sans-serif; }
-        .task-meta { font-size: 0.8rem; color: var(--accent-yellow); margin-bottom: 12px; }
-        
-        /* Botões de Link */
-        .btn-link { display: inline-block; background-color: #1e293b; color: #ffffff; padding: 6px 12px; border-radius: 4px; font-size: 0.85rem; text-decoration: none; margin-right: 10px; border: 1px solid var(--border-color); transition: all 0.2s; }
-        .btn-link:hover { background-color: var(--accent-green); color: var(--bg-main); font-weight: bold; }
-        .badge { position: absolute; top: 20px; right: 20px; font-size: 0.75rem; padding: 3px 8px; border-radius: 3px; font-weight: bold; text-transform: uppercase; }
-        .badge.delivered { background-color: rgba(61, 220, 151, 0.1); color: var(--accent-green); }
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            color: var(--text-main);
+        }
 
-        footer { margin-top: 60px; border-top: 1px solid var(--border-color); padding-top: 20px; font-size: 0.8rem; color: var(--text-dark); text-align: center; }
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .info-box {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 32px;
+            color: #1e40af;
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0 0 20px 0;
+        }
+
+        .card-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card-atividade {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .titulo-atividade {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 0;
+            padding-right: 80px;
+        }
+
+        .status-badge {
+            background-color: #dcfce7;
+            color: var(--success);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .descricao {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0 0 16px 0;
+        }
+
+        .links-container {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-acao {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-acao:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-secundario {
+            background-color: #f1f5f9;
+            color: #334155;
+            border: 1px solid var(--border);
+        }
+
+        .btn-secundario:hover {
+            background-color: #e2e8f0;
+        }
+
+        footer {
+            margin-top: 48px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
     </style>
 </head>
 <body>
@@ -62,72 +165,58 @@
     <div class="container">
         
         <header>
-            <div class="subtitle mono">// CENTRAL DE AVALIAÇÃO CONTINUA</div>
-            <h1>Portfólio Acadêmico</h1>
-            <p class="lead mono">Acompanhamento unificado de atividades e projetos práticos entregues.</p>
+            <h1>Central de Atividades & Entregas</h1>
+            <p class="subtitle">Portfólio unificado para acompanhamento e avaliação do professor.</p>
         </header>
 
-        <!-- Painel estilo Telemetria para o Professor ver seu progresso total de cara -->
-        <section id="visao-geral">
-            <div class="status-box">
-                <div class="status-title mono">// METRICAS DE PROGRESSO DO ALUNO</div>
-                <div class="status-grid">
-                    <div class="status-stat">
-                        <div class="status-val mono" style="color: var(--accent-green);">100%</div>
-                        <div class="status-lbl">Taxa de Entrega</div>
+        <div class="info-box">
+            <strong>Professor:</strong> Esta página reúne os links diretos para a visualização das atividades práticas, códigos e arquivos entregues na plataforma do Classroom.
+        </div>
+
+        <main>
+            <h2>Atividades Postadas</h2>
+
+            <div class="card-lista">
+
+                <div class="card-atividade">
+                    <div class="card-header">
+                        <h3 class="titulo-atividade">Atividade 1: Título Completo da sua Atividade 01</h3>
+                        <span class="status-badge">Concluída</span>
                     </div>
-                    <div class="status-stat">
-                        <div class="status-val mono" style="color: var(--accent-blue);">03</div>
-                        <div class="status-lbl">Projetos Finais</div>
-                    </div>
-                    <div class="status-stat">
-                        <div class="status-val mono" style="color: var(--accent-yellow);">12 / 12</div>
-                        <div class="status-lbl">Tarefas Concluídas</div>
+                    <p class="descricao">Breve resumo sobre o que foi feito nesta atividade para situar o professor antes de abrir o arquivo.</p>
+                    <div class="links-container">
+                        <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1" target="_blank" class="btn-action btn-acao">🔗 Ver no Classroom</a>
+                        <a href="https://github.com/Exoticos55/exoticos55.github.io" target="_blank" class="btn-action btn-acao btn-secundario">📂 Ver Arquivos Fontes</a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="atividades">
-            <h2>Módulos & Entregas Acadêmicas</h2>
-            <p>Professor, clique nos botões de cada card para acessar diretamente os arquivos correspondentes (código no GitHub, documentos ou link direto da entrega no Classroom).</p>
-
-            <div class="task-list">
-                
-                <!-- ATIVIDADE 1 -->
-                <div class="task-card done">
-                    <div class="badge delivered mono">Entregue</div>
-                    <div class="task-title">Atividade 1: Dimensionamento do Conversor Buck-Boost</div>
-                    <div class="task-meta mono">Foco: Eletrônica de Potência / Simulação</div>
-                    <p>Relatório completo contendo os cálculos de indutância crítica, escolha do MOSFET e gráficos de ripple de tensão simulados no PSIM/LTSpice.</p>
-                    <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1" target="_blank" class="btn-link mono">📄 Ver no Classroom</a>
-                    <a href="https://github.com/Exoticos55/exoticos55.github.io/edit/main/index.html" target="_blank" class="btn-link mono">💻 Ver Código/Simulação</a>
+                <div class="card-atividade">
+                    <div class="card-header">
+                        <h3 class="titulo-atividade">Atividade 2: Título Completo da sua Atividade 02</h3>
+                        <span class="status-badge">Concluída</span>
+                    </div>
+                    <p class="descricao">Breve resumo explicativo sobre o desenvolvimento e os objetivos cumpridos na Atividade 2.</p>
+                    <div class="links-container">
+                        <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1" target="_blank" class="btn-action btn-acao">🔗 Ver no Classroom</a>
+                    </div>
                 </div>
 
-                <!-- ATIVIDADE 2 -->
-                <div class="task-card done">
-                    <div class="badge delivered mono">Entregue</div>
-                    <div class="task-title">Atividade 2: Implementação do Algoritmo MPPT</div>
-                    <div class="task-meta mono">Foco: Programação de Sistemas Embarcados</div>
-                    <p>Código-fonte em C com a lógica de Perturba e Observa (P&O) otimizada para microcontroladores, visando máxima eficiência do barramento.</p>
-                    <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1" target="_blank" class="btn-link mono">📄 Ver no Classroom</a>
-                    <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1" target="_blank" class="btn-link mono">💻 Ver Repositório</a>
-                </div>
-
-                <!-- ATIVIDADE 3 -->
-                <div class="task-card done">
-                    <div class="badge delivered mono">Entregue</div>
-                    <div class="task-title">Atividade 3: Modelagem do Inversor Trifásico</div>
-                    <div class="task-meta mono">Foco: Controle Vetorial (FOC)</div>
-                    <p>Análise matemática e relatórios lógicos sobre a redução de Distorção Harmônica Total (THD) utilizando chaves semicondutoras de SiC.</p>
-                    <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1" target="_blank" class="btn-link mono">📄 Ver no Classroom</a>
+                <div class="card-atividade">
+                    <div class="card-header">
+                        <h3 class="titulo-atividade">Atividade 3: Título Completo da sua Atividade 03</h3>
+                        <span class="status-badge">Concluída</span>
+                    </div>
+                    <p class="descricao">Breve descrição sobre o relatório ou a resolução prática enviada para a Atividade 3.</p>
+                    <div class="links-container">
+                        <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1" target="_blank" class="btn-action btn-acao">🔗 Ver no Classroom</a>
+                    </div>
                 </div>
 
             </div>
-        </section>
+        </main>
 
         <footer>
-            <span class="mono">[ DASHBOARD DE AVALIAÇÃO GITHUB PAGES ] &bull; FACILITANDO O FEEDBACK</span>
+            Portfólio de Atividades Acadêmicas &copy; 2026
         </footer>
 
     </div>
