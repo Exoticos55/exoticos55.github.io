@@ -47,6 +47,11 @@
             position: fixed;
             height: 100vh;
             overflow-y: auto;
+            z-index: 10;
+        }
+
+        .sidebar-top {
+            flex-grow: 1;
         }
 
         .sidebar h1 {
@@ -54,6 +59,7 @@
             font-weight: 700;
             margin: 0 0 8px 0;
             letter-spacing: -0.5px;
+            color: #ffffff;
         }
 
         .sidebar .subtitle {
@@ -71,7 +77,6 @@
             font-size: 0.85rem;
             color: #93c5fd;
             line-height: 1.5;
-            margin-bottom: auto; /* Empurra o botão para o final */
         }
 
         .btn-classroom-main {
@@ -87,7 +92,7 @@
             font-size: 0.9rem;
             box-shadow: 0 4px 12px var(--primary-glow);
             transition: all 0.2s ease;
-            margin-top: 24px;
+            margin-top: auto;
         }
 
         .btn-classroom-main:hover {
@@ -100,23 +105,23 @@
             margin-left: 320px;
             flex: 1;
             padding: 50px 40px;
-            max-width: 1000px;
+            max-width: 1200px;
         }
 
         .main-content h2 {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             color: var(--text-muted);
-            margin: 0 0 24px 0;
+            margin: 0 0 32px 0;
         }
 
         /* GRID DE ATIVIDADES */
         .grid-atividades {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
         }
 
         .card-atividade {
@@ -127,28 +132,29 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            min-height: 240px;
             transition: all 0.2s ease;
         }
 
         .card-atividade:hover {
             border-color: var(--border-focus);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            transform: translateY(-4px);
         }
 
         .card-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .status-badge {
-            background-color: rgba(16, 185, 129, 0.1);
+            background-color: rgba(16, 185, 129, 0.08);
             color: var(--success);
             font-size: 0.7rem;
             font-weight: 700;
-            padding: 4px 8px;
+            padding: 4px 10px;
             border-radius: 6px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -156,61 +162,62 @@
         }
 
         .card-atividade h3 {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            margin: 0 0 8px 0;
-            line-height: 1.3;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+            color: #ffffff;
         }
 
         .card-atividade p {
             color: var(--text-muted);
             font-size: 0.9rem;
             margin: 0 0 24px 0;
-            line-height: 1.5;
-            flex-grow: 1;
+            line-height: 1.6;
         }
 
         .btn-detalhes {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: #1e2538;
-            color: #94a3b8;
-            padding: 10px 16px;
+            background-color: #161f38;
+            color: #3b82f6;
+            padding: 12px 16px;
             border-radius: 8px;
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(59, 130, 246, 0.2);
             transition: all 0.2s ease;
             text-align: center;
+            margin-top: auto;
         }
 
         .btn-detalhes:hover {
-            background-color: #242f49;
+            background-color: var(--primary);
             color: #ffffff;
-            border-color: #475569;
+            border-color: var(--primary);
         }
 
         /* RESPONSIVIDADE */
         @media (max-width: 768px) {
             body { flex-direction: column; }
             .sidebar { width: 100%; height: auto; position: relative; padding: 30px 20px; }
-            .main-content { margin-left: 0; padding: 30px 20px; }
+            .main-content { margin-left: 0; padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
-        <div>
+        <div class="sidebar-top">
             <h1>Central de Entregas</h1>
             <p class="subtitle">Portfólio acadêmico automatizado para acompanhamento de avaliações.</p>
-        </div>
 
-        <div class="info-box">
-            <span class="mono" style="display:block; margin-bottom: 6px; color: var(--primary);">// MANUAL DO PROFESSOR</span>
-            Selecione qualquer card no painel ao lado para checar o escopo, relatórios técnicos e repositórios fontes dedicados de cada tarefa.
+            <div class="info-box">
+                <span class="mono" style="display:block; margin-bottom: 6px; color: #3b82f6;">// MANUAL DO PROFESSOR</span>
+                Selecione qualquer card no painel ao lado para checar o escopo, relatórios técnicos e repositórios fontes dedicados de cada tarefa.
+            </div>
         </div>
 
         <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1" target="_blank" class="btn-classroom-main">
@@ -219,4 +226,48 @@
     </aside>
 
     <main class="main-content">
-        <h2>At
+        <h2>Atividades Registradas</h2>
+
+        <div class="grid-atividades">
+
+            <div class="card-atividade">
+                <div>
+                    <div class="card-top">
+                        <span class="mono" style="color: var(--primary);">#01</span>
+                        <span class="status-badge">Entregue</span>
+                    </div>
+                    <h3>Circuitos de Potência</h3>
+                    <p>Simulação e análise computacional do dimensionamento do Conversor Buck-Boost.</p>
+                </div>
+                <a href="atividade.html?id=1" class="btn-detalhes">Acessar Relatório →</a>
+            </div>
+
+            <div class="card-atividade">
+                <div>
+                    <div class="card-top">
+                        <span class="mono" style="color: var(--primary);">#02</span>
+                        <span class="status-badge">Entregue</span>
+                    </div>
+                    <h3>Algoritmos MPPT</h3>
+                    <p>Programação embarcada em linguagem C para rastreamento de máxima potência do sistema.</p>
+                </div>
+                <a href="atividade.html?id=2" class="btn-detalhes">Acessar Relatório →</a>
+            </div>
+
+            <div class="card-atividade">
+                <div>
+                    <div class="card-top">
+                        <span class="mono" style="color: var(--primary);">#03</span>
+                        <span class="status-badge">Entregue</span>
+                    </div>
+                    <h3>Inversor Trifásico</h3>
+                    <p>Modelagem teórica e relatórios sobre o controle vetorial dinâmico de chaves SiC.</p>
+                </div>
+                <a href="atividade.html?id=3" class="btn-detalhes">Acessar Relatório →</a>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
