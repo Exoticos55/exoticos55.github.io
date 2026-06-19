@@ -3,195 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Central de Atividades e Entregas</title>
+    <title>Central de Atividades</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-body: #0b0f19; /* Fundo escuro profundo */
-            --bg-card: #111827; /* Cards um pouco mais claros que o fundo */
-            --bg-info: #0f172a; /* Caixa de aviso escura */
-            --text-main: #f8fafc; /* Texto principal branco/claro */
-            --text-muted: #94a3b8; /* Texto secundário cinza */
-            --primary: #3b82f6; /* Azul brilhante para os botões */
+            --bg-body: #0b0f19;
+            --bg-card: #111827;
+            --bg-info: #0f172a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
             --primary-hover: #2563eb;
-            --success: #10b981; /* Verde para as tags */
-            --border: #1e293b; /* Bordas sutis escuras */
+            --success: #10b981;
+            --border: #1e293b;
         }
-
         *, *::before, *::after { box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.5;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        header {
-            margin-bottom: 32px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 24px;
-        }
-
-        h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 0 0 8px 0;
-            color: #ffffff;
-        }
-
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin: 0;
-        }
-
-        .info-box {
-            background-color: var(--bg-info);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 32px;
-            color: #60a5fa;
-            font-size: 0.95rem;
-        }
-
-        h2 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin: 0 0 20px 0;
-            color: #ffffff;
-        }
-
-        .card-lista {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .card-atividade {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px;
-            position: relative;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 8px;
-        }
-
-        .titulo-atividade {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin: 0;
-            padding-right: 80px;
-            color: #ffffff;
-        }
-
-        .status-badge {
-            background-color: rgba(16, 185, 129, 0.1);
-            color: var(--success);
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 4px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-        .descricao {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin: 0 0 16px 0;
-        }
-
-        .links-container {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn-acao {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--primary);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: background-color 0.2s;
-        }
-
-        .btn-acao:hover {
-            background-color: var(--primary-hover);
-        }
-
-        .btn-secundario {
-            background-color: #1e293b;
-            color: #e2e8f0;
-            border: 1px solid var(--border);
-        }
-
-        .btn-secundario:hover {
-            background-color: #334155;
-        }
-
-        footer {
-            margin-top: 48px;
-            border-top: 1px solid var(--border);
-            padding-top: 20px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.875rem;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); color: var(--text-main); margin: 0; padding: 0; line-height: 1.5; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        header { margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+        h1 { font-size: 2rem; font-weight: 700; margin: 0 0 8px 0; color: #ffffff; }
+        .subtitle { color: var(--text-muted); font-size: 1.1rem; margin: 0; }
+        .info-box { background-color: var(--bg-info); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 32px; color: #60a5fa; font-size: 0.95rem; }
+        h2 { font-size: 1.4rem; font-weight: 600; margin: 0 0 20px 0; color: #ffffff; }
+        .card-lista { display: flex; flex-direction: column; gap: 16px; }
+        .card-atividade { background-color: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .titulo-atividade { font-size: 1.15rem; font-weight: 600; margin: 0; color: #ffffff; }
+        .status-badge { background-color: rgba(16, 185, 129, 0.1); color: var(--success); font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; border: 1px solid rgba(16, 185, 129, 0.2); }
+        .descricao { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 16px 0; }
+        .btn-acao { display: inline-flex; align-items: center; background-color: var(--primary); color: white; padding: 8px 16px; border-radius: 6px; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: background-color 0.2s; }
+        .btn-acao:hover { background-color: var(--primary-hover); }
+        footer { margin-top: 48px; border-top: 1px solid var(--border); padding-top: 20px; text-align: center; color: var(--text-muted); font-size: 0.875rem; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
         <header>
             <h1>Central de Atividades & Entregas</h1>
             <p class="subtitle">Portfólio unificado para acompanhamento e avaliação do professor.</p>
         </header>
 
         <div class="info-box">
-            <strong>Professor:</strong> Esta página reúne os links diretos para a visualização das atividades práticas, códigos e arquivos entregues na plataforma do Classroom.
+            <strong>Professor:</strong> Selecione a atividade abaixo para visualizar os detalhes, relatórios e códigos da entrega correspondente.
         </div>
 
         <main>
-            <h2>Atividades da Turma</h2>
-
+            <h2>Grade de Atividades</h2>
             <div class="card-lista">
 
+                <!-- CARD ATIVIDADE 1 -->
                 <div class="card-atividade">
                     <div class="card-header">
-                        <h3 class="titulo-atividade">Acesso ao Painel Geral de Entregas</h3>
-                        <span class="status-badge">Acessar</span>
+                        <h3 class="titulo-atividade">Atividade 1: Circuitos de Potência</h3>
+                        <span class="status-badge">Entregue</span>
                     </div>
-                    <p class="descricao">Clique no botão abaixo para abrir diretamente o mural completo de atividades avaliativas enviadas nesta disciplina.</p>
-                    <div class="links-container">
-                        <a href="https://classroom.google.com/w/Nzk2NTIwNDI4Nzg1/t/all" target="_blank" class="btn-acao">🔗 Ver Atividades no Classroom</a>
-                        <a href="https://github.com/Exoticos55/exoticos55.github.io" target="_blank" class="btn-acao btn-secundario">📂 Repositório GitHub</a>
+                    <p class="descricao">Simulação e dimensionamento do Conversor Buck-Boost.</p>
+                    <a href="atividade.html?id=1" class="btn-acao">📂 Detalhes da Entrega</a>
+                </div>
+
+                <!-- CARD ATIVIDADE 2 -->
+                <div class="card-atividade">
+                    <div class="card-header">
+                        <h3 class="titulo-atividade">Atividade 2: Algoritmos MPPT</h3>
+                        <span class="status-badge">Entregue</span>
                     </div>
+                    <p class="descricao">Lógica de programação em C para rastreamento de máxima potência.</p>
+                    <a href="atividade.html?id=2" class="btn-acao">📂 Detalhes da Entrega</a>
+                </div>
+
+                <!-- CARD ATIVIDADE 3 -->
+                <div class="card-atividade">
+                    <div class="card-header">
+                        <h3 class="titulo-atividade">Atividade 3: Inversor Trifásico</h3>
+                        <span class="status-badge">Entregue</span>
+                    </div>
+                    <p class="descricao">Modelagem matemática do controle vetorial de chaves SiC.</p>
+                    <a href="atividade.html?id=3" class="btn-acao">📂 Detalhes da Entrega</a>
                 </div>
 
             </div>
@@ -200,7 +91,6 @@
         <footer>
             Portfólio de Atividades Acadêmicas &copy; 2026
         </footer>
-
     </div>
 
 </body>
