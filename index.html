@@ -10,14 +10,15 @@
     
     <style>
         :root {
-            --bg-body: #f8fafc;
-            --bg-card: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --primary: #2563eb;
-            --primary-hover: #1d4ed8;
-            --success: #16a34a;
-            --border: #e2e8f0;
+            --bg-body: #0b0f19; /* Fundo escuro profundo */
+            --bg-card: #111827; /* Cards um pouco mais claros que o fundo */
+            --bg-info: #0f172a; /* Caixa de aviso escura */
+            --text-main: #f8fafc; /* Texto principal branco/claro */
+            --text-muted: #94a3b8; /* Texto secundário cinza */
+            --primary: #3b82f6; /* Azul brilhante para os botões */
+            --primary-hover: #2563eb;
+            --success: #10b981; /* Verde para as tags */
+            --border: #1e293b; /* Bordas sutis escuras */
         }
 
         *, *::before, *::after { box-sizing: border-box; }
@@ -47,7 +48,7 @@
             font-size: 2rem;
             font-weight: 700;
             margin: 0 0 8px 0;
-            color: var(--text-main);
+            color: #ffffff;
         }
 
         .subtitle {
@@ -57,12 +58,12 @@
         }
 
         .info-box {
-            background-color: #eff6ff;
-            border: 1px solid #bfdbfe;
+            background-color: var(--bg-info);
+            border: 1px solid var(--border);
             border-radius: 8px;
             padding: 16px;
             margin-bottom: 32px;
-            color: #1e40af;
+            color: #60a5fa;
             font-size: 0.95rem;
         }
 
@@ -70,6 +71,7 @@
             font-size: 1.4rem;
             font-weight: 600;
             margin: 0 0 20px 0;
+            color: #ffffff;
         }
 
         .card-lista {
@@ -84,7 +86,7 @@
             border-radius: 8px;
             padding: 20px;
             position: relative;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
         }
 
         .card-header {
@@ -99,16 +101,18 @@
             font-weight: 600;
             margin: 0;
             padding-right: 80px;
+            color: #ffffff;
         }
 
         .status-badge {
-            background-color: #dcfce7;
+            background-color: rgba(16, 185, 129, 0.1);
             color: var(--success);
             font-size: 0.75rem;
             font-weight: 600;
             padding: 4px 8px;
             border-radius: 4px;
             text-transform: uppercase;
+            border: 1px solid rgba(16, 185, 129, 0.2);
         }
 
         .descricao {
@@ -141,13 +145,13 @@
         }
 
         .btn-secundario {
-            background-color: #f1f5f9;
-            color: #334155;
+            background-color: #1e293b;
+            color: #e2e8f0;
             border: 1px solid var(--border);
         }
 
         .btn-secundario:hover {
-            background-color: #e2e8f0;
+            background-color: #334155;
         }
 
         footer {
@@ -174,41 +178,19 @@
         </div>
 
         <main>
-            <h2>Atividades Postadas</h2>
+            <h2>Atividades da Turma</h2>
 
             <div class="card-lista">
 
                 <div class="card-atividade">
                     <div class="card-header">
-                        <h3 class="titulo-atividade">Atividade 1: Título Completo da sua Atividade 01</h3>
-                        <span class="status-badge">Concluída</span>
+                        <h3 class="titulo-atividade">Acesso ao Painel Geral de Entregas</h3>
+                        <span class="status-badge">Acessar</span>
                     </div>
-                    <p class="descricao">Breve resumo sobre o que foi feito nesta atividade para situar o professor antes de abrir o arquivo.</p>
+                    <p class="descricao">Clique no botão abaixo para abrir diretamente o mural completo de atividades avaliativas enviadas nesta disciplina.</p>
                     <div class="links-container">
-                        <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1" target="_blank" class="btn-action btn-acao">🔗 Ver no Classroom</a>
-                        <a href="https://github.com/Exoticos55/exoticos55.github.io" target="_blank" class="btn-action btn-acao btn-secundario">📂 Ver Arquivos Fontes</a>
-                    </div>
-                </div>
-
-                <div class="card-atividade">
-                    <div class="card-header">
-                        <h3 class="titulo-atividade">Atividade 2: Título Completo da sua Atividade 02</h3>
-                        <span class="status-badge">Concluída</span>
-                    </div>
-                    <p class="descricao">Breve resumo explicativo sobre o desenvolvimento e os objetivos cumpridos na Atividade 2.</p>
-                    <div class="links-container">
-                        <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1" target="_blank" class="btn-action btn-acao">🔗 Ver no Classroom</a>
-                    </div>
-                </div>
-
-                <div class="card-atividade">
-                    <div class="card-header">
-                        <h3 class="titulo-atividade">Atividade 3: Título Completo da sua Atividade 03</h3>
-                        <span class="status-badge">Concluída</span>
-                    </div>
-                    <p class="descricao">Breve descrição sobre o relatório ou a resolução prática enviada para a Atividade 3.</p>
-                    <div class="links-container">
-                        <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1" target="_blank" class="btn-action btn-acao">🔗 Ver no Classroom</a>
+                        <a href="https://classroom.google.com/w/Nzk2NTIwNDI4Nzg1/t/all" target="_blank" class="btn-acao">🔗 Ver Atividades no Classroom</a>
+                        <a href="https://github.com/Exoticos55/exoticos55.github.io" target="_blank" class="btn-acao btn-secundario">📂 Repositório GitHub</a>
                     </div>
                 </div>
 
