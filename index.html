@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matheus — Engenharia &amp; Sistemas de Energia</title>
+<meta name="description" content="Portfólio de projetos em engenharia, sistemas de energia solar e algoritmos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-bg" aria-hidden="true"></div>
+
+<svg class="transmission-line" aria-hidden="true" viewBox="0 0 100 2000" preserveAspectRatio="none">
+  <path id="trace-path" d="M50,0 L50,2000" />
+</svg>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <span class="logo">MATHEUS<span class="logo-dot">.</span>ENG</span>
+    <nav class="nav">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO: datasheet -->
+  <section class="hero wrap" id="topo">
+    <div class="datasheet">
+      <div class="datasheet-head">
+        <span class="mono eyebrow">FICHA TÉCNICA — REV. 2026</span>
+        <span class="mono eyebrow status">● DISPONÍVEL PARA PROJETOS</span>
+      </div>
+
+      <h1 class="hero-title">
+        Matheus <span class="accent">[Sobrenome]</span>
+      </h1>
+      <p class="hero-subtitle">
+        Estudante de Engenharia — UNIPAMPA<br>
+        Sistemas de energia, eletrônica de potência &amp; algoritmos
+      </p>
+
+      <div class="spec-table mono">
+        <div class="spec-row">
+          <span class="spec-label">Instituição</span>
+          <span class="spec-value">UNIPAMPA — Universidade Federal do Pampa</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Área de foco</span>
+          <span class="spec-value">Energia solar fotovoltaica · Eletrônica de potência · Algoritmos</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Stack</span>
+          <span class="spec-value">Python · MATLAB/Octave · SVG técnico · Análise numérica</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">Localização</span>
+          <span class="spec-value">Alegrete, RS — Brasil</span>
+        </div>
+      </div>
+
+      <a href="#projetos" class="cta">Ver projetos ↓</a>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="about wrap" id="sobre">
+    <span class="mono section-tag">[ 01 ]</span>
+    <h2 class="section-title">Sobre</h2>
+    <p class="about-text">
+      Curso engenharia na UNIPAMPA com foco em sistemas de energia — da modelagem
+      de painéis fotovoltaicos à eletrônica de potência que converte essa energia
+      em algo utilizável. No caminho, também resolvo problemas de algoritmos e
+      análise numérica: de treliças a sistemas de abastecimento de água.
+      Gosto de pensar em código como ferramenta de engenharia, não só como disciplina
+      isolada — cada script resolve um problema físico real.
+    </p>
+  </section>
+
+  <!-- PROJETOS -->
+  <section class="projects wrap" id="projetos">
+    <span class="mono section-tag">[ 02 ]</span>
+    <h2 class="section-title">Projetos</h2>
+
+    <div class="project-grid">
+
+      <article class="project-card">
+        <div class="project-card-head">
+          <span class="mono project-tag">SOLAR-PV-01</span>
+          <span class="mono project-status">DOCUMENTADO</span>
+        </div>
+        <h3 class="project-title">Topologia de Inversor Fotovoltaico</h3>
+        <p class="project-desc">
+          Diagramas técnicos interativos em SVG cobrindo os estágios de um
+          inversor solar: Boost Converter, MPPT, módulo IGBT e filtro LCL.
+          Material de apoio para entendimento didático de cada etapa de
+          conversão de energia.
+        </p>
+        <ul class="project-tags mono">
+          <li>SVG</li>
+          <li>Eletrônica de Potência</li>
+          <li>MPPT</li>
+        </ul>
+      </article>
+
+      <article class="project-card">
+        <div class="project-card-head">
+          <span class="mono project-tag">IRR-CURVE-02</span>
+          <span class="mono project-status">DOCUMENTADO</span>
+        </div>
+        <h3 class="project-title">Curvas de Irradiância Solar</h3>
+        <p class="project-desc">
+          Figuras científicas em padrão IEEE comparando a intermitência da
+          irradiância solar e a saída de potência de painéis fotovoltaicos
+          em dias nublados versus céu claro.
+        </p>
+        <ul class="project-tags mono">
+          <li>Python</li>
+          <li>Matplotlib</li>
+          <li>IEEE</li>
+        </ul>
+      </article>
+
+      <article class="project-card">
+        <div class="project-card-head">
+          <span class="mono project-tag">ALG-T4-03</span>
+          <span class="mono project-status">CONCLUÍDO</span>
+        </div>
+        <h3 class="project-title">Algoritmos Aplicados à Engenharia</h3>
+        <p class="project-desc">
+          Conjunto de soluções em Python para problemas de telemetria de voo,
+          ponte de Wheatstone, cálculo tributário, avaliação geotécnica e
+          inspeção de soldas — com implementação manual dos algoritmos
+          centrais, sem depender de bibliotecas prontas para a lógica principal.
+        </p>
+        <ul class="project-tags mono">
+          <li>Python</li>
+          <li>Lógica Numérica</li>
+          <li>Google Colab</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contact wrap" id="contato">
+    <span class="mono section-tag">[ 03 ]</span>
+    <h2 class="section-title">Contato</h2>
+    <p class="contact-text">
+      Aberto a projetos, estágios e colaborações em energia e engenharia de software.
+    </p>
+    <div class="contact-links mono">
+      <a href="mailto:seu.email@exemplo.com">seu.email@exemplo.com</a>
+      <a href="https://github.com/seu-usuario" target="_blank" rel="noopener">github.com/seu-usuario</a>
+      <a href="https://linkedin.com/in/seu-usuario" target="_blank" rel="noopener">linkedin.com/in/seu-usuario</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="mono">© 2026 Matheus — Construído com energia (literalmente).</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
