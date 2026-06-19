@@ -1,0 +1,18 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Símbolo de engenharia elétrica">
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.5"/>
+
+  <line x1="32" y1="2" x2="32" y2="10" stroke="#3b82f6" stroke-width="1.5"/>
+  <circle cx="32" cy="10" r="2" fill="#3b82f6"/>
+
+  <line x1="32" y1="54" x2="32" y2="62" stroke="#3b82f6" stroke-width="1.5"/>
+  <circle cx="32" cy="54" r="2" fill="#3b82f6"/>
+
+  <line x1="2" y1="32" x2="10" y2="32" stroke="#3b82f6" stroke-width="1.5"/>
+  <circle cx="10" cy="32" r="2" fill="#3b82f6"/>
+
+  <line x1="54" y1="32" x2="62" y2="32" stroke="#3b82f6" stroke-width="1.5"/>
+  <circle cx="54" cy="32" r="2" fill="#3b82f6"/>
+
+  <path d="M35 8 L22 33 L30 33 L27 56 L44 29 L35 29 Z"
+        fill="#60a5fa" stroke="#1d4ed8" stroke-width="1" stroke-linejoin="round"/>
+</svg>
