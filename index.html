@@ -1,177 +1,398 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matheus — Engenharia &amp; Sistemas de Energia</title>
-<meta name="description" content="Portfólio de projetos em engenharia, sistemas de energia solar e algoritmos.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypercar Powertrain & Telemetry Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: #111827;
+            --bg-telemetry: #0f172a;
+            --border-color: #1e293b;
+            --accent-green: #3ddc97;
+            --accent-yellow: #e8b33d;
+            --accent-blue: #5b8fa8;
+            --text-main: #cdd6f4;
+            --text-muted: #a6adc8;
+            --text-dark: #64748b;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Hero / Header */
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .subtitle {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Headings */
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            color: var(--accent-green);
+            border-left: 4px solid var(--accent-green);
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            color: var(--accent-yellow);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Telemetry Panel (HUD) */
+        .telemetry-box {
+            background-color: var(--bg-telemetry);
+            border: 1px dashed var(--accent-green);
+            border-radius: 6px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .telemetry-title {
+            color: var(--accent-green);
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .telemetry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+        }
+
+        .telemetry-stat {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .telemetry-val {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .telemetry-val.yellow { color: var(--accent-yellow); }
+        .telemetry-val.blue { color: var(--accent-blue); }
+        .telemetry-val.green { color: var(--accent-green); }
+        .telemetry-val.red { color: #ef4444; }
+
+        .telemetry-lbl {
+            font-size: 0.75rem;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            margin-top: 5px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive SVG Diagram */
+        .diagram-container {
+            text-align: center;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin: 25px 0;
+            overflow-x: auto;
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--border-color);
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:nth-child(even) td {
+            background-color: var(--bg-card);
+        }
+
+        /* Project Cards */
+        .project-list {
+            margin-top: 25px;
+        }
+
+        .project-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-yellow);
+            border-radius: 0 6px 6px 0;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s, border-left-color 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateX(4px);
+            border-left-color: var(--accent-green);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            font-size: 0.8rem;
+            color: var(--text-dark);
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.4rem; }
+        }
+    </style>
 </head>
 <body>
 
-<div class="grid-bg" aria-hidden="true"></div>
+    <div class="container">
+        
+        <header>
+            <div class="subtitle mono">// LIVE TELEMETRY & POWERTRAIN ARCHITECTURE</div>
+            <h1>Hypercar Engineering</h1>
+            <p class="lead mono" style="color: var(--accent-blue);">Sistemas de Eletrônica de Potência aplicados a Protótipos de Endurance (LMH / LMDh)</p>
+        </header>
 
-<svg class="transmission-line" aria-hidden="true" viewBox="0 0 100 2000" preserveAspectRatio="none">
-  <path id="trace-path" d="M50,0 L50,2000" />
-</svg>
+        <section id="dashboard">
+            <div class="telemetry-box">
+                <div class="telemetry-title mono">// REAL-TIME DATA STREAM: STINT 04 | VOLTA 142</div>
+                <div class="telemetry-grid">
+                    <div class="telemetry-stat">
+                        <div class="telemetry-val mono yellow">64.2%</div>
+                        <div class="telemetry-lbl">SOC BATERIA</div>
+                    </div>
+                    <div class="telemetry-stat">
+                        <div class="telemetry-val mono green">+185 kW</div>
+                        <div class="telemetry-lbl">MGU DEPLOY</div>
+                    </div>
+                    <div class="telemetry-stat">
+                        <div class="telemetry-val mono blue">312 kW</div>
+                        <div class="telemetry-lbl">POTÊNCIA ICE</div>
+                    </div>
+                    <div class="telemetry-stat">
+                        <div class="telemetry-val mono red">84.5 °C</div>
+                        <div class="telemetry-lbl">TEMP INVERSOR</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<header class="site-header">
-  <div class="wrap header-row">
-    <span class="logo">MATHEUS<span class="logo-dot">.</span>ENG</span>
-    <nav class="nav">
-      <a href="#sobre">Sobre</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </div>
-</header>
+        <section id="arquiteturas">
+            <h2>1. Arquiteturas Regulatórias: LMH vs LMDh</h2>
+            <p>
+                A convergência da categoria máxima do rali de resistência (FIA WEC / 24 Horas de Le Mans) unificou os conceitos sob a designação de <strong>Hypercar</strong>, porém mantendo duas filosofias de desenvolvimento de trens de força radicalmente distintas na eletrônica e distribuição de torque.
+            </p>
 
-<main>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Especificação Técnica</th>
+                            <th>LMH (Le Mans Hypercar)</th>
+                            <th>LMDh (Le Mans Daytona h)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Exemplos Reais</strong></td>
+                            <td>Ferrari 499P, Toyota GR010, Peugeot 9X8</td>
+                            <td>Porsche 963, BMW M Hybrid V8, Cadillac V-Series.R</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Unidade MGU</strong></td>
+                            <td>Customizada (Desenvolvimento livre do fabricante)</td>
+                            <td>Padronizada (Fornecida por Bosch / Williams Advanced Eng.)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Posicionamento Elétrico</strong></td>
+                            <td>Eixo Dianteiro (&ge; 200 kW) &rarr; Tração Integral</td>
+                            <td>Eixo Traseiro (Limitado a 50 kW contínuos)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Teto de Potência Combinada</strong></td>
+                            <td class="mono">500 kW (680 CV)</td>
+                            <td class="mono">500 kW (680 CV)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Estratégia de Ativação</strong></td>
+                            <td>Regulada por BoP (ex: ativação acima de 150-190 km/h)</td>
+                            <td>Disponível linearmente em todas as faixas de velocidade</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-  <!-- HERO: datasheet -->
-  <section class="hero wrap" id="topo">
-    <div class="datasheet">
-      <div class="datasheet-head">
-        <span class="mono eyebrow">FICHA TÉCNICA — REV. 2026</span>
-        <span class="mono eyebrow status">● DISPONÍVEL PARA PROJETOS</span>
-      </div>
+            <p>
+                O teto de potência combinada (<strong style="color: #fff;">500 kW</strong>) é monitorado em tempo real por sensores de torque instalados nos eixos e medidores ultrassônicos de fluxo de combustível. Se a curva do motor a combustão interna (ICE) oscilar, o inversor ajusta instantaneamente o mapa de descarga ou regeneração do motor elétrico (MGU) para garantir a estrita conformidade com o regulamento.
+            </p>
+        </section>
 
-      <h1 class="hero-title">
-        Matheus <span class="accent">[Sobrenome]</span>
-      </h1>
-      <p class="hero-subtitle">
-        Estudante de Engenharia — UNIPAMPA<br>
-        Sistemas de energia, eletrônica de potência &amp; algoritmos
-      </p>
+        <section id="fluxo-energia">
+            <h2>2. Fluxo de Energia e Eletrônica de Potência</h2>
+            <p>
+                O gerenciamento do fluxo energético é o diferencial competitivo absoluto nas pistas. Abaixo está representado o comportamento dinâmico de interconexão entre as células de alta tensão, o chaveamento de potência e o bloco térmico.
+            </p>
 
-      <div class="spec-table mono">
-        <div class="spec-row">
-          <span class="spec-label">Instituição</span>
-          <span class="spec-value">UNIPAMPA — Universidade Federal do Pampa</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Área de foco</span>
-          <span class="spec-value">Energia solar fotovoltaica · Eletrônica de potência · Algoritmos</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Stack</span>
-          <span class="spec-value">Python · MATLAB/Octave · SVG técnico · Análise numérica</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Localização</span>
-          <span class="spec-value">Alegrete, RS — Brasil</span>
-        </div>
-      </div>
+            <div class="diagram-container">
+                <svg width="100%" height="100%" viewBox="0 0 480 120" preserveAspectRatio="xMidYMid meet" style="background:transparent; min-width: 440px;">
+                    <rect x="20" y="35" width="80" height="50" rx="4" fill="#1e293b" stroke="#5b8fa8" stroke-width="2"/>
+                    <text x="60" y="65" fill="#ffffff" font-family="monospace" font-size="10" text-anchor="middle" font-weight="bold">ICE</text>
+                    
+                    <path d="M 100 60 L 180 60" stroke="#5b8fa8" stroke-width="2"/>
+                    
+                    <rect x="180" y="35" width="100" height="50" rx="4" fill="#111827" stroke="#3ddc97" stroke-width="2"/>
+                    <text x="230" y="60" fill="#3ddc97" font-family="monospace" font-size="9" text-anchor="middle" font-weight="bold">INVERSOR SiC</text>
+                    <text x="230" y="73" fill="#a6adc8" font-family="monospace" font-size="8" text-anchor="middle">DC-AC / AC-DC</text>
+                    
+                    <rect x="180" y="1" width="100" height="22" rx="3" fill="#111827" stroke="#e8b33d" stroke-width="1.5"/>
+                    <text x="230" y="15" fill="#e8b33d" font-family="monospace" font-size="8" text-anchor="middle">BATERIA 800V</text>
+                    
+                    <path d="M 230 23 L 230 35" stroke="#e8b33d" stroke-width="2"/>
 
-      <a href="#projetos" class="cta">Ver projetos ↓</a>
+                    <rect x="360" y="35" width="80" height="50" rx="4" fill="#1e293b" stroke="#3ddc97" stroke-width="2"/>
+                    <text x="400" y="65" fill="#ffffff" font-family="monospace" font-size="10" text-anchor="middle" font-weight="bold">MGU</text>
+                    
+                    <path d="M 280 60 L 360 60" stroke="#3ddc97" stroke-width="2"/>
+                    
+                    <text x="140" y="52" fill="#5b8fa8" font-family="monospace" font-size="7" text-anchor="middle">V6/V8 Biturbo</text>
+                    <text x="320" y="52" fill="#3ddc97" font-family="monospace" font-size="7" text-anchor="middle">Trifásico AC</text>
+                </svg>
+            </div>
+
+            <h3>Semicondutores de Carbeto de Silício (SiC)</h3>
+            <p>
+                Os inversores modernos de Hypercars utilizam módulos MOSFET baseados em <strong>Carbeto de Silício (SiC)</strong> em substituição aos antigos IGBTs de silício. Isso permite frequências de chaveamento superiores a <span class="mono" style="color: var(--accent-green);">100 kHz</span>, reduzindo drasticamente as perdas harmônicas e o peso térmico do sistema de arrefecimento. A eficiência total do estágio de conversão de potência supera os <span class="mono" style="color: var(--accent-green);">98.5%</span>.
+            </p>
+        </section>
+
+        <section id="projetos">
+            <h2>3. Casos de Estudo & Investigação de Hardware</h2>
+            <p>
+                Os projetos desenvolvidos em laboratório abaixo funcionam de forma modular e integrada, simulando o ecossistema interno e a conversão de energia de um protótipo LMP moderno:
+            </p>
+
+            <div class="project-list">
+                <div class="project-card">
+                    <div class="project-title">⚡ Conversor Buck-Boost de Larga Escala</div>
+                    <p>Desenvolvido para atuar no balanceamento ativo e interface inteligente entre sub-bancos de células de alta tensão. Otimizado para gerir transientes térmicos e picos rápidos de corrente originados por travagens regenerativas severas (KERS).</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">📊 Algoritmo de MPPT Avançado de Alta Frequência</div>
+                    <p>Reaplicado no contexto de motorsport para a otimização de captação de energia residual e estabilização de barramentos DC de inversores. Mitiga variações abruptas de carga magnética, atuando diretamente na estratégia de <em>torque-shaping</em>.</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">🕹️ Inversor Trifásico Digitalizado (Controlo SiC)</div>
+                    <p>A fundação prática para acionamento de motores síncronos de ímanes permanentes (MGU). Focado em estratégias de modulação lógica avançada, redução de THD (Distorção Harmónica Total) e implementação de Controlo Vetorial por Campo Orientado (FOC).</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <span class="mono">[ ARQUITETURA GITHUB PAGES v1.0 ] &bull; LAB DE ELETRÓNICA DE POTÊNCIA MOTORSPORT</span>
+        </footer>
+
     </div>
-  </section>
 
-  <!-- SOBRE -->
-  <section class="about wrap" id="sobre">
-    <span class="mono section-tag">[ 01 ]</span>
-    <h2 class="section-title">Sobre</h2>
-    <p class="about-text">
-      Curso engenharia na UNIPAMPA com foco em sistemas de energia — da modelagem
-      de painéis fotovoltaicos à eletrônica de potência que converte essa energia
-      em algo utilizável. No caminho, também resolvo problemas de algoritmos e
-      análise numérica: de treliças a sistemas de abastecimento de água.
-      Gosto de pensar em código como ferramenta de engenharia, não só como disciplina
-      isolada — cada script resolve um problema físico real.
-    </p>
-  </section>
-
-  <!-- PROJETOS -->
-  <section class="projects wrap" id="projetos">
-    <span class="mono section-tag">[ 02 ]</span>
-    <h2 class="section-title">Projetos</h2>
-
-    <div class="project-grid">
-
-      <article class="project-card">
-        <div class="project-card-head">
-          <span class="mono project-tag">SOLAR-PV-01</span>
-          <span class="mono project-status">DOCUMENTADO</span>
-        </div>
-        <h3 class="project-title">Topologia de Inversor Fotovoltaico</h3>
-        <p class="project-desc">
-          Diagramas técnicos interativos em SVG cobrindo os estágios de um
-          inversor solar: Boost Converter, MPPT, módulo IGBT e filtro LCL.
-          Material de apoio para entendimento didático de cada etapa de
-          conversão de energia.
-        </p>
-        <ul class="project-tags mono">
-          <li>SVG</li>
-          <li>Eletrônica de Potência</li>
-          <li>MPPT</li>
-        </ul>
-      </article>
-
-      <article class="project-card">
-        <div class="project-card-head">
-          <span class="mono project-tag">IRR-CURVE-02</span>
-          <span class="mono project-status">DOCUMENTADO</span>
-        </div>
-        <h3 class="project-title">Curvas de Irradiância Solar</h3>
-        <p class="project-desc">
-          Figuras científicas em padrão IEEE comparando a intermitência da
-          irradiância solar e a saída de potência de painéis fotovoltaicos
-          em dias nublados versus céu claro.
-        </p>
-        <ul class="project-tags mono">
-          <li>Python</li>
-          <li>Matplotlib</li>
-          <li>IEEE</li>
-        </ul>
-      </article>
-
-      <article class="project-card">
-        <div class="project-card-head">
-          <span class="mono project-tag">ALG-T4-03</span>
-          <span class="mono project-status">CONCLUÍDO</span>
-        </div>
-        <h3 class="project-title">Algoritmos Aplicados à Engenharia</h3>
-        <p class="project-desc">
-          Conjunto de soluções em Python para problemas de telemetria de voo,
-          ponte de Wheatstone, cálculo tributário, avaliação geotécnica e
-          inspeção de soldas — com implementação manual dos algoritmos
-          centrais, sem depender de bibliotecas prontas para a lógica principal.
-        </p>
-        <ul class="project-tags mono">
-          <li>Python</li>
-          <li>Lógica Numérica</li>
-          <li>Google Colab</li>
-        </ul>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- CONTATO -->
-  <section class="contact wrap" id="contato">
-    <span class="mono section-tag">[ 03 ]</span>
-    <h2 class="section-title">Contato</h2>
-    <p class="contact-text">
-      Aberto a projetos, estágios e colaborações em energia e engenharia de software.
-    </p>
-    <div class="contact-links mono">
-      <a href="mailto:seu.email@exemplo.com">seu.email@exemplo.com</a>
-      <a href="https://github.com/seu-usuario" target="_blank" rel="noopener">github.com/seu-usuario</a>
-      <a href="https://linkedin.com/in/seu-usuario" target="_blank" rel="noopener">linkedin.com/in/seu-usuario</a>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <span class="mono">© 2026 Matheus — Construído com energia (literalmente).</span>
-  </div>
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
