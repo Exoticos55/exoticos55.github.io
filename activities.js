@@ -20,7 +20,7 @@ const atividades = [
     status: "feita_nao_confirmada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU2MTY4NzMyMjIw/details",
     descricao: "Formulário inicial de diagnóstico da disciplina.",
-    nota: "Formulário foi preenchido, mas esqueci de enviar a print.",
+    nota: "Atividade foi realizada e marcada como concluída no site do quiz, mas não foi printada/confirmada no Classroom a tempo. Ficou registrada como não entregue.",
   },
   {
     titulo: "Lista de 15 exercícios: escolher e resolver",
