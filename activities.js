@@ -190,6 +190,14 @@ const atividades = [
     descricao: "fdazer isto",
     nota: "ur du",
   },
+  {
+    titulo: "teste",
+    data: "2026-06-19",
+    status: "atrasada",
+    link: "",
+    descricao: "urdu",
+    nota: "six seven",
+  },
 ];
 
 // Não precisa editar nada abaixo desta linha.
