@@ -17,9 +17,10 @@ const atividades = [
   {
     titulo: "Preenchimento do formulário de diagnóstico inicial",
     data: "2026-03-17",
-    status: "enviada",
-    link: "",
+    status: "feita_nao_confirmada",
+    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU2MTY4NzMyMjIw/details",
     descricao: "Formulário inicial de diagnóstico da disciplina.",
+    nota: "Formulário foi preenchido, mas esqueci de enviar a print.",
   },
   {
     titulo: "Lista de 15 exercícios: escolher e resolver",
@@ -147,10 +148,6 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjU3ODA0MTc5/details",
     descricao: "Publicação do link e print do site pessoal no GitHub Pages.",
   },
-
-  // ---------------------------------------------------------------
-  // Os 2 quiz feitos, mas não confirmados a tempo no Classroom.
-  // ---------------------------------------------------------------
   {
     titulo: "Quiz – Lógica de Programação (Preparatório em aula)",
     data: "2026-03-20",
