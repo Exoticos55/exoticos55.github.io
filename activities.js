@@ -182,22 +182,6 @@ const atividades = [
     descricao: "Quiz feito no site indicado pelo professor.",
     nota: "Atividade foi realizada e marcada como concluída no site do quiz, mas não foi printada/confirmada no Classroom a tempo. Ficou registrada como não entregue.",
   },
-  {
-    titulo: "teste 1",
-    data: "2026-03-11",
-    status: "atrasada",
-    link: "",
-    descricao: "fdazer isto",
-    nota: "ur du",
-  },
-  {
-    titulo: "teste",
-    data: "2026-06-19",
-    status: "atrasada",
-    link: "",
-    descricao: "urdu",
-    nota: "six seven",
-  },
 ];
 
 // Não precisa editar nada abaixo desta linha.
