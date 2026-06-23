@@ -114,6 +114,9 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY1NzkxMDYxODM4/details",
     descricao: "Aprimoramento técnico da solução da atividade anterior.",
+    arquivos: [
+      { nome: "telemetria.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250142205-telemetria.py" },
+    ],
   },
   {
     titulo: "Modularização de Código e Avaliação de LLMs (em aula)",
