@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin — Adicionar atividade</title>
+<link rel="stylesheet" href="style.css?v=15" />
+<style>
+  .admin-wrap { max-width: 560px; margin: 0 auto; padding: 40px 20px 80px; }
+  .card {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-family: var(--mono);
+    font-size: 16px;
+    margin: 0 0 16px;
+    color: var(--accent-bright);
+  }
+  label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-dim);
+    margin: 18px 0 8px;
+  }
+  label:first-of-type { margin-top: 0; }
+  input, select, textarea {
+    width: 100%;
+    background: #000308;
+    border: 1.5px solid var(--line-bright);
+    color: var(--ink);
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-family: var(--sans);
+    font-size: 15px;
+  }
+  input::placeholder, textarea::placeholder {
+    color: #4a5568;
+  }
+  input[type="file"] {
+    padding: 8px 10px;
+    font-size: 13px;
+    color: var(--ink-dim);
+  }
+  input[type="file"]::-webkit-file-upload-button {
+    background: var(--accent-dim);
+    color: var(--ink);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: var(--mono);
+    font-size: 12px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+    border-color: var(--accent);
+  }
+  input.preenchido {
+    border-color: var(--accent);
+    background: #051028;
+  }
+  textarea { resize: vertical; min-height: 60px; }
+  .btn {
+    width: 100%;
+    margin-top: 22px;
+    background: var(--accent);
+    color: #06080d;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn:hover { background: var(--accent-bright); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn.secondary {
+    background: transparent;
+    color: var(--ink-dim);
+    border: 1px solid var(--line);
+  }
+  .status {
+    font-family: var(--mono);
+    font-size: 13px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-top: 16px;
+    display: none;
+  }
+  .status.show { display: block; }
+  .status.ok { background: rgba(77,141,255,0.1); color: var(--accent-bright); border: 1px solid var(--accent-dim); }
+  .status.err { background: rgba(239,88,104,0.1); color: var(--danger); border: 1px solid var(--danger); }
+  .status.loading { background: rgba(139,151,179,0.1); color: var(--ink-dim); border: 1px solid var(--line); }
+  .hint {
+    font-size: 12px;
+    color: var(--ink-dim);
+    margin-top: 4px;
+  }
+  .row { display: flex; gap: 12px; }
+  .row > div { flex: 1; }
+  .token-warning {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--warn);
+    background: rgba(242,193,78,0.08);
+    border: 1px solid var(--warn);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+  }
+  .manage-item {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .manage-item.editing {
+    border-color: var(--accent);
+    background: #051028;
+  }
+  .manage-item .row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .manage-item h4 {
+    margin: 0 0 4px;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .manage-item .meta {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-dim);
+  }
+  .manage-item .acoes {
+    display: flex;
+    gap: 6px;
+    flex: 0 0 auto;
+  }
+  .icon-btn {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink-dim);
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .icon-btn:hover { border-color: var(--accent); color: var(--accent-bright); }
+  .icon-btn.danger:hover { border-color: var(--danger); color: var(--danger); }
+  .manage-edit-form {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    display: none;
+  }
+  .manage-item.editing .manage-edit-form { display: block; }
+  .manage-list-empty {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-dim);
+    text-align: center;
+    padding: 20px;
+  }
+  .manage-file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+  }
+  .manage-file-item:last-child { border-bottom: none; }
+  .manage-file-item a { color: var(--accent-bright); }
+</style>
+</head>
+<body>
+  <div class="admin-wrap">
+
+    <header style="margin-bottom: 24px;">
+      <p class="eyebrow" style="margin-bottom: 6px;">// painel de atividades — admin</p>
+      <h1 style="font-family: var(--mono); font-size: 22px; margin: 0;">Adicionar atividade</h1>
+      <p class="subtitle" style="margin-top: 8px;">
+        Preencha e clique em salvar. A atividade vai direto pro repositório
+        no GitHub — não precisa editar nenhum arquivo manualmente.
+      </p>
+    </header>
+
+    <div class="card">
+      <h2>1. Conexão com o GitHub</h2>
+      <div class="token-warning">
+        Seu token fica salvo só neste navegador (não é enviado pra
+        nenhum lugar além do GitHub). Não use computador de terceiros
+        sem limpar depois.
+      </div>
+
+      <label for="usuario">Usuário do GitHub</label>
+      <input id="usuario" type="text" placeholder="ex: exoticos55" autocomplete="off" />
+
+      <label for="repo">Nome do repositório</label>
+      <input id="repo" type="text" placeholder="ex: exoticos55.github.io" autocomplete="off" />
+
+      <label for="token">Personal access token</label>
+      <div style="display:flex; gap:8px;">
+        <input id="token" type="password" placeholder="github_pat_... ou ghp_..." autocomplete="off" style="flex:1;" />
+        <button type="button" class="btn secondary" id="btn-ver-token" style="width:auto; margin-top:0; padding:0 16px;">Ver</button>
+      </div>
+      <p class="hint">Gerado em github.com/settings/tokens?type=beta com permissão "Contents: Read and write" nesse repositório.</p>
+
+      <button class="btn secondary" id="btn-lembrar" style="margin-top: 14px;">Salvar conexão neste navegador</button>
+      <button class="btn secondary" id="btn-esquecer" style="margin-top: 8px;">Esquecer conexão salva</button>
+    </div>
+
+    <div class="card">
+      <h2>2. Dados da atividade</h2>
+
+      <label for="titulo">Título</label>
+      <input id="titulo" type="text" placeholder="ex: Atividade 20 - Recursividade" autocomplete="off" />
+
+      <div class="row">
+        <div>
+          <label for="data">Data de entrega</label>
+          <input id="data" type="date" />
+        </div>
+        <div>
+          <label for="status">Status</label>
+          <select id="status">
+            <option value="enviada">Enviada</option>
+            <option value="feita_nao_confirmada">Feita, não confirmada</option>
+            <option value="pendente">Pendente</option>
+            <option value="atrasada">Atrasada</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="descricao">Descrição curta</label>
+      <textarea id="descricao" placeholder="O que era essa atividade"></textarea>
+
+      <label for="arquivo">Arquivos da atividade (opcional, pode escolher vários)</label>
+      <input id="arquivo" type="file" multiple />
+      <p class="hint">PDF, imagem, .py, .js, .zip, etc. Até ~1MB cada. Aparecem como anexos clicáveis no card.</p>
+
+      <label for="link">Link do Classroom (opcional)</label>
+      <input id="link" type="text" placeholder="https://classroom.google.com/c/.../a/.../details" />
+
+      <label for="nota">Observação (opcional, aparece destacada)</label>
+      <textarea id="nota" placeholder="Use se precisar explicar algo, como atraso justificado"></textarea>
+
+      <button class="btn" id="btn-salvar">Salvar atividade no site</button>
+
+      <div class="status" id="status-box"></div>
+    </div>
+
+    <div class="card">
+      <h2>3. Editar ou excluir atividades existentes</h2>
+      <button class="btn secondary" id="btn-carregar-lista">Carregar lista de atividades</button>
+      <div class="status" id="status-box-lista"></div>
+      <div id="manage-list" style="margin-top: 16px;"></div>
+    </div>
+
+    <p style="text-align:center;">
+      <a href="index.html">← voltar pro painel</a>
+    </p>
+
+  </div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+
+function carregarConexaoSalva() {
+  const salvo = localStorage.getItem("painel_github_conexao");
+  if (salvo) {
+    try {
+      const { usuario, repo } = JSON.parse(salvo);
+      $("usuario").value = usuario || "";
+      $("repo").value = repo || "";
+    } catch (e) {}
+  }
+}
+
+$("btn-lembrar").addEventListener("click", () => {
+  const usuario = $("usuario").value.trim();
+  const repo = $("repo").value.trim();
+  if (!usuario || !repo) {
+    mostrarStatus("err", "Preencha usuário e repositório antes de salvar.");
+    return;
+  }
+  localStorage.setItem("painel_github_conexao", JSON.stringify({ usuario, repo }));
+  mostrarStatus("ok", "Usuário e repositório salvos neste navegador. (O token nunca é salvo, por segurança — digite ele de novo a cada visita.)");
+});
+
+$("btn-esquecer").addEventListener("click", () => {
+  localStorage.removeItem("painel_github_conexao");
+  $("usuario").value = "";
+  $("repo").value = "";
+  mostrarStatus("ok", "Conexão esquecida.");
+});
+
+function mostrarStatus(tipo, texto) {
+  const box = $("status-box");
+  box.className = "status show " + tipo;
+  box.textContent = texto;
+}
+
+function base64EncodeUtf8(str) {
+  return btoa(unescape(encodeURIComponent(str)));
+}
+
+function base64DecodeUtf8(b64) {
+  return decodeURIComponent(escape(atob(b64)));
+}
+
+$("btn-ver-token").addEventListener("click", () => {
+  const campo = $("token");
+  const botao = $("btn-ver-token");
+  if (campo.type === "password") {
+    campo.type = "text";
+    botao.textContent = "Ocultar";
+  } else {
+    campo.type = "password";
+    botao.textContent = "Ver";
+  }
+});
+
+async function githubRequest(url, token, options = {}) {
+  const resp = await fetch(url, {
+    ...options,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/vnd.github+json",
+      ...(options.headers || {}),
+    },
+  });
+  if (!resp.ok) {
+    const body = await resp.text();
+    throw new Error(`GitHub respondeu ${resp.status}: ${body.slice(0, 200)}`);
+  }
+  return resp.json();
+}
+
+function lerArquivoComoBase64(arquivo) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      // reader.result vem como "data:<mime>;base64,<conteudo>"
+      const base64 = reader.result.split(",")[1];
+      resolve(base64);
+    };
+    reader.onerror = () => reject(new Error("Não consegui ler o arquivo selecionado."));
+    reader.readAsDataURL(arquivo);
+  });
+}
+
+function gerarNomeArquivoSeguro(nomeOriginal) {
+  const timestamp = Date.now();
+  const nomeLimpo = nomeOriginal
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-zA-Z0-9.\-_]/g, "-");
+  return `${timestamp}-${nomeLimpo}`;
+}
+
+async function subirArquivoParaRepositorio(arquivo, usuario, repo, token) {
+  const conteudoBase64 = await lerArquivoComoBase64(arquivo);
+  const nomeArquivo = gerarNomeArquivoSeguro(arquivo.name);
+  const caminho = `arquivos/${nomeArquivo}`;
+  const apiUrl = `https://api.github.com/repos/${usuario}/${repo}/contents/${caminho}`;
+
+  await githubRequest(apiUrl, token, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message: `Adiciona arquivo: ${arquivo.name}`,
+      content: conteudoBase64,
+    }),
+  });
+
+  return {
+    nome: arquivo.name,
+    url: `https://raw.githubusercontent.com/${usuario}/${repo}/main/${caminho}`,
+  };
+}
+
+async function subirVariosArquivos(arquivos, usuario, repo, token, aoProgredir) {
+  const resultados = [];
+  for (const arquivo of arquivos) {
+    if (aoProgredir) aoProgredir(arquivo.name);
+    const resultado = await subirArquivoParaRepositorio(arquivo, usuario, repo, token);
+    resultados.push(resultado);
+  }
+  return resultados;
+}
+
+function montarBlocoAtividade(dados) {
+  const campos = [
+    `    titulo: ${JSON.stringify(dados.titulo)},`,
+    `    data: ${JSON.stringify(dados.data)},`,
+    `    status: ${JSON.stringify(dados.status)},`,
+    `    link: ${JSON.stringify(dados.link || "")},`,
+    `    descricao: ${JSON.stringify(dados.descricao || "")},`,
+  ];
+  if (dados.nota && dados.nota.trim()) {
+    campos.push(`    nota: ${JSON.stringify(dados.nota)},`);
+  }
+  if (Array.isArray(dados.arquivos) && dados.arquivos.length > 0) {
+    const itensArquivos = dados.arquivos
+      .map((arq) => `      { nome: ${JSON.stringify(arq.nome)}, url: ${JSON.stringify(arq.url)} },`)
+      .join("\n");
+    campos.push(`    arquivos: [\n${itensArquivos}\n    ],`);
+  }
+  return "  {\n" + campos.join("\n") + "\n  },";
+}
+
+function inserirNovoBlocoNoConteudo(conteudoAtual, novoBloco) {
+  const marcador = "// Não precisa editar nada abaixo desta linha.";
+  const idxMarcador = conteudoAtual.indexOf(marcador);
+  if (idxMarcador === -1) {
+    throw new Error("Não encontrei o marcador de fim da lista no arquivo. Edite manualmente.");
+  }
+
+  let antesDoMarcador = conteudoAtual.slice(0, idxMarcador);
+  const fechamentoIdx = antesDoMarcador.lastIndexOf("];");
+  if (fechamentoIdx === -1) {
+    throw new Error("Não encontrei o fechamento da lista de atividades.");
+  }
+
+  const inicio = antesDoMarcador.slice(0, fechamentoIdx);
+  const resto = conteudoAtual.slice(idxMarcador);
+
+  return `${inicio}${novoBloco}\n];\n\n${resto}`;
+}
+
+$("btn-salvar").addEventListener("click", async () => {
+  const usuario = $("usuario").value.trim();
+  const repo = $("repo").value.trim();
+  const token = $("token").value.trim();
+  const titulo = $("titulo").value.trim();
+  const data = $("data").value;
+  const status = $("status").value;
+  const link = $("link").value.trim();
+  const descricao = $("descricao").value.trim();
+  const nota = $("nota").value.trim();
+  const arquivosSelecionados = Array.from($("arquivo").files);
+
+  if (!usuario || !repo || !token) {
+    mostrarStatus("err", "Preencha usuário, repositório e token antes de salvar.");
+    return;
+  }
+  if (!titulo || !data) {
+    mostrarStatus("err", "Preencha pelo menos o título e a data da atividade.");
+    return;
+  }
+
+  $("btn-salvar").disabled = true;
+
+  try {
+    let arquivos = [];
+    if (arquivosSelecionados.length > 0) {
+      arquivos = await subirVariosArquivos(arquivosSelecionados, usuario, repo, token, (nome) => {
+        mostrarStatus("loading", `Enviando arquivo "${nome}"...`);
+      });
+    }
+
+    mostrarStatus("loading", "Buscando arquivo atual no GitHub...");
+
+    const apiBase = `https://api.github.com/repos/${usuario}/${repo}/contents/activities.js`;
+    const arquivoAtual = await githubRequest(apiBase, token);
+    const conteudoAtual = base64DecodeUtf8(arquivoAtual.content);
+
+    const novoBloco = montarBlocoAtividade({ titulo, data, status, link, descricao, nota, arquivos });
+    const novoConteudo = inserirNovoBlocoNoConteudo(conteudoAtual, novoBloco);
+
+    mostrarStatus("loading", "Salvando atividade no repositório...");
+
+    await githubRequest(apiBase, token, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: `Adiciona atividade: ${titulo}`,
+        content: base64EncodeUtf8(novoConteudo),
+        sha: arquivoAtual.sha,
+      }),
+    });
+
+    mostrarStatus("ok", `Atividade "${titulo}" salva! O site atualiza em alguns segundos. Pode atualizar a página do painel.`);
+    $("titulo").value = "";
+    $("data").value = "";
+    $("link").value = "";
+    $("descricao").value = "";
+    $("nota").value = "";
+    $("arquivo").value = "";
+  } catch (erro) {
+    mostrarStatus("err", "Erro ao salvar: " + erro.message);
+  } finally {
+    $("btn-salvar").disabled = false;
+  }
+});
+
+// ===================================================================
+// Seção 3: editar/excluir atividades existentes
+// ===================================================================
+
+function mostrarStatusLista(tipo, texto) {
+  const box = $("status-box-lista");
+  box.className = "status show " + tipo;
+  box.textContent = texto;
+}
+
+function extrairListaDeAtividades(conteudoArquivo) {
+  const inicioArray = conteudoArquivo.indexOf("const atividades = [");
+  const marcador = "// Não precisa editar nada abaixo desta linha.";
+  const fimArea = conteudoArquivo.indexOf(marcador);
+  if (inicioArray === -1 || fimArea === -1) {
+    throw new Error("Não consegui localizar a lista de atividades no arquivo.");
+  }
+  const trechoComArray = conteudoArquivo.slice(inicioArray, fimArea);
+  const fnTexto = trechoComArray.replace("const atividades =", "return") + "atividades;";
+  const lista = new Function(fnTexto)();
+  return lista;
+}
+
+function montarArquivoCompleto(cabecalhoOriginal, novaLista) {
+  const marcadorInicio = "const atividades = [";
+  const idxInicio = cabecalhoOriginal.indexOf(marcadorInicio);
+  const cabecalho = cabecalhoOriginal.slice(0, idxInicio);
+
+  const marcadorFim = "// Não precisa editar nada abaixo desta linha.";
+  const idxFim = cabecalhoOriginal.indexOf(marcadorFim);
+  const rodape = cabecalhoOriginal.slice(idxFim);
+
+  const blocos = novaLista.map((dados) => montarBlocoAtividade(dados)).join("\n");
+
+  return `${cabecalho}const atividades = [\n${blocos}\n];\n\n${rodape}`;
+}
+
+let listaAtual = [];
+let shaAtual = null;
+
+async function carregarLista() {
+  const usuario = $("usuario").value.trim();
+  const repo = $("repo").value.trim();
+  const token = $("token").value.trim();
+
+  if (!usuario || !repo || !token) {
+    mostrarStatusLista("err", "Preencha usuário, repositório e token na seção 1 antes de carregar.");
+    return;
+  }
+
+  mostrarStatusLista("loading", "Carregando atividades do repositório...");
+  $("manage-list").innerHTML = "";
+
+  try {
+    const apiBase = `https://api.github.com/repos/${usuario}/${repo}/contents/activities.js`;
+    const arquivoAtual = await githubRequest(apiBase, token);
+    const conteudoAtual = base64DecodeUtf8(arquivoAtual.content);
+
+    listaAtual = extrairListaDeAtividades(conteudoAtual);
+    shaAtual = arquivoAtual.sha;
+
+    renderizarListaGerenciamento();
+    mostrarStatusLista("ok", `${listaAtual.length} atividades carregadas.`);
+  } catch (erro) {
+    mostrarStatusLista("err", "Erro ao carregar: " + erro.message);
+  }
+}
+
+function renderizarListaGerenciamento() {
+  const container = $("manage-list");
+
+  if (listaAtual.length === 0) {
+    container.innerHTML = `<p class="manage-list-empty">Nenhuma atividade encontrada.</p>`;
+    return;
+  }
+
+  container.innerHTML = listaAtual
+    .map((a, indice) => `
+      <div class="manage-item" id="manage-item-${indice}">
+        <div class="row-top">
+          <div>
+            <h4>${a.titulo}</h4>
+            <span class="meta">${a.data} — ${a.status}</span>
+          </div>
+          <div class="acoes">
+            <button class="icon-btn" data-acao="editar" data-indice="${indice}">Editar</button>
+            <button class="icon-btn danger" data-acao="excluir" data-indice="${indice}">Excluir</button>
+          </div>
+        </div>
+        <div class="manage-edit-form" id="manage-edit-${indice}"></div>
+      </div>
+    `)
+    .join("");
+
+  container.querySelectorAll('[data-acao="editar"]').forEach((btn) => {
+    btn.addEventListener("click", () => abrirEdicao(parseInt(btn.dataset.indice, 10)));
+  });
+  container.querySelectorAll('[data-acao="excluir"]').forEach((btn) => {
+    btn.addEventListener("click", () => excluirAtividade(parseInt(btn.dataset.indice, 10)));
+  });
+}
+
+function abrirEdicao(indice) {
+  const item = listaAtual[indice];
+  const itemEl = $(`manage-item-${indice}`);
+  const formEl = $(`manage-edit-${indice}`);
+
+  const jaAberto = itemEl.classList.contains("editing");
+  document.querySelectorAll(".manage-item.editing").forEach((el) => el.classList.remove("editing"));
+
+  if (jaAberto) return;
+
+  const arquivosExistentes = Array.isArray(item.arquivos) ? item.arquivos : [];
+  const listaArquivosHtml = arquivosExistentes.length
+    ? arquivosExistentes
+        .map(
+          (arq, i) => `
+        <div class="manage-file-item" data-arquivo-indice="${i}">
+          <a href="${arq.url}" target="_blank" rel="noopener">${arq.nome}</a>
+          <button type="button" class="icon-btn danger" data-acao="remover-arquivo" data-indice="${indice}" data-arquivo-indice="${i}">Remover</button>
+        </div>
+      `
+        )
+        .join("")
+    : `<p class="hint">Nenhum arquivo anexado ainda.</p>`;
+
+  itemEl.classList.add("editing");
+  formEl.innerHTML = `
+    <label>Título</label>
+    <input type="text" id="edit-titulo-${indice}" value="${item.titulo.replace(/"/g, "&quot;")}" />
+    <div class="row">
+      <div>
+        <label>Data de entrega</label>
+        <input type="date" id="edit-data-${indice}" value="${item.data}" />
+      </div>
+      <div>
+        <label>Status</label>
+        <select id="edit-status-${indice}">
+          <option value="enviada">Enviada</option>
+          <option value="feita_nao_confirmada">Feita, não confirmada</option>
+          <option value="pendente">Pendente</option>
+          <option value="atrasada">Atrasada</option>
+        </select>
+      </div>
+    </div>
+    <label>Descrição curta</label>
+    <textarea id="edit-descricao-${indice}">${item.descricao || ""}</textarea>
+    <label>Link do Classroom (opcional)</label>
+    <input type="text" id="edit-link-${indice}" value="${item.link || ""}" />
+    <label>Arquivos anexados</label>
+    <div id="edit-arquivos-lista-${indice}">${listaArquivosHtml}</div>
+    <label>Adicionar novo(s) arquivo(s)</label>
+    <input type="file" id="edit-arquivo-${indice}" multiple />
+    <label>Observação (opcional)</label>
+    <textarea id="edit-nota-${indice}">${item.nota || ""}</textarea>
+    <button class="btn" data-acao="salvar-edicao" data-indice="${indice}">Salvar alteração</button>
+  `;
+  $(`edit-status-${indice}`).value = item.status;
+
+  formEl.querySelectorAll('[data-acao="remover-arquivo"]').forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const idxArq = parseInt(btn.dataset.arquivoIndice, 10);
+      arquivosExistentes.splice(idxArq, 1);
+      listaAtual[indice].arquivos = arquivosExistentes;
+      abrirEdicaoForcado(indice);
+    });
+  });
+
+  formEl.querySelector('[data-acao="salvar-edicao"]').addEventListener("click", () => salvarEdicao(indice));
+}
+
+function abrirEdicaoForcado(indice) {
+  const itemEl = $(`manage-item-${indice}`);
+  itemEl.classList.remove("editing");
+  abrirEdicao(indice);
+}
+
+async function salvarEdicao(indice) {
+  const usuario = $("usuario").value.trim();
+  const repo = $("repo").value.trim();
+  const token = $("token").value.trim();
+  const novosArquivos = Array.from($(`edit-arquivo-${indice}`).files);
+
+  let arquivos = Array.isArray(listaAtual[indice].arquivos) ? [...listaAtual[indice].arquivos] : [];
+
+  if (novosArquivos.length > 0) {
+    try {
+      const enviados = await subirVariosArquivos(novosArquivos, usuario, repo, token, (nome) => {
+        mostrarStatusLista("loading", `Enviando arquivo "${nome}"...`);
+      });
+      arquivos = arquivos.concat(enviados);
+    } catch (erro) {
+      mostrarStatusLista("err", "Erro ao enviar arquivo: " + erro.message);
+      return;
+    }
+  }
+
+  listaAtual[indice] = {
+    titulo: $(`edit-titulo-${indice}`).value.trim(),
+    data: $(`edit-data-${indice}`).value,
+    status: $(`edit-status-${indice}`).value,
+    link: $(`edit-link-${indice}`).value.trim(),
+    descricao: $(`edit-descricao-${indice}`).value.trim(),
+    arquivos: arquivos,
+    nota: $(`edit-nota-${indice}`).value.trim(),
+  };
+  await salvarListaCompleta(`Edita atividade: ${listaAtual[indice].titulo}`);
+}
+
+async function excluirAtividade(indice) {
+  const item = listaAtual[indice];
+  const confirmou = confirm(`Excluir "${item.titulo}"? Essa ação não pode ser desfeita.`);
+  if (!confirmou) return;
+
+  listaAtual.splice(indice, 1);
+  await salvarListaCompleta(`Remove atividade: ${item.titulo}`);
+}
+
+async function salvarListaCompleta(mensagemCommit) {
+  const usuario = $("usuario").value.trim();
+  const repo = $("repo").value.trim();
+  const token = $("token").value.trim();
+
+  mostrarStatusLista("loading", "Salvando alterações no repositório...");
+
+  try {
+    const apiBase = `https://api.github.com/repos/${usuario}/${repo}/contents/activities.js`;
+    const arquivoAtual = await githubRequest(apiBase, token);
+    const conteudoAtual = base64DecodeUtf8(arquivoAtual.content);
+
+    const novoConteudo = montarArquivoCompleto(conteudoAtual, listaAtual);
+
+    await githubRequest(apiBase, token, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: mensagemCommit,
+        content: base64EncodeUtf8(novoConteudo),
+        sha: arquivoAtual.sha,
+      }),
+    });
+
+    mostrarStatusLista("ok", "Alteração salva! Recarregando lista...");
+    await carregarLista();
+  } catch (erro) {
+    mostrarStatusLista("err", "Erro ao salvar: " + erro.message);
+  }
+}
+
+$("btn-carregar-lista").addEventListener("click", carregarLista);
+
+carregarConexaoSalva();
+</script>
+</body>
+</html>
