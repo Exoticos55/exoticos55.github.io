@@ -93,6 +93,11 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY0MTM1NzI0NTcx/details",
     descricao: "Resolução de um problema de engenharia escolhido entre dois propostos.",
+    arquivos: [
+      { nome: "codigos_gemini.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251037598-codigos_gemini.py" },
+      { nome: "codigos_chatgpt.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251038725-codigos_chatgpt.py" },
+      { nome: "codigos_claude.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251039731-codigos_claude.py" },
+    ],
   },
   {
     titulo: "Atividade: entregar o outro dos dois problemas de engenharia propostos da aula passada",
