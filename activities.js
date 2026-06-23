@@ -21,7 +21,7 @@ const atividades = [
     titulo: "Preenchimento do formulário de diagnóstico inicial",
     data: "2026-03-17",
     status: "enviada",
-    link: "",
+    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU2MTY4NzMyMjIw/details",
     descricao: "Formulário inicial de diagnóstico da disciplina.",
     arquivos: [
       { nome: "Questionário Diagnóstico - Algoritmos e Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254122282-Questionario-Diagnostico---Algoritmos-e-Programacao.pdf" },
@@ -60,9 +60,6 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU4NTI5MjQ2OTE1/details",
     descricao: "Quiz avaliativo sobre o uso de LLMs na disciplina.",
-    arquivos: [
-      { nome: "Quiz de Avaliação da Atividade_ Uso de LLMs em Algoritmos e Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254343961-Quiz-de-Avaliacao-da-Atividade_-Uso-de-LLMs-em-Algoritmos-e-Programacao.pdf" },
-    ],
   },
   {
     titulo: "Resolver os 5 exercícios em papel",
