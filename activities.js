@@ -121,6 +121,9 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MTQzMjAxNjY2/details",
     descricao: "Modularização de código com avaliação de LLMs, feita em aula.",
+    arquivos: [
+      { nome: "codigos_copilot.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250018139-codigos_copilot.py" },
+    ],
   },
   {
     titulo: "Escreva um breve relato sincero sobre as entrevistas",
