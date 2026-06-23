@@ -164,6 +164,14 @@ const atividades = [
     descricao: "Quiz diagnóstico de lógica de programação.",
     nota: "Atividade foi realizada e marcada como concluída no site do quiz, mas não foi printada/confirmada no Classroom a tempo. Ficou registrada como não entregue.",
   },
+  {
+    titulo: "Projeto Final da Disciplina: Portfólio de Entregas no GitHub.io (Versão 1)",
+    data: "2026-06-23",
+    status: "enviada",
+    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjkxNDc1Mjgy/details",
+    descricao: "O site deverá reunir todas as atividades e entregas realizadas por você durante o semestre, organizadas de forma clara e acessível. As entregas estão disponíveis no Google Classroom da disciplina, acessado com sua conta institucional.Entrega da Versão 1",
+    nota: "Esta versão servirá como base para o desenvolvimento da versão final do projeto, que deverá conter todas as entregas da disciplina organizadas e documentadas de forma completa.",
+  },
 ];
 
 // Não precisa editar nada abaixo desta linha.
