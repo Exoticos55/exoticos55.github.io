@@ -142,6 +142,9 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjE2NjI2NzM2/details",
     descricao: "Desenvolvimento assistido por IA para o portal Alegrete.org.",
+    arquivos: [
+      { nome: "sitehtml.html", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782249620120-sitehtml.html" },
+    ],
   },
   {
     titulo: "Postar o link e um print do seu site .github.io",
