@@ -72,6 +72,10 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3NDczMzk3Mzgy/details",
     descricao: "Problemas com vetores/listas formulados e resolvidos com apoio de LLMs.",
+    arquivos: [
+      { nome: "IMG_20260424_142216.jpg", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251630505-IMG_20260424_142216.jpg" },
+      { nome: "IMG_20260424_142226.jpg", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251638977-IMG_20260424_142226.jpg" },
+    ],
   },
   {
     titulo: "Atividade: Gerar as diferentes versões do código até ter resultados visuais interessantes e consistentes",
