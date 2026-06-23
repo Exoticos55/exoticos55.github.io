@@ -108,16 +108,16 @@ function renderResumo(lista) {
     `${enviadas}/${total} atividades enviadas`;
 }
 
-function renderLista(lista) {
+function renderLista(lista, ordem) {
   const container = document.getElementById("activity-list");
 
   if (lista.length === 0) {
-    container.innerHTML = `<p class="no-link">Nenhuma atividade nesse filtro.</p>`;
+    container.innerHTML = `<p class="no-link">Nenhuma atividade encontrada com esses filtros.</p>`;
     return;
   }
 
-  // Mais recentes primeiro
-  const ordenada = [...lista].sort((a, b) => (a.data < b.data ? 1 : -1));
+  const direcao = ordem === "asc" ? 1 : -1;
+  const ordenada = [...lista].sort((a, b) => (a.data < b.data ? 1 : -1) * direcao);
 
   container.innerHTML = ordenada
     .map((a) => {
@@ -170,12 +170,27 @@ function renderLista(lista) {
   setupFileChips();
 }
 
-function aplicarFiltro(filtro) {
-  const lista =
-    filtro === "todas"
+const estadoFiltros = {
+  status: "todas",
+  dataDe: "",
+  dataAte: "",
+  ordem: "desc",
+};
+
+function aplicarTodosFiltros() {
+  let lista =
+    estadoFiltros.status === "todas"
       ? atividades
-      : atividades.filter((a) => a.status === filtro);
-  renderLista(lista);
+      : atividades.filter((a) => a.status === estadoFiltros.status);
+
+  if (estadoFiltros.dataDe) {
+    lista = lista.filter((a) => a.data >= estadoFiltros.dataDe);
+  }
+  if (estadoFiltros.dataAte) {
+    lista = lista.filter((a) => a.data <= estadoFiltros.dataAte);
+  }
+
+  renderLista(lista, estadoFiltros.ordem);
   setupScrollReveal();
 }
 
@@ -210,8 +225,43 @@ function setupFiltros() {
     btn.addEventListener("click", () => {
       botoes.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
-      aplicarFiltro(btn.dataset.filter);
+      estadoFiltros.status = btn.dataset.filter;
+      aplicarTodosFiltros();
     });
+  });
+}
+
+function setupFiltroData() {
+  const btnOrdenar = document.getElementById("btn-ordenar");
+  const ordenarLabel = document.getElementById("ordenar-label");
+  const inputDe = document.getElementById("data-de");
+  const inputAte = document.getElementById("data-ate");
+  const btnLimpar = document.getElementById("btn-limpar-datas");
+
+  btnOrdenar.addEventListener("click", () => {
+    estadoFiltros.ordem = estadoFiltros.ordem === "desc" ? "asc" : "desc";
+    btnOrdenar.dataset.ordem = estadoFiltros.ordem;
+    ordenarLabel.textContent =
+      estadoFiltros.ordem === "desc" ? "Mais recentes primeiro" : "Mais antigas primeiro";
+    aplicarTodosFiltros();
+  });
+
+  inputDe.addEventListener("change", () => {
+    estadoFiltros.dataDe = inputDe.value;
+    aplicarTodosFiltros();
+  });
+
+  inputAte.addEventListener("change", () => {
+    estadoFiltros.dataAte = inputAte.value;
+    aplicarTodosFiltros();
+  });
+
+  btnLimpar.addEventListener("click", () => {
+    inputDe.value = "";
+    inputAte.value = "";
+    estadoFiltros.dataDe = "";
+    estadoFiltros.dataAte = "";
+    aplicarTodosFiltros();
   });
 }
 
@@ -226,10 +276,21 @@ function detectarTipoArquivo(nome) {
   const ext = nome.split(".").pop().toLowerCase();
   if (ext === "pdf") return "pdf";
   if (["png", "jpg", "jpeg", "gif", "webp", "svg"].includes(ext)) return "imagem";
+  if (
+    ["py", "js", "ts", "jsx", "tsx", "java", "c", "cpp", "cs", "go", "rb",
+     "php", "html", "css", "json", "txt", "md", "sql", "sh", "yml", "yaml"]
+      .includes(ext)
+  ) return "codigo";
   return "outro";
 }
 
-function abrirModalArquivo(nome, url) {
+function escaparHtml(texto) {
+  const div = document.createElement("div");
+  div.textContent = texto;
+  return div.innerHTML;
+}
+
+async function abrirModalArquivo(nome, url) {
   const overlay = document.getElementById("file-modal-overlay");
   const titulo = document.getElementById("file-modal-titulo");
   const body = document.getElementById("file-modal-body");
@@ -237,6 +298,7 @@ function abrirModalArquivo(nome, url) {
 
   titulo.textContent = nome;
   linkAbrir.href = url;
+  overlay.classList.remove("hidden");
 
   const tipo = detectarTipoArquivo(nome);
   if (tipo === "pdf") {
@@ -244,14 +306,25 @@ function abrirModalArquivo(nome, url) {
     body.innerHTML = `<iframe src="${urlVisualizacao}" title="${nome}"></iframe>`;
   } else if (tipo === "imagem") {
     body.innerHTML = `<img src="${url}" alt="${nome}" />`;
+  } else if (tipo === "codigo") {
+    body.innerHTML = `<div class="file-modal-fallback">Carregando conteúdo...</div>`;
+    try {
+      const resp = await fetch(url);
+      if (!resp.ok) throw new Error("Não consegui carregar o arquivo.");
+      const texto = await resp.text();
+      body.innerHTML = `<pre class="file-code-view"><code>${escaparHtml(texto)}</code></pre>`;
+    } catch (erro) {
+      body.innerHTML = `<div class="file-modal-fallback">
+        Não consegui carregar o conteúdo aqui.<br/>
+        Use "Abrir em outra aba" para ver o arquivo.
+      </div>`;
+    }
   } else {
     body.innerHTML = `<div class="file-modal-fallback">
       Esse tipo de arquivo não tem visualização direta aqui.<br/>
       Use "Abrir em outra aba" para baixar ou ver o conteúdo.
     </div>`;
   }
-
-  overlay.classList.remove("hidden");
 }
 
 function fecharModalArquivo() {
@@ -306,8 +379,9 @@ function setupScrollReveal() {
 // Inicialização
 renderProgresso(atividades);
 renderResumo(atividades);
-renderLista(atividades);
+aplicarTodosFiltros();
 setupFiltros();
+setupFiltroData();
 setupTabs();
 setupDataAtualizacao();
 setupModalGlobal();

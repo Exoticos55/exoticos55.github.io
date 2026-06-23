@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Acompanhamento — Algoritmos</title>
-  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="style.css?v=14" />
 </head>
 <body>
   <div class="layout">
 
     <aside class="sidebar">
       <div class="hero-icon">
-        <img src="icon-eletrica.svg?v=8" alt="Símbolo de engenharia elétrica" />
+        <img src="icon-eletrica.svg?v=9" alt="Símbolo de engenharia elétrica" />
       </div>
       <p class="eyebrow">// eng. elétrica</p>
       <h1>Painel de<br />Atividades</h1>
@@ -43,6 +43,21 @@
           <button class="filter-btn" data-filter="feita_nao_confirmada">Feitas (não confirmadas)</button>
           <button class="filter-btn" data-filter="pendente">Pendentes</button>
           <button class="filter-btn" data-filter="atrasada">Atrasadas</button>
+        </section>
+
+        <section class="date-filter">
+          <button class="sort-btn" id="btn-ordenar" data-ordem="desc">
+            <span id="ordenar-label">Mais recentes primeiro</span>
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" id="ordenar-icone"><path d="M4 6l4 4 4-4"/></svg>
+          </button>
+
+          <div class="date-range">
+            <label>De</label>
+            <input type="date" id="data-de" />
+            <label>Até</label>
+            <input type="date" id="data-ate" />
+            <button class="date-clear" id="btn-limpar-datas" title="Limpar filtro de data">×</button>
+          </div>
         </section>
       </div>
 
@@ -107,6 +122,6 @@
   </div>
 
   <script src="activities.js?v=6"></script>
-  <script src="main.js?v=9"></script>
+  <script src="main.js?v=11"></script>
 </body>
 </html>

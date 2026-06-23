@@ -1,31 +1,33 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Símbolo de engenharia elétrica: engrenagem, átomo e raio">
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Símbolo de engenharia elétrica: átomo, engrenagem e raio">
   <defs>
     <clipPath id="clip-left">
-      <path d="M 0,0 L 27,0 L 24,32 L 27,64 L 0,64 Z" />
+      <path d="M 0,0 L 29,0 L 26,32 L 29,64 L 0,64 Z" />
     </clipPath>
     <clipPath id="clip-right">
-      <path d="M 64,0 L 37,0 L 40,32 L 37,64 L 64,64 Z" />
+      <path d="M 64,0 L 35,0 L 38,32 L 35,64 L 64,64 Z" />
     </clipPath>
   </defs>
 
+  <circle cx="32" cy="32" r="31" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+
   <g clip-path="url(#clip-left)">
-    <ellipse cx="32" cy="32" rx="20" ry="8" fill="none" stroke="#e8edf7" stroke-width="1.6"/>
-    <ellipse cx="32" cy="32" rx="20" ry="8" fill="none" stroke="#e8edf7" stroke-width="1.6"
+    <ellipse cx="32" cy="32" rx="21" ry="8.5" fill="none" stroke="#000000" stroke-width="1.8"/>
+    <ellipse cx="32" cy="32" rx="21" ry="8.5" fill="none" stroke="#000000" stroke-width="1.8"
              transform="rotate(60 32 32)"/>
-    <ellipse cx="32" cy="32" rx="20" ry="8" fill="none" stroke="#e8edf7" stroke-width="1.6"
+    <ellipse cx="32" cy="32" rx="21" ry="8.5" fill="none" stroke="#000000" stroke-width="1.8"
              transform="rotate(120 32 32)"/>
-    <circle cx="32" cy="32" r="2.4" fill="#e8edf7"/>
-    <circle cx="15.3" cy="27.1" r="2" fill="#e8edf7"/>
-    <circle cx="21.3" cy="44.9" r="2" fill="#e8edf7"/>
-    <circle cx="28.7" cy="14.4" r="2" fill="#e8edf7"/>
+    <circle cx="32" cy="32" r="2.6" fill="#000000"/>
+    <circle cx="14.7" cy="26.6" r="2.2" fill="#000000"/>
+    <circle cx="21.2" cy="45.7" r="2.2" fill="#000000"/>
+    <circle cx="29.0" cy="13.3" r="2.2" fill="#000000"/>
   </g>
 
   <g clip-path="url(#clip-right)">
-    <path d="M 62.00,32.00 L 56.37,37.56 L 59.03,45.02 L 51.55,47.59 L 50.70,55.45 L 42.85,54.52 L 38.68,61.25 L 32.00,57.00 L 25.32,61.25 L 21.15,54.52 L 13.30,55.45 L 12.45,47.59 L 4.97,45.02 L 7.63,37.56 L 2.00,32.00 L 7.63,26.44 L 4.97,18.98 L 12.45,16.41 L 13.30,8.55 L 21.15,9.48 L 25.32,2.75 L 32.00,7.00 L 38.68,2.75 L 42.85,9.48 L 50.70,8.55 L 51.55,16.41 L 59.03,18.98 L 56.37,26.44 Z"
-          fill="none" stroke="#e8edf7" stroke-width="2.4" stroke-linejoin="round"/>
-    <circle cx="32" cy="32" r="19" fill="none" stroke="#e8edf7" stroke-width="1.6"/>
+    <path d="M 62.00,32.00 L 55.54,36.68 L 59.72,43.48 L 51.96,45.33 L 53.21,53.21 L 45.33,51.96 L 43.48,59.72 L 36.68,55.54 L 32.00,62.00 L 27.32,55.54 L 20.52,59.72 L 18.67,51.96 L 10.79,53.21 L 12.04,45.33 L 4.28,43.48 L 8.46,36.68 L 2.00,32.00 L 8.46,27.32 L 4.28,20.52 L 12.04,18.67 L 10.79,10.79 L 18.67,12.04 L 20.52,4.28 L 27.32,8.46 L 32.00,2.00 L 36.68,8.46 L 43.48,4.28 L 45.33,12.04 L 53.21,10.79 L 51.96,18.67 L 59.72,20.52 L 55.54,27.32 Z"
+          fill="#000000"/>
+    <circle cx="32" cy="32" r="18.5" fill="#ffffff"/>
   </g>
 
-  <path d="M 38 2 L 18 30 L 27 30 L 22 62 L 46 33 L 36 33 Z"
-        fill="#ffd23f" stroke="#0b1830" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M 36 4 L 24 30 L 30 30 L 26 60 L 41 31 L 35 31 Z"
+        fill="#ffd23f" stroke="#000000" stroke-width="1.4" stroke-linejoin="round"/>
 </svg>
