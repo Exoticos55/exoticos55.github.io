@@ -128,6 +128,9 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY3NDY1MDE4ODMy/details",
     descricao: "Relato sincero sobre as entrevistas realizadas.",
+    arquivos: [
+      { nome: "feedback_entrevista.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782249891904-feedback_entrevista.pdf" },
+    ],
   },
   {
     titulo: "Avaliar criticamente o site alegrete.org",
