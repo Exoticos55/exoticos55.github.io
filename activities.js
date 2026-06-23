@@ -100,6 +100,9 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3ODMwODA3ODA5/details",
     descricao: "Resolução do segundo problema de engenharia da dupla proposta.",
+    arquivos: [
+      { nome: "comparação_das_LLM_e_prompt.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250243914-comparacao_das_LLM_e_prompt.pdf" },
+    ],
   },
   {
     titulo: "Escolher e resolver um problema de engenharia",
