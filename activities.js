@@ -237,6 +237,9 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk2Njc5NDA1MDYy/details",
     descricao: "Quiz diagnóstico de lógica de programação.",
     nota: "Atividade foi realizada e marcada como concluída no site do quiz, mas não foi printada/confirmada no Classroom a tempo. Ficou registrada como não entregue.",
+    arquivos: [
+      { nome: "formulário_ Questionário Diagnóstico - Algoritmos e Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782253544176-formulario_-Questionario-Diagnostico---Algoritmos-e-Programacao.pdf" },
+    ],
   },
 ];
 
