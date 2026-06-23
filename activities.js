@@ -37,6 +37,9 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk2OTk2MzY4ODI0/details",
     descricao: "Exercícios introdutórios de algoritmos em Python.",
+    arquivos: [
+      { nome: "10atividadespy.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251919434-10atividadespy.pdf" },
+    ],
   },
   {
     titulo: "Geração e Avaliação de Exercícios de Algoritmos com LLMs",
