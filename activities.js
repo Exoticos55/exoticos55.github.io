@@ -104,6 +104,7 @@ const atividades = [
       { nome: "comparação_das_LLM_e_prompt.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250243914-comparacao_das_LLM_e_prompt.pdf" },
       { nome: "codigo.chatgpt.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250252515-codigo.chatgpt.py" },
       { nome: "codigo.claude.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250263236-codigo.claude.py" },
+      { nome: "codigo.gemini.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250272824-codigo.gemini.py" },
     ],
   },
   {
