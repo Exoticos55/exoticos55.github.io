@@ -58,6 +58,13 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3MjMyNjQ5OTYz/details",
     descricao: "Exercícios resolvidos manualmente, em papel.",
+    arquivos: [
+      { nome: "CodigosgeradosporLLM.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251787582-CodigosgeradosporLLM.pdf" },
+      { nome: "IMG_20260418_163328.jpg", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251789542-IMG_20260418_163328.jpg" },
+      { nome: "IMG_20260418_170031.jpg", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251799011-IMG_20260418_170031.jpg" },
+      { nome: "IMG_20260418_164248.jpg", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251807157-IMG_20260418_164248.jpg" },
+      { nome: "IMG_20260418_164959.jpg", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251815731-IMG_20260418_164959.jpg" },
+    ],
   },
   {
     titulo: "Resolver os exercícios de listas/vetores/arrays em Python",
