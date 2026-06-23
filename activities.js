@@ -144,6 +144,7 @@ const atividades = [
     descricao: "Desenvolvimento assistido por IA para o portal Alegrete.org.",
     arquivos: [
       { nome: "sitehtml.html", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782249620120-sitehtml.html" },
+      { nome: "codigopy.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782249628913-codigopy.py" },
     ],
   },
   {
