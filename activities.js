@@ -260,7 +260,7 @@ const atividades = [
     titulo: "Projeto Final da Disciplina: Portfólio de Entregas no GitHub.io (Versão 1)",
     data: "2026-06-23",
     status: "enviada",
-    link: "",
+    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjkxNDc1Mjgy/details",
     descricao: "Cada aluno deverá desenvolver um site de portfólio contendo todas as entregas realizadas ao longo do semestre",
     nota: "Esta versão servirá como base para o desenvolvimento da versão final do projeto, que deverá conter todas as entregas da disciplina organizadas e documentadas de forma completa.",
   },
