@@ -84,6 +84,9 @@ const atividades = [
       { nome: "exercicio3_v3_avancada.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251395126-exercicio3_v3_avancada.py" },
       { nome: "exercicio3_v2_intermediaria.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251396478-exercicio3_v2_intermediaria.py" },
       { nome: "exercicio3_v1_basica.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251397561-exercicio3_v1_basica.py" },
+      { nome: "rota usando alegrete como exemplo.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251409509-rota-usando-alegrete-como-exemplo.pdf" },
+      { nome: "mapa_simples_rota_otimizada.png.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251411509-mapa_simples_rota_otimizada.png.pdf" },
+      { nome: "mapa_simples_rota_original.png.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251413007-mapa_simples_rota_original.png.pdf" },
     ],
   },
   {
