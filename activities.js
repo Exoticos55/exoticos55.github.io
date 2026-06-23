@@ -135,6 +135,9 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjE2NTk1NDU0/details",
     descricao: "Avaliação crítica do site alegrete.org.",
+    arquivos: [
+      { nome: "Relatorio_Avaliacao_Alegrete.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782249860527-Relatorio_Avaliacao_Alegrete.pdf" },
+    ],
   },
   {
     titulo: "Atividade: Desenvolvimento Assistido por IA para o Portal Alegrete.org",
