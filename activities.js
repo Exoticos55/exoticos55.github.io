@@ -86,6 +86,13 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODYzNjU2NzEyMTk1/details",
     descricao: "Resolução de problemas de outras disciplinas com múltiplas abordagens.",
+    arquivos: [
+      { nome: "grafico_comparativo.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251149932-grafico_comparativo.py" },
+      { nome: "abordagem2_simpson.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251151018-abordagem2_simpson.py" },
+      { nome: "abordagem1_riemann.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251152254-abordagem1_riemann.py" },
+      { nome: "abordagem3_scipy.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251153341-abordagem3_scipy.py" },
+      { nome: "atividade_calculo.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251154414-atividade_calculo.pdf" },
+    ],
   },
   {
     titulo: "Atividade: escolher e entregar 1 dos dois problemas de engenharia propostos",
