@@ -124,6 +124,7 @@ const atividades = [
     arquivos: [
       { nome: "codigos_copilot.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250018139-codigos_copilot.py" },
       { nome: "codigos_chatgpt.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250028937-codigos_chatgpt.py" },
+      { nome: "Relatorio_Final_Modularizacao_Eletrica.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250038717-Relatorio_Final_Modularizacao_Eletrica.pdf" },
     ],
   },
   {
