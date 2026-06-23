@@ -107,6 +107,9 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3ODY4MDAzNTI3/details",
     descricao: "Escolha e resolução de um novo problema de engenharia.",
+    arquivos: [
+      { nome: "Apresentacao_Matheus_Peres_Final.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250178092-Apresentacao_Matheus_Peres_Final.pdf" },
+    ],
   },
   {
     titulo: "Evolução técnica da solução desenvolvida na atividade anterior",
