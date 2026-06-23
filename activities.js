@@ -53,6 +53,12 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU4NTI5NjQyNzU0/details",
     descricao: "Uso de LLMs para gerar e avaliar exercícios de algoritmos.",
+    arquivos: [
+      { nome: "exercicios_gemini.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782255404553-exercicios_gemini.py" },
+      { nome: "exercicios_chatgpt.docx", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782255405843-exercicios_chatgpt.docx" },
+      { nome: "analise_comparativa_llms.docx", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782255407165-analise_comparativa_llms.docx" },
+      { nome: "exercicios_claude.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782255408402-exercicios_claude.py" },
+    ],
   },
   {
     titulo: "Quiz de Avaliação da Atividade: Uso de LLMs em Algoritmos e Programação",
@@ -248,17 +254,6 @@ const atividades = [
     nota: "Atividade foi realizada e marcada como concluída no site do quiz, mas não foi printada/confirmada no Classroom a tempo. Ficou registrada como não entregue.",
     arquivos: [
       { nome: "QUIZ – Diagnóstico de Lógica de Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254197515-QUIZ---Diagnostico-de-Logica-de-Programacao.pdf" },
-    ],
-  },
-  {
-    titulo: "Projeto Final da Disciplina: Portfólio de Entregas no GitHub.io (Versão 1)",
-    data: "2026-06-23",
-    status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjkxNDc1Mjgy/details",
-    descricao: "Cada aluno deverá desenvolver um site de portfólio contendo todas as entregas realizadas ao longo do semestre",
-    nota: "Esta versão servirá como base para o desenvolvimento da versão final do projeto, que deverá conter todas as entregas da disciplina organizadas e documentadas de forma completa.",
-    arquivos: [
-      { nome: "sitev1.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254950886-sitev1.pdf" },
     ],
   },
 ];
