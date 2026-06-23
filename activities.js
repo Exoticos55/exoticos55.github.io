@@ -239,7 +239,7 @@ const atividades = [
   {
     titulo: "Quiz – Diagnóstico de Lógica de Programação",
     data: "2026-03-27",
-    status: "feita_nao_confirmada",
+    status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk2Njc5NDA1MDYy/details",
     descricao: "Quiz diagnóstico de lógica de programação.",
     nota: "Atividade foi realizada e marcada como concluída no site do quiz, mas não foi printada/confirmada no Classroom a tempo. Ficou registrada como não entregue.",
