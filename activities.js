@@ -151,6 +151,7 @@ const atividades = [
     descricao: "Publicação do link e print do site pessoal no GitHub Pages.",
     arquivos: [
       { nome: "Lista Problemas de otimização.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782245006874-Lista-Problemas-de-otimizacao.pdf" },
+      { nome: "2E.png", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782245171569-2E.png" },
     ],
   },
   {
