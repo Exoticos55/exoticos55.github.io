@@ -23,6 +23,9 @@ const atividades = [
     status: "enviada",
     link: "",
     descricao: "Formulário inicial de diagnóstico da disciplina.",
+    arquivos: [
+      { nome: "Questionário Diagnóstico - Algoritmos e Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254122282-Questionario-Diagnostico---Algoritmos-e-Programacao.pdf" },
+    ],
   },
   {
     titulo: "Lista de 15 exercícios: escolher e resolver",
