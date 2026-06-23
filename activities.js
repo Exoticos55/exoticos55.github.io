@@ -241,7 +241,7 @@ const atividades = [
     descricao: "Quiz diagnóstico de lógica de programação.",
     nota: "Atividade foi realizada e marcada como concluída no site do quiz, mas não foi printada/confirmada no Classroom a tempo. Ficou registrada como não entregue.",
     arquivos: [
-      { nome: "QUIZ – Diagnóstico de Lógica de Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782253795695-QUIZ---Diagnostico-de-Logica-de-Programacao.pdf" },
+      { nome: "QUIZ – Diagnóstico de Lógica de Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254197515-QUIZ---Diagnostico-de-Logica-de-Programacao.pdf" },
     ],
   },
 ];
