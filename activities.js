@@ -151,6 +151,7 @@ const atividades = [
     descricao: "Publicação do link e print do site pessoal no GitHub Pages.",
     arquivos: [
       { nome: "codigos_claude.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782246025814-codigos_claude.py" },
+      { nome: "codigos_claude.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782246089779-codigos_claude.py" },
     ],
   },
   {
