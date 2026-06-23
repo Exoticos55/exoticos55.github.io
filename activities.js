@@ -79,6 +79,12 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODYzMDE2ODMyNDUy/details",
     descricao: "Iteração de versões do código até obter resultados visuais consistentes.",
+    arquivos: [
+      { nome: "exercicio3_v4_com_graficos.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251393818-exercicio3_v4_com_graficos.py" },
+      { nome: "exercicio3_v3_avancada.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251395126-exercicio3_v3_avancada.py" },
+      { nome: "exercicio3_v2_intermediaria.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251396478-exercicio3_v2_intermediaria.py" },
+      { nome: "exercicio3_v1_basica.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251397561-exercicio3_v1_basica.py" },
+    ],
   },
   {
     titulo: "Atividade: Problemas de outras disciplinas – resolução em múltiplas abordagens",
