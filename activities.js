@@ -65,6 +65,9 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3MjM1NDcyNTQ0/details",
     descricao: "Exercícios práticos de listas, vetores e arrays em Python.",
+    arquivos: [
+      { nome: "listasvetoresarrays.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251698424-listasvetoresarrays.pdf" },
+    ],
   },
   {
     titulo: "Formulação e Resolução de Problemas com Vetores/Listas usando LLMs",
