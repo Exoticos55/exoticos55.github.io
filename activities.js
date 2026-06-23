@@ -229,6 +229,9 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk2NjkyMTA3NDYx/details",
     descricao: "Quiz preparatório de lógica de programação, feito em aula.",
     nota: "Atividade foi realizada e marcada como concluída no site do quiz, mas não foi printada/confirmada no Classroom a tempo. Ficou registrada como não entregue.",
+    arquivos: [
+      { nome: "QUIZ – Lógica de Programação (Preparatório).pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782253704321-QUIZ---Logica-de-Programacao--Preparatorio-.pdf" },
+    ],
   },
   {
     titulo: "Quiz – Diagnóstico de Lógica de Programação",
