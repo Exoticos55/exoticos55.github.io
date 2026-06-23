@@ -228,7 +228,7 @@ const atividades = [
   {
     titulo: "Quiz – Lógica de Programação (Preparatório em aula)",
     data: "2026-03-20",
-    status: "feita_nao_confirmada",
+    status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk2NjkyMTA3NDYx/details",
     descricao: "Quiz preparatório de lógica de programação, feito em aula.",
     nota: "Atividade foi realizada e marcada como concluída no site do quiz, mas não foi printada/confirmada no Classroom a tempo. Ficou registrada como não entregue.",
