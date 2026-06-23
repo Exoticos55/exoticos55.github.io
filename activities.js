@@ -150,8 +150,7 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjU3ODA0MTc5/details",
     descricao: "Publicação do link e print do site pessoal no GitHub Pages.",
     arquivos: [
-      { nome: "codigos_claude.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782246025814-codigos_claude.py" },
-      { nome: "codigos_claude.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782246089779-codigos_claude.py" },
+      { nome: "codigos_claude.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782246354714-codigos_claude.py" },
     ],
   },
   {
