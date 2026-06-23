@@ -44,9 +44,6 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU4NTI5NjQyNzU0/details",
     descricao: "Uso de LLMs para gerar e avaliar exercícios de algoritmos.",
-    arquivos: [
-      { nome: "10atividadespy.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251847798-10atividadespy.pdf" },
-    ],
   },
   {
     titulo: "Quiz de Avaliação da Atividade: Uso de LLMs em Algoritmos e Programação",
