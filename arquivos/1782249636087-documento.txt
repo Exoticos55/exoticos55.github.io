@@ -1,0 +1,109 @@
+===============================================================================
+RELATÓRIO DE DESENVOLVIMENTO — PORTAL ALEGRETE.ORG (MÓDULO ESPORTIVO)
+===============================================================================
+
+1. OBJETIVO DA SOLUÇÃO
+-------------------------------------------------------------------------------
+O objetivo principal deste projeto consistiu no desenvolvimento de um pipeline 
+automatizado para a recolha, estruturação, persistência e exibição dos principais 
+eventos desportivos tradicionais do município de Alegrete-RS. A solução visa 
+enriquecer o portal "alegrete.org", fornecendo uma vitrina dinâmica voltada 
+para moradores, turistas, estudantes e entusiastas do desporto local.
+
+O sistema foi desenhado para resolver o problema da descentralização das 
+informações sobre o calendário desportivo da cidade. Através de um script 
+desenvolvido em Python, o ecossistema consolida dados de competições de grande 
+porte (como o EFIPAN, a Trilha dos Cerros e a Rústica Municipal), gerando de 
+forma simultânea ficheiros de intercâmbio de dados de ampla aceitação no mercado 
+(formatos JSON e CSV) e renderizando de forma 100% autónoma uma página web 
+moderna, interativa e responsiva (HTML/CSS/JS) para o utilizador final.
+
+
+2. LLMS UTILIZADAS NO DESENVOLVIMENTO (GEMINI E CLAUDE)
+-------------------------------------------------------------------------------
+No processo de engenharia reversa, arquitetura e codificação do ecossistema, 
+foram utilizadas de maneira complementar duas ferramentas de Inteligência 
+Artificial Baseadas em Modelos de Linguagem de Grande Porte (LLMs), permitindo 
+uma abordagem integrada de desenvolvimento:
+
+* Google Gemini: Atuou predominantemente no desenvolvimento do ecossistema de 
+  backend. Foi o modelo responsável por estruturar a matriz multidimensional de 
+  dados em formato de dicionários nativos Python, criar as rotas de exportação 
+  para manipulação dos ficheiros físicos em disco (através dos módulos nativos 
+  'json' e 'csv') e projetar as funções de concatenação automatizada de blocos 
+  HTML (F-strings), garantindo a integridade lógica dos dados.
+  
+* Anthropic Claude: Atuou com foco no refinamento estético e usabilidade do 
+  frontend. Foi utilizado para conceber a arquitetura do design de interface 
+  baseado em cards de conteúdo, seleção da paleta de cores verde-musgo integrada 
+  à identidade visual institucional do município, inserção de elementos visuais 
+  modernos (como overlays de gradiente e tratamento de emojis dinâmicos) e no 
+  desenvolvimento da lógica em JavaScript puro (Vanilla JS) para a filtragem 
+  em tempo de execução sem dependência de frameworks.
+
+
+3. PRINCIPAIS DIFICULDADES ENCONTRADAS
+-------------------------------------------------------------------------------
+Durante o ciclo de vida do desenvolvimento da aplicação, destacaram-se os 
+seguintes desafios técnicos que exigiram intervenção e refatoração:
+
+* Resolução de Exceções de Escopo e Imports: Inicialmente, o script backend 
+  enfrentou interrupções na execução (NameError) devido à ordem incorreta de 
+  declaração de módulos internos do Python e colagem fragmentada de funções no 
+  editor VS Code. Isso foi mitigado com a reestruturação top-down do código.
+  
+* Tratamento de Dados Ausentes de Forma Dinâmica: Um desafio crítico foi gerenciar 
+  as particularidades de cada evento. Enquanto o torneio EFIPAN possui canais 
+  oficiais no Facebook e Instagram, a Trilha dos Cerros possui apenas Instagram 
+  e a Rústica Municipal apenas Facebook. Foi necessário criar uma lógica 
+  condicional rigorosa em Python para renderizar apenas as tags de redes 
+  sociais existentes, evitando links quebrados na interface utilizador.
+  
+* Quebra de Layout e Perda de Renderização: Durante os testes de otimização de 
+  desempenho, a remoção inadvertida de links externos de fontes e bibliotecas 
+  de ícones causou falhas críticas de processamento (página em branco). A 
+  solução foi migrar toda a estilização para CSS nativo e substituir os ícones 
+  por caracteres Unicode/Emojis nativos do sistema operativo, tornando o 
+  carregamento instantâneo e livre de falhas de rede.
+
+
+4. RESULTADOS OBTIDOS
+-------------------------------------------------------------------------------
+A execução com sucesso da arquitetura proposta gerou os seguintes resultados:
+
+* Geração da Base Estruturada 'eventos_esportivos.json': Contém os metadados 
+  completos formatados em UTF-8, ideal para futuras integrações de APIs.
+  
+* Geração da Tabela Relacional 'eventos_esportivos.csv': Ficheiro formatado em 
+  colunas padronizadas, permitindo a importação direta e análise estatística 
+  em ferramentas de folhas de cálculo como Microsoft Excel ou Google Sheets.
+  
+* Geração da Vitrina Web Interativa 'catalogo_esportivo_alegrete.html': Uma 
+  página web visualmente sofisticada e fluida. O produto final entrega um topo 
+  institucional imersivo, um painel de estatísticas históricas consolidado, 
+  cards individuais contendo badges dinâmicas por categoria de desporto, resumo 
+  histórico e botões de redirecionamento, além de um sistema interativo de 
+  filtros rápidos por clique (Futebol, Ciclismo, Atletismo e Todos) com estado 
+  vazio tratado por scripts.
+
+
+5. POSSÍVEIS EVOLUÇÕES FUTURAS
+-------------------------------------------------------------------------------
+Para garantir a sustentabilidade e expansão da plataforma a médio e longo 
+prazo, propõem-se as seguintes implementações:
+
+* Integração com Rotinas de Web Scraping: Acoplar ao script Python bibliotecas 
+  como BeautifulSoup4 ou Selenium para monitorar de forma autónoma o Diário 
+  Oficial do Município e portais de notícias locais, capturando novos eventos, 
+  alterações de datas e resultados sem intervenção manual humana.
+  
+* Mapeamento Geográfico e APIs de Mapas: Implementar a geolocalização dos 
+  eventos integrando as coordenadas à API do Google Maps ou OpenStreetMap, 
+  permitindo que ciclistas vejam os mapas altimétricos das rotas rurais e 
+  corredores localizem o ponto de partida exato na Praça Getúlio Vargas.
+  
+* Sustentabilidade Económica do Portal: Utilizar o design limpo dos cards para 
+  abrir espaço dedicado à exibição de patrocínios e banners de comércios locais. 
+  Esta funcionalidade atrai marcas regionais e investidores, transformando a 
+  página numa ferramenta de monetização ativa e fomento económico para o município.
+===============================================================================
