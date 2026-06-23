@@ -256,6 +256,14 @@ const atividades = [
       { nome: "QUIZ – Diagnóstico de Lógica de Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254197515-QUIZ---Diagnostico-de-Logica-de-Programacao.pdf" },
     ],
   },
+  {
+    titulo: "Projeto Final da Disciplina: Portfólio de Entregas no GitHub.io (Versão 1)",
+    data: "2026-06-23",
+    status: "enviada",
+    link: "",
+    descricao: "Cada aluno deverá desenvolver um site de portfólio contendo todas as entregas realizadas ao longo do semestre",
+    nota: "Esta versão servirá como base para o desenvolvimento da versão final do projeto, que deverá conter todas as entregas da disciplina organizadas e documentadas de forma completa.",
+  },
 ];
 
 // Não precisa editar nada abaixo desta linha.
