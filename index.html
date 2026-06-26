@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Acompanhamento — Algoritmos e Programção</title>
-  <link rel="stylesheet" href="style.css?v=20" />
+  <link rel="stylesheet" href="style.css?v=19" />
 </head>
 <body>
   <div class="layout">
@@ -68,12 +68,10 @@
     </aside>
 
     <main class="content">
-      <!-- Lista de Cards -->
       <div class="activity-list" id="activity-list">
         <!-- preenchido via JS -->
       </div>
 
-      <!-- Página Sobre -->
       <div class="about-page hidden" id="painel-sobre">
         <div class="about-card">
           <div class="about-avatar"><img src="foto-maths.jpg" alt="Foto de Matheus Leal Peres" /></div>
@@ -117,39 +115,6 @@
 
   </div>
 
-  <!-- MODAL DE DETALHES DA ATIVIDADE -->
-  <div class="activity-modal-overlay hidden" id="activity-modal-overlay">
-    <div class="activity-modal">
-      <div class="activity-modal-header">
-        <div id="modal-badge-container"></div>
-        <button type="button" class="close-modal-btn" id="btn-fechar-modal-atividades">×</button>
-      </div>
-      <div class="activity-modal-content">
-        <h2 id="modal-titulo"></h2>
-        <p id="modal-data" class="modal-date"></p>
-        <div class="modal-divider"></div>
-        
-        <div class="modal-section">
-          <h4>Descrição</h4>
-          <p id="modal-descricao"></p>
-        </div>
-
-        <div id="modal-arquivos-section" class="modal-section">
-          <h4>Arquivos Entregues</h4>
-          <div id="modal-arquivos-lista" class="file-chips"></div>
-        </div>
-
-        <div id="modal-nota-section" class="modal-section">
-          <!-- Preenchido via JS -->
-        </div>
-      </div>
-      <div class="activity-modal-footer">
-        <div id="modal-link-container"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL DE VISUALIZAÇÃO DE ARQUIVO (EXISTENTE) -->
   <div class="file-modal-overlay hidden" id="file-modal-overlay">
     <div class="file-modal">
       <div class="file-modal-header">
@@ -167,6 +132,6 @@
   </div>
 
   <script src="activities.js?v=6"></script>
-  <script src="main.js?v=15"></script>
+  <script src="main.js?v=14"></script>
 </body>
 </html>
