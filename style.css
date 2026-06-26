@@ -41,19 +41,16 @@ a:focus-visible, button:focus-visible {
 /* ===================================================================
    LAYOUT — header fixo no topo + coluna única
    =================================================================== */
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+.hero-zone {
+  position: relative;
+  overflow: hidden;
   background:
     linear-gradient(160deg, rgba(255,255,255,0.04), transparent 60%),
     rgba(15, 15, 16, 0.92);
-  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
-  overflow: hidden;
 }
 
-.topbar-canvas {
+.hero-zone-canvas {
   position: absolute;
   top: 0;
   left: 0;
@@ -63,17 +60,30 @@ a:focus-visible, button:focus-visible {
   pointer-events: none;
 }
 
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(10px);
+}
+
 .topbar-inner {
   position: relative;
   z-index: 1;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 32px 24px;
+  padding: 20px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
+}
+
+.hero-zone-inner {
+  position: relative;
+  z-index: 1;
 }
 
 .topbar-brand {
@@ -139,14 +149,9 @@ h1 {
    HERO — introdução pessoal
    =================================================================== */
 .hero-intro {
-  padding: 36px 0 28px;
-}
-
-.hero-greeting {
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--accent-bright);
-  margin: 0 0 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 36px 24px 48px;
 }
 
 .hero-title {
@@ -319,6 +324,26 @@ h1 {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.about-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.about-header-left {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.about-university-logo {
+  width: 64px;
+  height: auto;
+  flex: 0 0 auto;
+  opacity: 0.9;
 }
 
 .about-card h2 {
@@ -915,14 +940,29 @@ h1 {
 /* ===================================================================
    PÁGINA DE DETALHES DE ATIVIDADE (atividade.html)
    =================================================================== */
-.topbar-detail .topbar-inner {
-  padding: 24px 24px;
-  justify-content: flex-start;
+.detail-page-zone {
+  position: relative;
+  min-height: 100vh;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.04), transparent 60%),
+    #050608;
+  overflow: hidden;
+}
+
+.detail-page-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .detail-page {
+  position: relative;
+  z-index: 1;
   min-height: 100vh;
-  background: #050608;
   padding: 40px 24px 80px;
 }
 
@@ -936,6 +976,7 @@ h1 {
   font-family: var(--mono);
   font-size: 13px;
   color: var(--ink-dim);
+  margin-bottom: 24px;
   text-decoration: underline;
   text-decoration-color: var(--line-bright);
 }

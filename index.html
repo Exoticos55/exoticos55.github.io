@@ -4,41 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Acompanhamento — Algoritmos</title>
-  <link rel="stylesheet" href="style.css?v=25" />
+  <link rel="stylesheet" href="style.css?v=27" />
 </head>
 <body>
-  <header class="topbar">
-    <canvas id="binary-rain" class="topbar-canvas"></canvas>
-    <div class="topbar-inner">
-      <div class="topbar-brand">
-        <img src="icon-eletrica.svg?v=11" alt="Símbolo de engenharia elétrica" class="topbar-icon" />
-        <div>
-          <p class="eyebrow">// eng. elétrica</p>
-          <h1>Painel de Atividades</h1>
+  <div class="hero-zone">
+    <canvas id="binary-rain" class="hero-zone-canvas"></canvas>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="topbar-brand">
+          <img src="icon-eletrica.svg?v=11" alt="Símbolo de engenharia elétrica" class="topbar-icon" />
+          <div>
+            <p class="eyebrow">// eng. elétrica</p>
+            <h1>Painel de Atividades</h1>
+          </div>
         </div>
+        <nav class="tabs">
+          <button class="tab-btn active" data-tab="atividades">Atividades</button>
+          <button class="tab-btn" data-tab="sobre">Sobre</button>
+        </nav>
       </div>
-      <nav class="tabs">
-        <button class="tab-btn active" data-tab="atividades">Atividades</button>
-        <button class="tab-btn" data-tab="sobre">Sobre</button>
-      </nav>
+    </header>
+
+    <div class="hero-zone-inner">
+      <section class="hero-intro">
+        <h2 class="hero-title">Olá, eu sou <span class="hero-name">Matheus</span></h2>
+        <p class="hero-text">
+          Estudante de Engenharia Elétrica na Unipampa, cursando a disciplina de
+          Algoritmos e Programação. Este painel reúne todas as atividades que
+          venho entregando ao longo do semestre.
+        </p>
+        <div class="hero-actions">
+          <button type="button" class="hero-btn hero-btn-primary" data-scroll-to="painel-atividades">ver atividades</button>
+          <button type="button" class="hero-btn hero-btn-secondary" data-goto-tab="sobre">sobre mim</button>
+        </div>
+      </section>
     </div>
-  </header>
+  </div>
 
   <main class="page-wrap">
-
-    <section class="hero-intro">
-      <p class="hero-greeting">$ whoami</p>
-      <h2 class="hero-title">Olá, eu sou <span class="hero-name">Matheus</span></h2>
-      <p class="hero-text">
-        Estudante de Engenharia Elétrica na Unipampa, cursando a disciplina de
-        Algoritmos e Programação. Este painel reúne todas as atividades que
-        venho entregando ao longo do semestre.
-      </p>
-      <div class="hero-actions">
-        <button type="button" class="hero-btn hero-btn-primary" data-scroll-to="painel-atividades">ver atividades</button>
-        <button type="button" class="hero-btn hero-btn-secondary" data-goto-tab="sobre">sobre mim</button>
-      </div>
-    </section>
 
     <div id="painel-atividades">
       <section class="date-filter">
@@ -63,9 +67,14 @@
 
     <div class="about-page hidden" id="painel-sobre">
       <div class="about-card">
-        <div class="about-avatar"><img src="foto-maths.jpg" alt="Foto de Matheus Leal Peres" /></div>
-        <h2>Matheus Leal Peres</h2>
-        <p class="about-role">Engenharia Elétrica — Disciplina de Algoritmos</p>
+        <div class="about-header">
+          <div class="about-header-left">
+            <div class="about-avatar"><img src="foto-maths.jpg" alt="Foto de Matheus Leal Peres" /></div>
+            <h2>Matheus Leal Peres</h2>
+            <p class="about-role">Engenharia Elétrica — Disciplina de Algoritmos</p>
+          </div>
+          <img src="imagens/unipampa-logo.svg" alt="Universidade Federal do Pampa" class="about-university-logo" />
+        </div>
 
         <div class="about-contacts">
           <a href="mailto:matheuslp.aluno@unipampa.edu.br" class="about-contact">
