@@ -50,9 +50,22 @@ a:focus-visible, button:focus-visible {
     rgba(15, 15, 16, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.topbar-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .topbar-inner {
+  position: relative;
+  z-index: 1;
   max-width: 1100px;
   margin: 0 auto;
   padding: 14px 24px;
@@ -120,6 +133,80 @@ h1 {
   color: var(--ink-dim);
   font-size: 14px;
   margin: 0 0 14px;
+}
+
+/* ===================================================================
+   HERO — introdução pessoal
+   =================================================================== */
+.hero-intro {
+  padding: 36px 0 28px;
+}
+
+.hero-greeting {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent-bright);
+  margin: 0 0 10px;
+}
+
+.hero-title {
+  font-family: var(--mono);
+  font-size: clamp(26px, 4vw, 36px);
+  line-height: 1.2;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+
+.hero-name {
+  background: linear-gradient(90deg, var(--accent-bright), var(--spark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-dim);
+  max-width: 620px;
+  margin: 0 0 24px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-btn {
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 11px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.hero-btn-primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+  color: #06080d;
+  border: none;
+  font-weight: 600;
+}
+
+.hero-btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.hero-btn-secondary {
+  background: transparent;
+  border: 1px solid var(--line-bright);
+  color: var(--ink);
+}
+
+.hero-btn-secondary:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent-bright);
 }
 
 .meta-row {
@@ -321,214 +408,6 @@ h1 {
   line-height: 1.6;
   color: var(--ink-dim);
   margin: 0;
-}
-
-/* ===================================================================
-   PROGRESSO (círculo + barra segmentada)
-   =================================================================== */
-.progress-section {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  border: 1px solid var(--line);
-  background:
-    linear-gradient(120deg, rgba(255,255,255,0.10), transparent 70%),
-    var(--bg-soft);
-  border-radius: 14px;
-  padding: 24px 28px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.progress-ring-wrap {
-  position: relative;
-  flex: 0 0 auto;
-  width: 100px;
-  height: 100px;
-}
-
-.progress-ring-wrap svg {
-  width: 100px;
-  height: 100px;
-  transform: rotate(-90deg);
-}
-
-.progress-ring-bg {
-  fill: none;
-  stroke: var(--line);
-  stroke-width: 9;
-}
-
-.progress-ring-fill {
-  fill: none;
-  stroke: url(#progress-gradient);
-  stroke-width: 9;
-  stroke-linecap: round;
-  transition: stroke-dashoffset 0.6s ease;
-}
-
-.progress-ring-label {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.progress-ring-label .pct {
-  font-family: var(--mono);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.progress-ring-label .pct-sub {
-  font-family: var(--mono);
-  font-size: 9px;
-  color: var(--ink-dim);
-  margin-top: 2px;
-}
-
-.progress-detail {
-  flex: 1 1 260px;
-  min-width: 240px;
-}
-
-.progress-detail h3 {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--ink-dim);
-  margin: 0 0 10px;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  text-align: left;
-}
-
-.progress-bar {
-  display: flex;
-  width: 100%;
-  height: 10px;
-  border-radius: 999px;
-  overflow: hidden;
-  background: var(--line);
-}
-
-.progress-bar .seg {
-  height: 100%;
-}
-
-.progress-bar .seg.enviada { background: linear-gradient(90deg, var(--accent-dim), var(--accent)); }
-.progress-bar .seg.feita_nao_confirmada { background: linear-gradient(90deg, var(--warn), var(--spark)); }
-.progress-bar .seg.atrasada { background: var(--danger); }
-.progress-bar .seg.pendente { background: var(--line-bright); }
-
-.progress-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 12px;
-}
-
-.progress-legend .item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-dim);
-}
-
-.progress-legend .dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  flex: 0 0 auto;
-}
-
-.progress-legend .dot.enviada { background: var(--accent); }
-.progress-legend .dot.feita_nao_confirmada { background: var(--warn); }
-.progress-legend .dot.atrasada { background: var(--danger); }
-.progress-legend .dot.pendente { background: var(--line-bright); }
-
-@media (max-width: 560px) {
-  .progress-section { flex-direction: column; align-items: center; }
-  .progress-detail { text-align: center; }
-  .progress-detail h3 { text-align: center; }
-}
-
-/* ===================================================================
-   RESUMO / CONTADORES
-   =================================================================== */
-.summary {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.stat {
-  border: 1px solid var(--line);
-  background:
-    linear-gradient(160deg, rgba(255,255,255,0.08), transparent 70%),
-    var(--bg-soft);
-  border-radius: 10px;
-  padding: 12px 10px;
-}
-
-.stat .num {
-  font-family: var(--mono);
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.stat .label {
-  font-size: 10.5px;
-  color: var(--ink-dim);
-  margin-top: 4px;
-}
-
-.stat.total .num { color: var(--ink); }
-.stat.enviada .num { color: var(--accent-bright); }
-.stat.feita_nao_confirmada .num { color: var(--warn); }
-.stat.pendente .num { color: var(--ink-dim); }
-.stat.atrasada .num { color: var(--danger); }
-
-@media (max-width: 640px) {
-  .summary { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* ===================================================================
-   FILTROS
-   =================================================================== */
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.filter-btn {
-  font-family: var(--mono);
-  font-size: 12.5px;
-  background: var(--bg-soft);
-  border: 1px solid var(--line);
-  color: var(--ink-dim);
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: left;
-  transition: border-color 0.15s, color 0.15s;
-}
-
-.filter-btn:hover { border-color: var(--accent-dim); color: var(--ink); }
-
-.filter-btn.active {
-  border-color: var(--accent);
-  color: var(--accent-bright);
-  background: rgba(77,141,255,0.1);
 }
 
 /* ===================================================================

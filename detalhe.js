@@ -42,6 +42,13 @@ function renderDetalhe(atividade) {
     ? `<div class="note-box"><strong>Observação:</strong> ${atividade.nota}</div>`
     : "";
 
+  const enunciadoHtml = atividade.enunciado
+    ? `<div class="detail-section">
+        <h3>Enunciado</h3>
+        <p class="detail-enunciado">${escaparHtml(atividade.enunciado)}</p>
+      </div>`
+    : "";
+
   const tecnologias = Array.isArray(atividade.tecnologias) ? atividade.tecnologias : [];
   const tecnologiasHtml = tecnologias.length
     ? `<div class="detail-section">
@@ -89,11 +96,12 @@ function renderDetalhe(atividade) {
         <p>${atividade.descricao}</p>
       </div>
 
+      ${enunciadoHtml}
       ${tecnologiasHtml}
       ${arquivosHtml}
 
       <div class="detail-section detail-classroom">
-        <h3>Enunciado original</h3>
+        <h3>Referência no Classroom</h3>
         ${linkHtml}
       </div>
 

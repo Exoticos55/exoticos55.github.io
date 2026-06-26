@@ -15,99 +15,6 @@ function formatarData(isoStr) {
   return `${dia}/${mes}/${ano}`;
 }
 
-function renderProgresso(lista) {
-  const total = lista.length;
-  const enviadas = lista.filter((a) => a.status === "enviada").length;
-  const feitasNaoConfirmadas = lista.filter(
-    (a) => a.status === "feita_nao_confirmada"
-  ).length;
-  const pendentes = lista.filter((a) => a.status === "pendente").length;
-  const atrasadas = lista.filter((a) => a.status === "atrasada").length;
-
-  const concluidas = enviadas + feitasNaoConfirmadas;
-  const pct = total === 0 ? 0 : Math.round((concluidas / total) * 100);
-
-  const raio = 45;
-  const circunferencia = 2 * Math.PI * raio;
-  const offset = circunferencia * (1 - pct / 100);
-
-  const pctSeg = (n) => (total === 0 ? 0 : (n / total) * 100);
-
-  const section = document.getElementById("progress-section");
-  section.innerHTML = `
-    <div class="progress-ring-wrap">
-      <svg viewBox="0 0 110 110">
-        <defs>
-          <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#4d8dff" />
-            <stop offset="100%" stop-color="#ffd23f" />
-          </linearGradient>
-        </defs>
-        <circle class="progress-ring-bg" cx="55" cy="55" r="${raio}"></circle>
-        <circle class="progress-ring-fill" cx="55" cy="55" r="${raio}"
-          stroke-dasharray="${circunferencia}"
-          stroke-dashoffset="${offset}"></circle>
-      </svg>
-      <div class="progress-ring-label">
-        <span class="pct">${pct}%</span>
-        <span class="pct-sub">concluído</span>
-      </div>
-    </div>
-    <div class="progress-detail">
-      <h3>${concluidas} de ${total} atividades concluídas</h3>
-      <div class="progress-bar">
-        <div class="seg enviada" style="width:${pctSeg(enviadas)}%"></div>
-        <div class="seg feita_nao_confirmada" style="width:${pctSeg(feitasNaoConfirmadas)}%"></div>
-        <div class="seg atrasada" style="width:${pctSeg(atrasadas)}%"></div>
-        <div class="seg pendente" style="width:${pctSeg(pendentes)}%"></div>
-      </div>
-      <div class="progress-legend">
-        <span class="item"><span class="dot enviada"></span>Enviadas (${enviadas})</span>
-        <span class="item"><span class="dot feita_nao_confirmada"></span>Não confirmadas (${feitasNaoConfirmadas})</span>
-        <span class="item"><span class="dot atrasada"></span>Atrasadas (${atrasadas})</span>
-        <span class="item"><span class="dot pendente"></span>Pendentes (${pendentes})</span>
-      </div>
-    </div>
-  `;
-}
-
-function renderResumo(lista) {
-  const total = lista.length;
-  const enviadas = lista.filter((a) => a.status === "enviada").length;
-  const feitasNaoConfirmadas = lista.filter(
-    (a) => a.status === "feita_nao_confirmada"
-  ).length;
-  const pendentes = lista.filter((a) => a.status === "pendente").length;
-  const atrasadas = lista.filter((a) => a.status === "atrasada").length;
-
-  const summary = document.getElementById("summary");
-  summary.innerHTML = `
-    <div class="stat total">
-      <div class="num">${total}</div>
-      <div class="label">total</div>
-    </div>
-    <div class="stat enviada">
-      <div class="num">${enviadas}</div>
-      <div class="label">enviadas</div>
-    </div>
-    <div class="stat feita_nao_confirmada">
-      <div class="num">${feitasNaoConfirmadas}</div>
-      <div class="label">feitas, não confirmadas</div>
-    </div>
-    <div class="stat pendente">
-      <div class="num">${pendentes}</div>
-      <div class="label">pendentes</div>
-    </div>
-    <div class="stat atrasada">
-      <div class="num">${atrasadas}</div>
-      <div class="label">atrasadas</div>
-    </div>
-  `;
-
-  document.getElementById("contador-rodape").textContent =
-    `${enviadas}/${total} atividades enviadas`;
-}
-
 function renderLista(lista, ordem) {
   const container = document.getElementById("activity-list");
 
@@ -173,17 +80,13 @@ function renderLista(lista, ordem) {
 }
 
 const estadoFiltros = {
-  status: "todas",
   dataDe: "",
   dataAte: "",
   ordem: "desc",
 };
 
 function aplicarTodosFiltros() {
-  let lista =
-    estadoFiltros.status === "todas"
-      ? atividades
-      : atividades.filter((a) => a.status === estadoFiltros.status);
+  let lista = atividades;
 
   if (estadoFiltros.dataDe) {
     lista = lista.filter((a) => a.data >= estadoFiltros.dataDe);
@@ -193,6 +96,13 @@ function aplicarTodosFiltros() {
   }
 
   renderLista(lista, estadoFiltros.ordem);
+
+  const contador = document.getElementById("contador-rodape");
+  if (contador) {
+    const enviadas = atividades.filter((a) => a.status === "enviada").length;
+    contador.textContent = `${enviadas}/${atividades.length} atividades enviadas`;
+  }
+
   setupScrollReveal();
 }
 
@@ -217,18 +127,6 @@ function setupTabs() {
         filtrosAtividades.classList.remove("hidden");
         painelSobre.classList.add("hidden");
       }
-    });
-  });
-}
-
-function setupFiltros() {
-  const botoes = document.querySelectorAll(".filter-btn");
-  botoes.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      botoes.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      estadoFiltros.status = btn.dataset.filter;
-      aplicarTodosFiltros();
     });
   });
 }
@@ -274,6 +172,25 @@ function setupDataAtualizacao() {
     `página carregada em: ${dataFormatada}`;
 }
 
+function setupHero() {
+  const btnVerAtividades = document.querySelector('[data-scroll-to="painel-atividades"]');
+  const btnSobreMim = document.querySelector('[data-goto-tab="sobre"]');
+
+  if (btnVerAtividades) {
+    btnVerAtividades.addEventListener("click", () => {
+      document.getElementById("painel-atividades").scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
+  if (btnSobreMim) {
+    btnSobreMim.addEventListener("click", () => {
+      const tabSobre = document.querySelector('.tab-btn[data-tab="sobre"]');
+      if (tabSobre) tabSobre.click();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+}
+
 function setupScrollReveal() {
   const elementos = document.querySelectorAll(".reveal:not(.is-visible)");
 
@@ -298,11 +215,9 @@ function setupScrollReveal() {
 }
 
 // Inicialização
-renderProgresso(atividades);
-renderResumo(atividades);
 aplicarTodosFiltros();
-setupFiltros();
 setupFiltroData();
 setupTabs();
+setupHero();
 setupDataAtualizacao();
 setupScrollReveal();

@@ -16,6 +16,18 @@ function detectarTipoArquivo(nome) {
   return "outro";
 }
 
+function linguagemHighlightJs(nome) {
+  const ext = nome.split(".").pop().toLowerCase();
+  const mapa = {
+    py: "python", js: "javascript", ts: "typescript", jsx: "javascript",
+    tsx: "typescript", java: "java", c: "c", cpp: "cpp", cs: "csharp",
+    go: "go", rb: "ruby", php: "php", html: "xml", css: "css",
+    json: "json", txt: "plaintext", md: "markdown", sql: "sql",
+    sh: "bash", yml: "yaml", yaml: "yaml",
+  };
+  return mapa[ext] || "plaintext";
+}
+
 function escaparHtml(texto) {
   const div = document.createElement("div");
   div.textContent = texto;
@@ -50,7 +62,23 @@ async function abrirModalArquivo(nome, url) {
       const resp = await fetch(url);
       if (!resp.ok) throw new Error("Não consegui carregar o arquivo.");
       const texto = await resp.text();
-      body.innerHTML = `<pre class="file-code-view"><code>${escaparHtml(texto)}</code></pre>`;
+      const linguagem = linguagemHighlightJs(nome);
+      body.innerHTML = `
+        <div class="code-view-wrap">
+          <button type="button" class="code-copy-btn" id="code-copy-btn">Copiar</button>
+          <pre class="file-code-view"><code class="language-${linguagem}">${escaparHtml(texto)}</code></pre>
+        </div>
+      `;
+      if (window.hljs) {
+        window.hljs.highlightElement(body.querySelector("code"));
+      }
+      document.getElementById("code-copy-btn").addEventListener("click", () => {
+        navigator.clipboard.writeText(texto).then(() => {
+          const btn = document.getElementById("code-copy-btn");
+          btn.textContent = "Copiado!";
+          setTimeout(() => { btn.textContent = "Copiar"; }, 1500);
+        });
+      });
     } catch (erro) {
       body.innerHTML = `<div class="file-modal-fallback">
         Não consegui carregar o conteúdo aqui.<br/>
