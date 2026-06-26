@@ -32,7 +32,7 @@ const atividades = [
     data: "2026-03-31",
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU3OTMyNTMyNjI1/details",
-    descricao: "Escolha e resolução de exercícios de uma lista de 15.",
+    descricao: "Cada aluno deverá escolher e resolver no mínimo 15 exercícios a partir das apostilas, livros e sites cujos links estão disponíveis no Classroom.",
     arquivos: [
       { nome: "15atividades.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782252190595-15atividades.pdf" },
     ],
