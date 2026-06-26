@@ -120,7 +120,7 @@ function renderLista(lista, ordem) {
   const ordenada = [...lista].sort((a, b) => (a.data < b.data ? 1 : -1) * direcao);
 
   container.innerHTML = ordenada
-    .map((a, index) => {
+    .map((a) => {
       const linkHtml = a.link
         ? `<a class="link-btn" href="${a.link}" target="_blank" rel="noopener">ver no Classroom →</a>`
         : `<span class="no-link">sem link do Classroom</span>`;
@@ -148,8 +148,10 @@ function renderLista(lista, ordem) {
           </div>`
         : "";
 
+      const atividade64 = btoa(JSON.stringify(a));
+
       return `
-        <article class="activity ${a.status} reveal" data-activity-index="${index}">
+        <article class="activity ${a.status} reveal" data-activity-json="${atividade64}">
           <div class="bar"></div>
           <div class="body">
             <h3>${a.titulo}</h3>
@@ -366,8 +368,7 @@ function setupModalGlobal() {
 // MODAL DE DETALHES DA ATIVIDADE
 // ===================================================================
 
-function abrirModalAtividade(indice) {
-  const atividade = atividades[indice];
+function abrirModalAtividade(atividade) {
   if (!atividade) return;
 
   const overlay = document.getElementById("activity-modal-overlay");
@@ -465,8 +466,9 @@ function setupActivityCards() {
       if (e.target.closest(".link-btn") || e.target.closest(".file-chip")) {
         return;
       }
-      const indice = parseInt(card.dataset.activityIndex);
-      abrirModalAtividade(indice);
+      const atividade64 = card.dataset.activityJson;
+      const atividade = JSON.parse(atob(atividade64));
+      abrirModalAtividade(atividade);
     });
   });
 }
