@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalhes da atividade — Algoritmos</title>
+  <link rel="stylesheet" href="style.css?v=20" />
+</head>
+<body>
+  <div class="detail-page">
+    <div class="detail-wrap">
+
+      <a href="index.html" class="detail-back">← voltar pro painel</a>
+
+      <div id="detail-content">
+        <!-- preenchido via JS -->
+      </div>
+
+    </div>
+  </div>
+
+  <div class="file-modal-overlay hidden" id="file-modal-overlay">
+    <div class="file-modal">
+      <div class="file-modal-header">
+        <h4 id="file-modal-titulo">arquivo</h4>
+        <div class="file-modal-actions">
+          <a id="file-modal-baixar" href="#" download>Baixar</a>
+          <a id="file-modal-abrir" href="#" target="_blank" rel="noopener">Abrir em outra aba</a>
+          <button type="button" id="file-modal-fechar">Fechar</button>
+        </div>
+      </div>
+      <div class="file-modal-body" id="file-modal-body">
+        <!-- preenchido via JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="activities.js?v=7"></script>
+  <script src="modal-arquivo.js?v=1"></script>
+  <script src="detalhe.js?v=1"></script>
+</body>
+</html>

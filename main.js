@@ -117,57 +117,59 @@ function renderLista(lista, ordem) {
   }
 
   const direcao = ordem === "asc" ? -1 : 1;
-  const ordenada = [...lista].sort((a, b) => (a.data < b.data ? 1 : -1) * direcao);
+  // Mantém o índice original (posição no array "atividades") para linkar certo,
+  // mesmo depois de filtrar e ordenar a lista exibida.
+  const comIndiceOriginal = lista.map((a) => ({
+    atividade: a,
+    indiceOriginal: atividades.indexOf(a),
+  }));
+  const ordenada = [...comIndiceOriginal].sort(
+    (x, y) => (x.atividade.data < y.atividade.data ? 1 : -1) * direcao
+  );
 
   container.innerHTML = ordenada
-    .map((a) => {
-      const linkHtml = a.link
-        ? `<a class="link-btn" href="${a.link}" target="_blank" rel="noopener">ver no Classroom →</a>`
-        : `<span class="no-link">sem link do Classroom</span>`;
-
-      const notaHtml = a.nota
-        ? `<div class="note-box"><strong>Observação:</strong> ${a.nota}</div>`
-        : "";
-
+    .map(({ atividade: a, indiceOriginal }) => {
       const arquivos = Array.isArray(a.arquivos) ? a.arquivos : [];
-      const arquivosHtml = arquivos.length
-        ? `<div class="file-chips">
-            ${arquivos
-              .map(
-                (arq, i) => `
-              <button type="button" class="file-chip" data-arquivo-nome="${arq.nome.replace(/"/g, "&quot;")}" data-arquivo-url="${arq.url}">
-                <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <path d="M9.5 1.5H3.5a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V5.5L9.5 1.5Z"/>
-                  <path d="M9.5 1.5V5h4"/>
-                </svg>
-                <span>${arq.nome}</span>
-              </button>
-            `
-              )
+      const qtdArquivos = arquivos.length;
+      const tecnologias = Array.isArray(a.tecnologias) ? a.tecnologias : [];
+
+      const tecnologiasHtml = tecnologias.length
+        ? `<div class="card-tech-tags">
+            ${tecnologias
+              .slice(0, 3)
+              .map((t) => `<span class="card-tech-tag">${t}</span>`)
               .join("")}
+            ${tecnologias.length > 3 ? `<span class="card-tech-tag">+${tecnologias.length - 3}</span>` : ""}
           </div>`
         : "";
 
+      const arquivoIndicador = qtdArquivos
+        ? `<span class="card-file-indicator">
+            <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M9.5 1.5H3.5a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V5.5L9.5 1.5Z"/>
+              <path d="M9.5 1.5V5h4"/>
+            </svg>
+            ${qtdArquivos} ${qtdArquivos === 1 ? "arquivo" : "arquivos"}
+          </span>`
+        : `<span class="card-file-indicator card-file-indicator-empty">sem arquivo</span>`;
+
       return `
-        <article class="activity ${a.status} reveal">
+        <a class="activity ${a.status} reveal" href="atividade.html?id=${indiceOriginal}">
           <div class="bar"></div>
           <div class="body">
+            <span class="badge ${a.status}">${STATUS_LABEL[a.status]}</span>
             <h3>${a.titulo}</h3>
             <p>${a.descricao}</p>
+            ${tecnologiasHtml}
+          </div>
+          <div class="card-footer">
             <span class="date">entrega: ${formatarData(a.data)}</span>
-            ${arquivosHtml}
-            ${notaHtml}
+            ${arquivoIndicador}
           </div>
-          <div class="side">
-            <span class="badge ${a.status}">${STATUS_LABEL[a.status]}</span>
-            ${linkHtml}
-          </div>
-        </article>
+        </a>
       `;
     })
     .join("");
-
-  setupFileChips();
 }
 
 const estadoFiltros = {
@@ -272,94 +274,6 @@ function setupDataAtualizacao() {
     `página carregada em: ${dataFormatada}`;
 }
 
-function detectarTipoArquivo(nome) {
-  const ext = nome.split(".").pop().toLowerCase();
-  if (ext === "pdf") return "pdf";
-  if (["png", "jpg", "jpeg", "gif", "webp", "svg"].includes(ext)) return "imagem";
-  if (["doc", "docx", "xls", "xlsx", "ppt", "pptx"].includes(ext)) return "documento";
-  if (
-    ["py", "js", "ts", "jsx", "tsx", "java", "c", "cpp", "cs", "go", "rb",
-     "php", "html", "css", "json", "txt", "md", "sql", "sh", "yml", "yaml"]
-      .includes(ext)
-  ) return "codigo";
-  return "outro";
-}
-
-function escaparHtml(texto) {
-  const div = document.createElement("div");
-  div.textContent = texto;
-  return div.innerHTML;
-}
-
-async function abrirModalArquivo(nome, url) {
-  const overlay = document.getElementById("file-modal-overlay");
-  const titulo = document.getElementById("file-modal-titulo");
-  const body = document.getElementById("file-modal-body");
-  const linkAbrir = document.getElementById("file-modal-abrir");
-  const linkBaixar = document.getElementById("file-modal-baixar");
-
-  titulo.textContent = nome;
-  linkAbrir.href = url;
-  linkBaixar.href = url;
-  linkBaixar.setAttribute("download", nome);
-  overlay.classList.remove("hidden");
-
-  const tipo = detectarTipoArquivo(nome);
-  if (tipo === "pdf") {
-    const urlVisualizacao = `https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`;
-    body.innerHTML = `<iframe src="${urlVisualizacao}" title="${nome}"></iframe>`;
-  } else if (tipo === "documento") {
-    const urlVisualizacao = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(url)}`;
-    body.innerHTML = `<iframe src="${urlVisualizacao}" title="${nome}"></iframe>`;
-  } else if (tipo === "imagem") {
-    body.innerHTML = `<img src="${url}" alt="${nome}" />`;
-  } else if (tipo === "codigo") {
-    body.innerHTML = `<div class="file-modal-fallback">Carregando conteúdo...</div>`;
-    try {
-      const resp = await fetch(url);
-      if (!resp.ok) throw new Error("Não consegui carregar o arquivo.");
-      const texto = await resp.text();
-      body.innerHTML = `<pre class="file-code-view"><code>${escaparHtml(texto)}</code></pre>`;
-    } catch (erro) {
-      body.innerHTML = `<div class="file-modal-fallback">
-        Não consegui carregar o conteúdo aqui.<br/>
-        Use "Abrir em outra aba" para ver o arquivo.
-      </div>`;
-    }
-  } else {
-    body.innerHTML = `<div class="file-modal-fallback">
-      Esse tipo de arquivo não tem visualização direta aqui.<br/>
-      Use "Abrir em outra aba" para baixar ou ver o conteúdo.
-    </div>`;
-  }
-}
-
-function fecharModalArquivo() {
-  const overlay = document.getElementById("file-modal-overlay");
-  const body = document.getElementById("file-modal-body");
-  overlay.classList.add("hidden");
-  body.innerHTML = "";
-}
-
-function setupFileChips() {
-  document.querySelectorAll(".file-chip").forEach((chip) => {
-    chip.addEventListener("click", () => {
-      abrirModalArquivo(chip.dataset.arquivoNome, chip.dataset.arquivoUrl);
-    });
-  });
-}
-
-function setupModalGlobal() {
-  const overlay = document.getElementById("file-modal-overlay");
-  document.getElementById("file-modal-fechar").addEventListener("click", fecharModalArquivo);
-  overlay.addEventListener("click", (evento) => {
-    if (evento.target === overlay) fecharModalArquivo();
-  });
-  document.addEventListener("keydown", (evento) => {
-    if (evento.key === "Escape") fecharModalArquivo();
-  });
-}
-
 function setupScrollReveal() {
   const elementos = document.querySelectorAll(".reveal:not(.is-visible)");
 
@@ -391,5 +305,4 @@ setupFiltros();
 setupFiltroData();
 setupTabs();
 setupDataAtualizacao();
-setupModalGlobal();
 setupScrollReveal();

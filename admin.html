@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Admin — Adicionar atividade</title>
-<link rel="stylesheet" href="style.css?v=19" />
+<link rel="stylesheet" href="style.css?v=20" />
 <style>
   .admin-wrap { max-width: 560px; margin: 0 auto; padding: 40px 20px 80px; }
   .card {
@@ -250,6 +250,9 @@
       <label for="descricao">Descrição curta</label>
       <textarea id="descricao" placeholder="O que era essa atividade"></textarea>
 
+      <label for="tecnologias">Tecnologias utilizadas (separe por vírgula)</label>
+      <input id="tecnologias" type="text" placeholder="Python, Excel, Matplotlib" />
+
       <label for="arquivo">Arquivos da atividade (opcional, pode escolher vários)</label>
       <input id="arquivo" type="file" multiple />
       <p class="hint">PDF, imagem, .py, .js, .zip, etc. Até ~1MB cada. Aparecem como anexos clicáveis no card.</p>
@@ -421,6 +424,10 @@ function montarBlocoAtividade(dados) {
       .join("\n");
     campos.push(`    arquivos: [\n${itensArquivos}\n    ],`);
   }
+  if (Array.isArray(dados.tecnologias) && dados.tecnologias.length > 0) {
+    const itensTecnologias = dados.tecnologias.map((t) => JSON.stringify(t)).join(", ");
+    campos.push(`    tecnologias: [${itensTecnologias}],`);
+  }
   return "  {\n" + campos.join("\n") + "\n  },";
 }
 
@@ -452,6 +459,10 @@ $("btn-salvar").addEventListener("click", async () => {
   const status = $("status").value;
   const link = $("link").value.trim();
   const descricao = $("descricao").value.trim();
+  const tecnologiasTexto = $("tecnologias").value.trim();
+  const tecnologias = tecnologiasTexto
+    ? tecnologiasTexto.split(",").map((t) => t.trim()).filter(Boolean)
+    : [];
   const nota = $("nota").value.trim();
   const arquivosSelecionados = Array.from($("arquivo").files);
 
@@ -480,7 +491,7 @@ $("btn-salvar").addEventListener("click", async () => {
     const arquivoAtual = await githubRequest(apiBase, token);
     const conteudoAtual = base64DecodeUtf8(arquivoAtual.content);
 
-    const novoBloco = montarBlocoAtividade({ titulo, data, status, link, descricao, nota, arquivos });
+    const novoBloco = montarBlocoAtividade({ titulo, data, status, link, descricao, nota, arquivos, tecnologias });
     const novoConteudo = inserirNovoBlocoNoConteudo(conteudoAtual, novoBloco);
 
     mostrarStatus("loading", "Salvando atividade no repositório...");
@@ -500,6 +511,7 @@ $("btn-salvar").addEventListener("click", async () => {
     $("data").value = "";
     $("link").value = "";
     $("descricao").value = "";
+    $("tecnologias").value = "";
     $("nota").value = "";
     $("arquivo").value = "";
   } catch (erro) {
@@ -656,6 +668,8 @@ function abrirEdicao(indice) {
     </div>
     <label>Descrição curta</label>
     <textarea id="edit-descricao-${indice}">${item.descricao || ""}</textarea>
+    <label>Tecnologias utilizadas (separe por vírgula)</label>
+    <input type="text" id="edit-tecnologias-${indice}" value="${(Array.isArray(item.tecnologias) ? item.tecnologias.join(", ") : "")}" placeholder="Python, Excel, Matplotlib" />
     <label>Link do Classroom (opcional)</label>
     <input type="text" id="edit-link-${indice}" value="${item.link || ""}" />
     <label>Arquivos anexados</label>
@@ -729,6 +743,11 @@ async function salvarEdicao(indice) {
     }
   }
 
+  const tecnologiasTexto = $(`edit-tecnologias-${indice}`).value.trim();
+  const tecnologias = tecnologiasTexto
+    ? tecnologiasTexto.split(",").map((t) => t.trim()).filter(Boolean)
+    : [];
+
   listaAtual[indice] = {
     titulo: $(`edit-titulo-${indice}`).value.trim(),
     data: $(`edit-data-${indice}`).value,
@@ -736,6 +755,7 @@ async function salvarEdicao(indice) {
     link: $(`edit-link-${indice}`).value.trim(),
     descricao: $(`edit-descricao-${indice}`).value.trim(),
     arquivos: arquivos,
+    tecnologias: tecnologias,
     nota: $(`edit-nota-${indice}`).value.trim(),
   };
   await salvarListaCompleta(`Edita atividade: ${listaAtual[indice].titulo}`);
