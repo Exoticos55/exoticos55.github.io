@@ -100,18 +100,21 @@ function renderResumo(lista) {
   `;
 }
 
+// Criamos uma variável global temporária para os cliques funcionarem com base nos filtros atuais
+let listaAtualFiltrada = [];
+
 function renderLista(lista, ordem) {
   const container = document.getElementById("activity-list");
   if (!container) return;
 
-  const listaOrdenada = [...lista].sort((a, b) => {
+  listaAtualFiltrada = [...lista].sort((a, b) => {
     const dataA = new Date(a.data);
     const dataB = new Date(b.data);
     return ordem === "asc" ? dataA - dataB : dataB - dataA;
   });
 
-  container.innerHTML = listaOrdenada
-    .map((a) => {
+  container.innerHTML = listaAtualFiltrada
+    .map((a, index) => {
       const arquivosHtml =
         a.arquivos && a.arquivos.length > 0
           ? a.arquivos
@@ -130,11 +133,8 @@ function renderLista(lista, ordem) {
         ? `<a href="${a.link}" target="_blank" rel="noopener" class="card-link" onclick="event.stopPropagation()">Ver no Classroom &rarr;</a>`
         : "";
 
-      // Transforma o objeto da atividade em texto seguro para injetar no evento click do card
-      const atividadeStr = JSON.stringify(a).replace(/"/g, '&quot;');
-
       return `
-        <article class="activity-card reveal" onclick="abrirModalAtividade(${atividadeStr})">
+        <article class="activity-card reveal" onclick="abrirModalAtividadeByIndex(${index})">
           <div class="main-info">
             <time class="card-date">${formatarData(a.data)}</time>
             <h2>${a.titulo}</h2>
@@ -306,12 +306,15 @@ async function abrirModalArquivo(nome, url) {
   }
 }
 
-function abrirModalAtividade(atividade) {
+function abrirModalAtividadeByIndex(index) {
+  const atividade = listaAtualFiltrada[index];
+  if (!atividade) return;
+
   const titulo = document.getElementById("file-modal-titulo");
   const body = document.getElementById("file-modal-body");
   const overlay = document.getElementById("file-modal-overlay");
   
-  // Oculta os botões de download de arquivos que pertencem à pré-visualização de código
+  // Oculta os botões de download de código que pertencem à pré-visualização de arquivos de código
   document.getElementById("file-modal-baixar").style.display = "none";
   document.getElementById("file-modal-abrir").style.display = "none";
 
