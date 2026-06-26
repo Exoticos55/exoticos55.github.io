@@ -98,11 +98,15 @@ const atividades = [
     titulo: "Formulação e Resolução de Problemas com Vetores/Listas usando LLMs",
     data: "2026-04-24",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3NDczMzk3Mzgy/details",
+    link: "",
     descricao: "Problemas com vetores/listas formulados e resolvidos com apoio de LLMs.",
+    enunciado: "Formulação de dois problemas práticos de Engenharia envolvendo operações com vetores/listas com apoio de LLM, seguidos de suas respectivas resoluções algorítmicas feitas de forma totalmente manual.",
     arquivos: [
       { nome: "IMG_20260424_142216.jpg", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251630505-IMG_20260424_142216.jpg" },
       { nome: "IMG_20260424_142226.jpg", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251638977-IMG_20260424_142226.jpg" },
+      { nome: "exercicios_papel_com_codigo.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782517510632-exercicios_papel_com_codigo.pdf" },
+      { nome: "problema2_resistores.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782517518595-problema2_resistores.py" },
+      { nome: "problema1_tensao.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782517520566-problema1_tensao.py" },
     ],
   },
   {
