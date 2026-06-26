@@ -165,19 +165,14 @@ function setupFiltroData() {
   });
 }
 
-function setupDataAtualizacao() {
-  const hoje = new Date();
-  const dataFormatada = hoje.toLocaleDateString("pt-BR");
-  document.getElementById("ultima-atualizacao").textContent =
-    `página carregada em: ${dataFormatada}`;
-}
-
 function setupHero() {
   const btnVerAtividades = document.querySelector('[data-scroll-to="painel-atividades"]');
   const btnSobreMim = document.querySelector('[data-goto-tab="sobre"]');
 
   if (btnVerAtividades) {
     btnVerAtividades.addEventListener("click", () => {
+      const tabAtividades = document.querySelector('.tab-btn[data-tab="atividades"]');
+      if (tabAtividades) tabAtividades.click();
       document.getElementById("painel-atividades").scrollIntoView({ behavior: "smooth" });
     });
   }
@@ -219,5 +214,4 @@ aplicarTodosFiltros();
 setupFiltroData();
 setupTabs();
 setupHero();
-setupDataAtualizacao();
 setupScrollReveal();

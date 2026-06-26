@@ -2,6 +2,7 @@
 // Efeito visual no fundo do cabeçalho: símbolos matemáticos flutuando
 // (camada principal) + trechos de código fluindo (camada sutil).
 // Puramente decorativo — não depende de nenhum dado do site.
+// Reaproveitável em qualquer canvas (index.html e atividade.html).
 // ===================================================================
 
 const SIMBOLOS_MATEMATICOS = [
@@ -22,8 +23,8 @@ const TRECHOS_DE_CODIGO = [
   "x = []", "n += 1", "try:", "except ValueError:",
 ];
 
-function iniciarEfeitoCabecalho() {
-  const canvas = document.getElementById("binary-rain");
+function iniciarEfeitoEmCanvas(canvasId) {
+  const canvas = document.getElementById(canvasId);
   if (!canvas) return;
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -31,13 +32,13 @@ function iniciarEfeitoCabecalho() {
   }
 
   const ctx = canvas.getContext("2d");
-  const header = canvas.parentElement;
+  const container = canvas.parentElement;
 
   let particulasMatematicas = [];
   let particulasCodigo = [];
 
   function numeroDeParticulas(largura) {
-    return Math.max(6, Math.round(largura / 140));
+    return Math.max(10, Math.round(largura / 95));
   }
 
   function criarParticulaMatematica(largura, altura) {
@@ -46,9 +47,9 @@ function iniciarEfeitoCabecalho() {
       cor: CORES_SIMBOLOS[Math.floor(Math.random() * CORES_SIMBOLOS.length)],
       x: Math.random() * largura,
       y: Math.random() * altura,
-      velocidade: 0.12 + Math.random() * 0.18,
-      tamanho: 13 + Math.random() * 9,
-      opacidadeBase: 0.10 + Math.random() * 0.12,
+      velocidade: 0.14 + Math.random() * 0.22,
+      tamanho: 16 + Math.random() * 12,
+      opacidadeBase: 0.16 + Math.random() * 0.16,
     };
   }
 
@@ -58,14 +59,14 @@ function iniciarEfeitoCabecalho() {
       x: largura + Math.random() * 200,
       y: Math.random() * altura,
       velocidade: 0.25 + Math.random() * 0.25,
-      opacidade: 0.06 + Math.random() * 0.05,
+      opacidade: 0.09 + Math.random() * 0.07,
     };
   }
 
   function redimensionar() {
     const dpr = window.devicePixelRatio || 1;
-    const largura = header.offsetWidth;
-    const altura = header.offsetHeight;
+    const largura = container.offsetWidth;
+    const altura = container.offsetHeight;
 
     canvas.width = largura * dpr;
     canvas.height = altura * dpr;
@@ -77,19 +78,19 @@ function iniciarEfeitoCabecalho() {
     particulasMatematicas = new Array(qtd)
       .fill(0)
       .map(() => criarParticulaMatematica(largura, altura));
-    particulasCodigo = new Array(Math.max(2, Math.round(qtd / 3)))
+    particulasCodigo = new Array(Math.max(3, Math.round(qtd / 2)))
       .fill(0)
       .map(() => criarParticulaCodigo(largura, altura));
   }
 
   function desenhar() {
-    const largura = header.offsetWidth;
-    const altura = header.offsetHeight;
+    const largura = container.offsetWidth;
+    const altura = container.offsetHeight;
 
     ctx.clearRect(0, 0, largura, altura);
 
     // Camada de fundo: trechos de código fluindo da direita para a esquerda
-    ctx.font = "11px monospace";
+    ctx.font = "12px monospace";
     for (const p of particulasCodigo) {
       ctx.fillStyle = `rgba(121,176,255,${p.opacidade})`;
       ctx.fillText(p.texto, p.x, p.y);
@@ -120,4 +121,4 @@ function iniciarEfeitoCabecalho() {
   requestAnimationFrame(desenhar);
 }
 
-iniciarEfeitoCabecalho();
+iniciarEfeitoEmCanvas("binary-rain");
