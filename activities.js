@@ -267,6 +267,17 @@ const atividades = [
       { nome: "sitev1.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782254950886-sitev1.pdf" },
     ],
   },
+  {
+    titulo: "Atividade em Aula: Portfólio no GitHub.io – Versão 26.03.2026",
+    data: "2026-06-26",
+    status: "enviada",
+    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MzIzMzMzMTIw/details",
+    descricao: "Nesta atividade, cada aluno deverá evoluir o site do portfólio desenvolvido anteriormente.",
+    nota: "Antes de realizar as alterações, converse com pelo menos dois colegas sobre seus portfólios. Apresente o seu site, conheça as soluções adotadas por eles e troque sugestões de organização, design, navegação e apresentação das entregas.\n\nCom base nessa troca de ideias, implemente pelo menos uma melhoria no seu portfólio e publique uma nova versão no GitHub.io. Identifiquem no site do portifólio todas as tecnologias que vocês estão utilizando, como GPT Versão X, Claude Versão Y, Gemini Versão Z, etc. Tecnologias Web (e.g., HTML, CSS, etc.). A própria IA pode ser utilizada para apresentar as tecnologias utilizadas para criar o site do portifólio de vocês.",
+    arquivos: [
+      { nome: "sitev2.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782496876914-sitev2.pdf" },
+    ],
+  },
 ];
 
 // Não precisa editar nada abaixo desta linha.
