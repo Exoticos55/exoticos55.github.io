@@ -1,8 +1,4 @@
-// ===================================================================
-// Lógica do painel. Não precisa editar este arquivo no dia a dia —
-// só o activities.js quando tiver atividade nova.
-// ===================================================================
-
+// CONFIGURAÇÕES E LABELS
 const STATUS_LABEL = {
   enviada: "Enviada",
   feita_nao_confirmada: "Feita, não confirmada",
@@ -10,166 +6,7 @@ const STATUS_LABEL = {
   atrasada: "Atrasada",
 };
 
-function formatarData(isoStr) {
-  const [ano, mes, dia] = isoStr.split("-");
-  return `${dia}/${mes}/${ano}`;
-}
-
-function renderProgresso(lista) {
-  const total = lista.length;
-  const enviadas = lista.filter((a) => a.status === "enviada").length;
-  const feitasNaoConfirmadas = lista.filter(
-    (a) => a.status === "feita_nao_confirmada"
-  ).length;
-  const pendentes = lista.filter((a) => a.status === "pendente").length;
-  const atrasadas = lista.filter((a) => a.status === "atrasada").length;
-
-  const concluidas = enviadas + feitasNaoConfirmadas;
-  const pct = total === 0 ? 0 : Math.round((concluidas / total) * 100);
-
-  const raio = 45;
-  const circunferencia = 2 * Math.PI * raio;
-  const offset = circunferencia * (1 - pct / 100);
-
-  const pctSeg = (n) => (total === 0 ? 0 : (n / total) * 100);
-
-  const section = document.getElementById("progress-section");
-  section.innerHTML = `
-    <div class="progress-ring-wrap">
-      <svg viewBox="0 0 110 110">
-        <defs>
-          <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#4d8dff" />
-            <stop offset="100%" stop-color="#ffd23f" />
-          </linearGradient>
-        </defs>
-        <circle class="progress-ring-bg" cx="55" cy="55" r="${raio}"></circle>
-        <circle class="progress-ring-fill" cx="55" cy="55" r="${raio}"
-          stroke-dasharray="${circunferencia}"
-          stroke-dashoffset="${offset}"></circle>
-      </svg>
-      <div class="progress-ring-label">
-        <span class="pct">${pct}%</span>
-        <span class="pct-sub">concluído</span>
-      </div>
-    </div>
-    <div class="progress-detail">
-      <h3>${concluidas} de ${total} atividades concluídas</h3>
-      <div class="progress-bar">
-        <div class="seg enviada" style="width:${pctSeg(enviadas)}%"></div>
-        <div class="seg feita_nao_confirmada" style="width:${pctSeg(feitasNaoConfirmadas)}%"></div>
-        <div class="seg atrasada" style="width:${pctSeg(atrasadas)}%"></div>
-        <div class="seg pendente" style="width:${pctSeg(pendentes)}%"></div>
-      </div>
-      <div class="progress-legend">
-        <span class="item"><span class="dot enviada"></span>Enviadas (${enviadas})</span>
-        <span class="item"><span class="dot feita_nao_confirmada"></span>Não confirmadas (${feitasNaoConfirmadas})</span>
-        <span class="item"><span class="dot atrasada"></span>Atrasadas (${atrasadas})</span>
-        <span class="item"><span class="dot pendente"></span>Pendentes (${pendentes})</span>
-      </div>
-    </div>
-  `;
-}
-
-function renderResumo(lista) {
-  const total = lista.length;
-  const enviadas = lista.filter((a) => a.status === "enviada").length;
-  const feitasNaoConfirmadas = lista.filter(
-    (a) => a.status === "feita_nao_confirmada"
-  ).length;
-  const pendentes = lista.filter((a) => a.status === "pendente").length;
-  const atrasadas = lista.filter((a) => a.status === "atrasada").length;
-
-  const summary = document.getElementById("summary");
-  summary.innerHTML = `
-    <div class="stat total">
-      <div class="num">${total}</div>
-      <div class="label">total</div>
-    </div>
-    <div class="stat enviada">
-      <div class="num">${enviadas}</div>
-      <div class="label">enviadas</div>
-    </div>
-    <div class="stat feita_nao_confirmada">
-      <div class="num">${feitasNaoConfirmadas}</div>
-      <div class="label">feitas, não confirmadas</div>
-    </div>
-    <div class="stat pendente">
-      <div class="num">${pendentes}</div>
-      <div class="label">pendentes</div>
-    </div>
-    <div class="stat atrasada">
-      <div class="num">${atrasadas}</div>
-      <div class="label">atrasadas</div>
-    </div>
-  `;
-
-  document.getElementById("contador-rodape").textContent =
-    `${enviadas}/${total} atividades enviadas`;
-}
-
-function renderLista(lista, ordem) {
-  const container = document.getElementById("activity-list");
-
-  if (lista.length === 0) {
-    container.innerHTML = `<p class="no-link">Nenhuma atividade encontrada com esses filtros.</p>`;
-    return;
-  }
-
-  const direcao = ordem === "asc" ? -1 : 1;
-  const ordenada = [...lista].sort((a, b) => (a.data < b.data ? 1 : -1) * direcao);
-
-  container.innerHTML = ordenada
-    .map((a) => {
-      const linkHtml = a.link
-        ? `<a class="link-btn" href="${a.link}" target="_blank" rel="noopener">ver no Classroom →</a>`
-        : `<span class="no-link">sem link do Classroom</span>`;
-
-      const notaHtml = a.nota
-        ? `<div class="note-box"><strong>Observação:</strong> ${a.nota}</div>`
-        : "";
-
-      const arquivos = Array.isArray(a.arquivos) ? a.arquivos : [];
-      const arquivosHtml = arquivos.length
-        ? `<div class="file-chips">
-            ${arquivos
-              .map(
-                (arq, i) => `
-              <button type="button" class="file-chip" data-arquivo-nome="${arq.nome.replace(/"/g, "&quot;")}" data-arquivo-url="${arq.url}">
-                <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <path d="M9.5 1.5H3.5a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V5.5L9.5 1.5Z"/>
-                  <path d="M9.5 1.5V5h4"/>
-                </svg>
-                <span>${arq.nome}</span>
-              </button>
-            `
-              )
-              .join("")}
-          </div>`
-        : "";
-
-      return `
-        <article class="activity ${a.status} reveal">
-          <div class="bar"></div>
-          <div class="body">
-            <h3>${a.titulo}</h3>
-            <p>${a.descricao}</p>
-            <span class="date">entrega: ${formatarData(a.data)}</span>
-            ${arquivosHtml}
-            ${notaHtml}
-          </div>
-          <div class="side">
-            <span class="badge ${a.status}">${STATUS_LABEL[a.status]}</span>
-            ${linkHtml}
-          </div>
-        </article>
-      `;
-    })
-    .join("");
-
-  setupFileChips();
-}
-
+// ESTADO GLOBAL DOS FILTROS
 const estadoFiltros = {
   status: "todas",
   dataDe: "",
@@ -177,120 +14,84 @@ const estadoFiltros = {
   ordem: "desc",
 };
 
-function aplicarTodosFiltros() {
-  let lista =
-    estadoFiltros.status === "todas"
-      ? atividades
-      : atividades.filter((a) => a.status === estadoFiltros.status);
+// FORMATAÇÃO DE DATA
+function formatarData(isoStr) {
+  if (!isoStr) return "--/--/----";
+  const [ano, mes, dia] = isoStr.split("-");
+  return `${dia}/${mes}/${ano}`;
+}
 
-  if (estadoFiltros.dataDe) {
-    lista = lista.filter((a) => a.data >= estadoFiltros.dataDe);
+// RENDERIZAÇÃO DA LISTA DE CARDS
+function renderLista(lista, ordem) {
+  const container = document.getElementById("activity-list");
+  if (lista.length === 0) {
+    container.innerHTML = `<p style="color:var(--ink-dim); font-family:var(--mono);">Nenhuma atividade encontrada.</p>`;
+    return;
   }
-  if (estadoFiltros.dataAte) {
-    lista = lista.filter((a) => a.data <= estadoFiltros.dataAte);
+
+  const direcao = ordem === "asc" ? -1 : 1;
+  const ordenada = [...lista].sort((a, b) => (a.data < b.data ? 1 : -1) * direcao);
+
+  container.innerHTML = ordenada.map((a) => `
+    <article class="activity ${a.status}" onclick="abrirModalAtividade('${a.titulo.replace(/'/g, "\\'")}')">
+      <div class="bar"></div>
+      <div class="body">
+        <h3>${a.titulo}</h3>
+        <span class="date">Entrega: ${formatarData(a.data)}</span>
+      </div>
+      <div class="side">
+        <span class="badge ${a.status}">${STATUS_LABEL[a.status]}</span>
+        <span style="font-size:10px; color:var(--ink-dim);">Ver detalhes →</span>
+      </div>
+    </article>
+  `).join("");
+}
+
+// FUNÇÕES DO NOVO MODAL DE DETALHES
+function abrirModalAtividade(titulo) {
+  const a = atividades.find(item => item.titulo === titulo);
+  if (!a) return;
+
+  const overlay = document.getElementById("activity-modal-overlay");
+  document.getElementById("modal-titulo").textContent = a.titulo;
+  document.getElementById("modal-data").textContent = `Prazo de entrega: ${formatarData(a.data)}`;
+  document.getElementById("modal-descricao").textContent = a.descricao;
+  
+  // Badge
+  document.getElementById("modal-badge-container").innerHTML = `<span class="badge ${a.status}">${STATUS_LABEL[a.status]}</span>`;
+
+  // Arquivos
+  const sectionArquivos = document.getElementById("modal-arquivos-section");
+  const listaArquivos = document.getElementById("modal-arquivos-lista");
+  if (a.arquivos && a.arquivos.length > 0) {
+    sectionArquivos.classList.remove("hidden");
+    listaArquivos.innerHTML = a.arquivos.map(arq => `
+      <button class="file-chip" onclick="event.stopPropagation(); abrirModalArquivo('${arq.nome.replace(/'/g, "\\'")}', '${arq.url}')">
+        ${arq.nome}
+      </button>
+    `).join("");
+  } else {
+    sectionArquivos.classList.add("hidden");
   }
 
-  renderLista(lista, estadoFiltros.ordem);
-  setupScrollReveal();
+  // Nota
+  const sectionNota = document.getElementById("modal-nota-section");
+  sectionNota.innerHTML = a.nota ? `<div class="note-box"><strong>Observação:</strong> ${a.nota}</div>` : "";
+
+  // Link Classroom
+  const linkContainer = document.getElementById("modal-link-container");
+  linkContainer.innerHTML = a.link 
+    ? `<a href="${a.link}" target="_blank" style="color:var(--accent-bright); font-family:var(--mono); text-decoration:none;">ABRIR NO CLASSROOM →</a>`
+    : `<span style="color:var(--ink-dim); font-size:12px;">Link não disponível</span>`;
+
+  overlay.classList.remove("hidden");
 }
 
-function setupTabs() {
-  const botoes = document.querySelectorAll(".tab-btn");
-  const painelAtividades = document.getElementById("activity-list");
-  const filtrosAtividades = document.getElementById("painel-atividades");
-  const painelSobre = document.getElementById("painel-sobre");
-
-  botoes.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      botoes.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      const aba = btn.dataset.tab;
-      if (aba === "sobre") {
-        painelAtividades.classList.add("hidden");
-        filtrosAtividades.classList.add("hidden");
-        painelSobre.classList.remove("hidden");
-      } else {
-        painelAtividades.classList.remove("hidden");
-        filtrosAtividades.classList.remove("hidden");
-        painelSobre.classList.add("hidden");
-      }
-    });
-  });
+function fecharModalAtividade() {
+  document.getElementById("activity-modal-overlay").classList.add("hidden");
 }
 
-function setupFiltros() {
-  const botoes = document.querySelectorAll(".filter-btn");
-  botoes.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      botoes.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      estadoFiltros.status = btn.dataset.filter;
-      aplicarTodosFiltros();
-    });
-  });
-}
-
-function setupFiltroData() {
-  const btnOrdenar = document.getElementById("btn-ordenar");
-  const ordenarLabel = document.getElementById("ordenar-label");
-  const inputDe = document.getElementById("data-de");
-  const inputAte = document.getElementById("data-ate");
-  const btnLimpar = document.getElementById("btn-limpar-datas");
-
-  btnOrdenar.addEventListener("click", () => {
-    estadoFiltros.ordem = estadoFiltros.ordem === "desc" ? "asc" : "desc";
-    btnOrdenar.dataset.ordem = estadoFiltros.ordem;
-    ordenarLabel.textContent =
-      estadoFiltros.ordem === "desc" ? "Mais recentes primeiro" : "Mais antigas primeiro";
-    aplicarTodosFiltros();
-  });
-
-  inputDe.addEventListener("change", () => {
-    estadoFiltros.dataDe = inputDe.value;
-    aplicarTodosFiltros();
-  });
-
-  inputAte.addEventListener("change", () => {
-    estadoFiltros.dataAte = inputAte.value;
-    aplicarTodosFiltros();
-  });
-
-  btnLimpar.addEventListener("click", () => {
-    inputDe.value = "";
-    inputAte.value = "";
-    estadoFiltros.dataDe = "";
-    estadoFiltros.dataAte = "";
-    aplicarTodosFiltros();
-  });
-}
-
-function setupDataAtualizacao() {
-  const hoje = new Date();
-  const dataFormatada = hoje.toLocaleDateString("pt-BR");
-  document.getElementById("ultima-atualizacao").textContent =
-    `página carregada em: ${dataFormatada}`;
-}
-
-function detectarTipoArquivo(nome) {
-  const ext = nome.split(".").pop().toLowerCase();
-  if (ext === "pdf") return "pdf";
-  if (["png", "jpg", "jpeg", "gif", "webp", "svg"].includes(ext)) return "imagem";
-  if (["doc", "docx", "xls", "xlsx", "ppt", "pptx"].includes(ext)) return "documento";
-  if (
-    ["py", "js", "ts", "jsx", "tsx", "java", "c", "cpp", "cs", "go", "rb",
-     "php", "html", "css", "json", "txt", "md", "sql", "sh", "yml", "yaml"]
-      .includes(ext)
-  ) return "codigo";
-  return "outro";
-}
-
-function escaparHtml(texto) {
-  const div = document.createElement("div");
-  div.textContent = texto;
-  return div.innerHTML;
-}
-
+// FUNÇÕES DO MODAL DE ARQUIVO (VISUALIZAÇÃO)
 async function abrirModalArquivo(nome, url) {
   const overlay = document.getElementById("file-modal-overlay");
   const titulo = document.getElementById("file-modal-titulo");
@@ -304,92 +105,107 @@ async function abrirModalArquivo(nome, url) {
   linkBaixar.setAttribute("download", nome);
   overlay.classList.remove("hidden");
 
-  const tipo = detectarTipoArquivo(nome);
-  if (tipo === "pdf") {
-    const urlVisualizacao = `https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`;
-    body.innerHTML = `<iframe src="${urlVisualizacao}" title="${nome}"></iframe>`;
-  } else if (tipo === "documento") {
-    const urlVisualizacao = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(url)}`;
-    body.innerHTML = `<iframe src="${urlVisualizacao}" title="${nome}"></iframe>`;
-  } else if (tipo === "imagem") {
-    body.innerHTML = `<img src="${url}" alt="${nome}" />`;
-  } else if (tipo === "codigo") {
-    body.innerHTML = `<div class="file-modal-fallback">Carregando conteúdo...</div>`;
-    try {
-      const resp = await fetch(url);
-      if (!resp.ok) throw new Error("Não consegui carregar o arquivo.");
-      const texto = await resp.text();
-      body.innerHTML = `<pre class="file-code-view"><code>${escaparHtml(texto)}</code></pre>`;
-    } catch (erro) {
-      body.innerHTML = `<div class="file-modal-fallback">
-        Não consegui carregar o conteúdo aqui.<br/>
-        Use "Abrir em outra aba" para ver o arquivo.
-      </div>`;
-    }
+  const ext = nome.split(".").pop().toLowerCase();
+  if (ext === "pdf") {
+    body.innerHTML = `<iframe src="https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true"></iframe>`;
+  } else if (["png", "jpg", "jpeg", "gif"].includes(ext)) {
+    body.innerHTML = `<img src="${url}" />`;
   } else {
-    body.innerHTML = `<div class="file-modal-fallback">
-      Esse tipo de arquivo não tem visualização direta aqui.<br/>
-      Use "Abrir em outra aba" para baixar ou ver o conteúdo.
-    </div>`;
+    body.innerHTML = `<div style="padding:20px; color:white; text-align:center;">Visualização não disponível.<br><br><a href="${url}" target="_blank" style="color:cyan">Clique aqui para baixar</a></div>`;
   }
 }
 
 function fecharModalArquivo() {
-  const overlay = document.getElementById("file-modal-overlay");
-  const body = document.getElementById("file-modal-body");
-  overlay.classList.add("hidden");
-  body.innerHTML = "";
+  document.getElementById("file-modal-overlay").classList.add("hidden");
+  document.getElementById("file-modal-body").innerHTML = "";
 }
 
-function setupFileChips() {
-  document.querySelectorAll(".file-chip").forEach((chip) => {
-    chip.addEventListener("click", () => {
-      abrirModalArquivo(chip.dataset.arquivoNome, chip.dataset.arquivoUrl);
+// LOGICA DE FILTROS E PROGRESSO
+function renderProgresso(lista) {
+  const total = lista.length;
+  const concluidas = lista.filter(a => a.status === "enviada" || a.status === "feita_nao_confirmada").length;
+  const pct = total === 0 ? 0 : Math.round((concluidas / total) * 100);
+  
+  const section = document.getElementById("progress-section");
+  section.innerHTML = `
+    <div style="font-size:32px; font-weight:bold; font-family:var(--mono);">${pct}%</div>
+    <div style="font-size:10px; color:var(--ink-dim); text-transform:uppercase;">Concluído</div>
+    <div style="width:100%; height:4px; background:var(--line); border-radius:4px; margin-top:12px;">
+      <div style="width:${pct}%; height:100%; background:var(--accent); border-radius:4px;"></div>
+    </div>
+  `;
+}
+
+function renderResumo(lista) {
+  const total = lista.length;
+  const enviadas = lista.filter(a => a.status === "enviada").length;
+  document.getElementById("summary").innerHTML = `
+    <div class="stat"><div class="num">${total}</div><div class="label">Total</div></div>
+    <div class="stat"><div class="num" style="color:var(--accent-bright)">${enviadas}</div><div class="label">Enviadas</div></div>
+  `;
+  document.getElementById("contador-rodape").textContent = `${enviadas}/${total} Enviadas`;
+}
+
+function aplicarTodosFiltros() {
+  let lista = estadoFiltros.status === "todas" ? atividades : atividades.filter(a => a.status === estadoFiltros.status);
+  if (estadoFiltros.dataDe) lista = lista.filter(a => a.data >= estadoFiltros.dataDe);
+  if (estadoFiltros.dataAte) lista = lista.filter(a => a.data <= estadoFiltros.dataAte);
+  renderLista(lista, estadoFiltros.ordem);
+}
+
+// EVENT LISTENERS INICIAIS
+function init() {
+  renderProgresso(atividades);
+  renderResumo(atividades);
+  aplicarTodosFiltros();
+
+  // Tabs
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      if (btn.dataset.tab === "sobre") {
+        document.getElementById("activity-list").classList.add("hidden");
+        document.getElementById("painel-atividades").classList.add("hidden");
+        document.getElementById("painel-sobre").classList.remove("hidden");
+      } else {
+        document.getElementById("activity-list").classList.remove("hidden");
+        document.getElementById("painel-atividades").classList.remove("hidden");
+        document.getElementById("painel-sobre").classList.add("hidden");
+      }
     });
   });
-}
 
-function setupModalGlobal() {
-  const overlay = document.getElementById("file-modal-overlay");
-  document.getElementById("file-modal-fechar").addEventListener("click", fecharModalArquivo);
-  overlay.addEventListener("click", (evento) => {
-    if (evento.target === overlay) fecharModalArquivo();
+  // Filtros de Status
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      estadoFiltros.status = btn.dataset.filter;
+      aplicarTodosFiltros();
+    });
   });
-  document.addEventListener("keydown", (evento) => {
-    if (evento.key === "Escape") fecharModalArquivo();
+
+  // Ordenar
+  document.getElementById("btn-ordenar").addEventListener("click", function() {
+    estadoFiltros.ordem = estadoFiltros.ordem === "desc" ? "asc" : "desc";
+    this.dataset.ordem = estadoFiltros.ordem;
+    document.getElementById("ordenar-label").textContent = estadoFiltros.ordem === "desc" ? "Mais recentes primeiro" : "Mais antigas primeiro";
+    aplicarTodosFiltros();
   });
+
+  // Fechar modais
+  document.getElementById("btn-fechar-modal-atividades").onclick = fecharModalAtividade;
+  document.getElementById("file-modal-fechar").onclick = fecharModalArquivo;
+  
+  // Clique fora do modal para fechar
+  window.onclick = (e) => {
+    if (e.target.id === "activity-modal-overlay") fecharModalAtividade();
+    if (e.target.id === "file-modal-overlay") fecharModalArquivo();
+  };
+
+  // Data de atualização
+  document.getElementById("ultima-atualizacao").textContent = `página carregada em: ${new Date().toLocaleDateString("pt-BR")}`;
 }
 
-function setupScrollReveal() {
-  const elementos = document.querySelectorAll(".reveal:not(.is-visible)");
-
-  if (!("IntersectionObserver" in window)) {
-    elementos.forEach((el) => el.classList.add("is-visible"));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entradas) => {
-      entradas.forEach((entrada) => {
-        if (entrada.isIntersecting) {
-          entrada.target.classList.add("is-visible");
-          observer.unobserve(entrada.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
-  );
-
-  elementos.forEach((el) => observer.observe(el));
-}
-
-// Inicialização
-renderProgresso(atividades);
-renderResumo(atividades);
-aplicarTodosFiltros();
-setupFiltros();
-setupFiltroData();
-setupTabs();
-setupDataAtualizacao();
-setupModalGlobal();
-setupScrollReveal();
+init();
