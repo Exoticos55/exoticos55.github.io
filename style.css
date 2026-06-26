@@ -933,3 +933,35 @@ footer {
     transition: none;
   }
 }
+/* ===================================================================
+   TRAVA ESTÉTICA DOS CARDS E COMPORTAMENTO DO MODAL
+   =================================================================== */
+
+/* Limita a descrição no grid principal para 3 linhas mantendo o alinhamento */
+.card-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--ink-dim);
+  font-size: 13px;
+  margin: 8px 0 12px;
+}
+
+/* Transforma o card inteiro em elemento clicável */
+.activity-card {
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.activity-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-bright);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Alinha o grid pelo topo para remover espaços vazios */
+#activity-list {
+  align-items: start;
+}
