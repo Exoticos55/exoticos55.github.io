@@ -120,7 +120,7 @@ function renderLista(lista, ordem) {
   const ordenada = [...lista].sort((a, b) => (a.data < b.data ? 1 : -1) * direcao);
 
   container.innerHTML = ordenada
-    .map((a) => {
+    .map((a, index) => {
       const linkHtml = a.link
         ? `<a class="link-btn" href="${a.link}" target="_blank" rel="noopener">ver no Classroom →</a>`
         : `<span class="no-link">sem link do Classroom</span>`;
@@ -149,7 +149,7 @@ function renderLista(lista, ordem) {
         : "";
 
       return `
-        <article class="activity ${a.status} reveal">
+        <article class="activity ${a.status} reveal" data-activity-index="${index}">
           <div class="bar"></div>
           <div class="body">
             <h3>${a.titulo}</h3>
@@ -168,6 +168,7 @@ function renderLista(lista, ordem) {
     .join("");
 
   setupFileChips();
+  setupActivityCards();
 }
 
 const estadoFiltros = {
@@ -343,7 +344,8 @@ function fecharModalArquivo() {
 
 function setupFileChips() {
   document.querySelectorAll(".file-chip").forEach((chip) => {
-    chip.addEventListener("click", () => {
+    chip.addEventListener("click", (e) => {
+      e.stopPropagation();
       abrirModalArquivo(chip.dataset.arquivoNome, chip.dataset.arquivoUrl);
     });
   });
@@ -357,6 +359,130 @@ function setupModalGlobal() {
   });
   document.addEventListener("keydown", (evento) => {
     if (evento.key === "Escape") fecharModalArquivo();
+  });
+}
+
+// ===================================================================
+// MODAL DE DETALHES DA ATIVIDADE
+// ===================================================================
+
+function abrirModalAtividade(indice) {
+  const atividade = atividades[indice];
+  if (!atividade) return;
+
+  const overlay = document.getElementById("activity-modal-overlay");
+  const titulo = document.getElementById("activity-modal-titulo");
+  const body = document.getElementById("activity-modal-body");
+
+  titulo.textContent = atividade.titulo;
+
+  const arquivos = Array.isArray(atividade.arquivos) ? atividade.arquivos : [];
+  const arquivosHtml = arquivos.length
+    ? `
+      <div class="activity-detail-section">
+        <h3>Arquivos</h3>
+        <div class="file-chips">
+          ${arquivos
+            .map(
+              (arq) => `
+            <button type="button" class="file-chip" data-arquivo-nome="${arq.nome.replace(/"/g, "&quot;")}" data-arquivo-url="${arq.url}">
+              <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M9.5 1.5H3.5a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V5.5L9.5 1.5Z"/>
+                <path d="M9.5 1.5V5h4"/>
+              </svg>
+              <span>${arq.nome}</span>
+            </button>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+    `
+    : "";
+
+  const linkHtml = atividade.link
+    ? `
+      <a href="${atividade.link}" target="_blank" rel="noopener" class="activity-detail-link">
+        <span>Abrir no Classroom</span>
+        <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 10L12 4M12 4H7M12 4V9"/>
+        </svg>
+      </a>
+    `
+    : "";
+
+  const notaHtml = atividade.nota
+    ? `
+      <div class="activity-detail-section">
+        <h3>Observação</h3>
+        <div class="note-box">
+          <p>${atividade.nota}</p>
+        </div>
+      </div>
+    `
+    : "";
+
+  body.innerHTML = `
+    <div class="activity-detail-section">
+      <h3>Status</h3>
+      <div class="activity-detail-badge ${atividade.status}">
+        ${STATUS_LABEL[atividade.status]}
+      </div>
+    </div>
+
+    <div class="activity-detail-divider"></div>
+
+    <div class="activity-detail-section">
+      <h3>Data de Entrega</h3>
+      <p>${formatarData(atividade.data)}</p>
+    </div>
+
+    <div class="activity-detail-section">
+      <h3>Descrição</h3>
+      <p>${atividade.descricao}</p>
+    </div>
+
+    ${linkHtml ? `<div class="activity-detail-divider"></div>${linkHtml}` : ""}
+
+    ${arquivosHtml}
+
+    ${notaHtml}
+  `;
+
+  overlay.classList.remove("hidden");
+  setupFileChips();
+}
+
+function fecharModalAtividade() {
+  const overlay = document.getElementById("activity-modal-overlay");
+  overlay.classList.add("hidden");
+}
+
+function setupActivityCards() {
+  document.querySelectorAll(".activity").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      // Não abrir modal se clicou em um link ou chip de arquivo
+      if (e.target.closest(".link-btn") || e.target.closest(".file-chip")) {
+        return;
+      }
+      const indice = parseInt(card.dataset.activityIndex);
+      abrirModalAtividade(indice);
+    });
+  });
+}
+
+function setupActivityModalGlobal() {
+  const overlay = document.getElementById("activity-modal-overlay");
+  const btnFechar = document.getElementById("activity-modal-fechar");
+
+  btnFechar.addEventListener("click", fecharModalAtividade);
+
+  overlay.addEventListener("click", (evento) => {
+    if (evento.target === overlay) fecharModalAtividade();
+  });
+
+  document.addEventListener("keydown", (evento) => {
+    if (evento.key === "Escape") fecharModalAtividade();
   });
 }
 
@@ -392,4 +518,5 @@ setupFiltroData();
 setupTabs();
 setupDataAtualizacao();
 setupModalGlobal();
+setupActivityModalGlobal();
 setupScrollReveal();
