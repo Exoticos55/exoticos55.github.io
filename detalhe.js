@@ -35,8 +35,11 @@ function renderDetalhe(atividade) {
   const container = document.getElementById("detail-content");
 
   const linkHtml = atividade.link
-    ? `<a class="link-btn" href="${atividade.link}" target="_blank" rel="noopener">ver no Classroom →</a>`
-    : `<span class="no-link">sem link do Classroom</span>`;
+    ? `<div class="detail-section detail-classroom">
+        <h3>Referência no Classroom</h3>
+        <a class="link-btn" href="${atividade.link}" target="_blank" rel="noopener">ver no Classroom →</a>
+      </div>`
+    : "";
 
   const notaHtml = atividade.nota
     ? `<div class="note-box"><strong>Observação:</strong> ${atividade.nota}</div>`
@@ -99,11 +102,7 @@ function renderDetalhe(atividade) {
       ${enunciadoHtml}
       ${tecnologiasHtml}
       ${arquivosHtml}
-
-      <div class="detail-section detail-classroom">
-        <h3>Referência no Classroom</h3>
-        ${linkHtml}
-      </div>
+      ${linkHtml}
 
       ${notaHtml}
     </div>
