@@ -165,27 +165,6 @@ function setupFiltroData() {
   });
 }
 
-function setupHero() {
-  const btnVerAtividades = document.querySelector('[data-scroll-to="painel-atividades"]');
-  const btnSobreMim = document.querySelector('[data-goto-tab="sobre"]');
-
-  if (btnVerAtividades) {
-    btnVerAtividades.addEventListener("click", () => {
-      const tabAtividades = document.querySelector('.tab-btn[data-tab="atividades"]');
-      if (tabAtividades) tabAtividades.click();
-      document.getElementById("painel-atividades").scrollIntoView({ behavior: "smooth" });
-    });
-  }
-
-  if (btnSobreMim) {
-    btnSobreMim.addEventListener("click", () => {
-      const tabSobre = document.querySelector('.tab-btn[data-tab="sobre"]');
-      if (tabSobre) tabSobre.click();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
-}
-
 function setupScrollReveal() {
   const elementos = document.querySelectorAll(".reveal:not(.is-visible)");
 
@@ -213,5 +192,4 @@ function setupScrollReveal() {
 aplicarTodosFiltros();
 setupFiltroData();
 setupTabs();
-setupHero();
 setupScrollReveal();
