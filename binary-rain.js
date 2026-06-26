@@ -38,7 +38,7 @@ function iniciarEfeitoEmCanvas(canvasId) {
   let particulasCodigo = [];
 
   function numeroDeParticulas(largura) {
-    return Math.max(16, Math.round(largura / 55));
+    return Math.max(28, Math.round(largura / 32));
   }
 
   function criarParticulaMatematica(largura, altura) {
@@ -48,8 +48,8 @@ function iniciarEfeitoEmCanvas(canvasId) {
       x: Math.random() * largura,
       y: Math.random() * altura,
       velocidade: 0.14 + Math.random() * 0.22,
-      tamanho: 16 + Math.random() * 12,
-      opacidadeBase: 0.16 + Math.random() * 0.16,
+      tamanho: 15 + Math.random() * 13,
+      opacidadeBase: 0.20 + Math.random() * 0.20,
     };
   }
 
