@@ -36,6 +36,7 @@ const atividades = [
     enunciado: "Seleção ou geração via IA de 15 exercícios de lógica e algoritmos básicos com estruturas condicionais simples, aplicados à área de Engenharia, acompanhados de suas respectivas resoluções completas (em formato digital ou manuscrito).\n\nApostila usada; https://drive.google.com/file/d/1S0NM66Rm18fJjp0sNm6gcpFJDR8qUjdU/view?usp=sharing",
     arquivos: [
       { nome: "15atividades.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782252190595-15atividades.pdf" },
+      { nome: "Apostila_de_Logica_de_Programacao.pdf", url: "arquivos/1782520352068-Apostila_de_Logica_de_Programacao.pdf" },
     ],
     tecnologias: ["python"],
   },
@@ -43,7 +44,7 @@ const atividades = [
     titulo: "Lista de 10 Exercícios da INTRODUCAO A ALGORITMOS com Python by Claude.ai",
     data: "2026-04-10",
     status: "enviada",
-    link: "",
+    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk2OTk2MzY4ODI0/details",
     descricao: "Exercícios introdutórios de algoritmos em Python.",
     enunciado: "Seleção e resolução em Python de no mínimo 10 exercícios extraídos da apostila \"Introdução a Algoritmos com Python\" (desenvolvida via Claude.ai), focando na aplicação prática da linguagem de programação e na correção textual de caracteres e acentuações.",
     arquivos: [
