@@ -82,6 +82,10 @@ const atividades = [
     descricao: "Exercícios resolvidos manualmente, em papel.",
     arquivos: [
       { nome: "CodigosgeradosporLLM.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251787582-CodigosgeradosporLLM.pdf" },
+      { nome: "IMG_20260418_163328.jpg", url: "https://github.com/Exoticos55/exoticos55.github.io/blob/main/arquivos/06-exercicios-papel/IMG_20260418_163328.jpg" },
+      { nome: "IMG_20260418_164248.jpg", url: "https://github.com/Exoticos55/exoticos55.github.io/blob/main/arquivos/06-exercicios-papel/IMG_20260418_164248.jpg" },
+      { nome: "IMG_20260418_164959.jpg", url: "https://github.com/Exoticos55/exoticos55.github.io/blob/main/arquivos/06-exercicios-papel/IMG_20260418_164959.jpg" },
+      { nome: "IMG_20260418_170031.jpg", url: "https://github.com/Exoticos55/exoticos55.github.io/blob/main/arquivos/06-exercicios-papel/IMG_20260418_170031.jpg" },
     ],
   },
   {
