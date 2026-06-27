@@ -286,12 +286,13 @@ const atividades = [
     titulo: "Projeto Final da Disciplina: Portfólio de Entregas no GitHub.io (Versão 1)",
     data: "2026-06-23",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjkxNDc1Mjgy/details",
+    link: "",
     descricao: "Cada aluno deverá desenvolver um site de portfólio contendo todas as entregas realizadas ao longo do semestre",
-    nota: "Esta versão servirá como base para o desenvolvimento da versão final do projeto, que deverá conter todas as entregas da disciplina organizadas e documentadas de forma completa.",
+    enunciado: "Consolidação e lançamento da primeira versão estável do portfólio digital na infraestrutura do GitHub Pages. O projeto consistiu em catalogar, organizar e documentar de forma estruturada todas as atividades, códigos e artefatos desenvolvidos ao longo do semestre, garantindo rastreabilidade através do rastreamento de commits do repositório.",
     arquivos: [
       { nome: "sitev1.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782254950886-sitev1.pdf" },
     ],
+    tecnologias: ["github"],
   },
   {
     titulo: "Atividade em Aula: Portfólio no GitHub.io – Versão 26.03.2026",
