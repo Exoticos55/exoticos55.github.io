@@ -156,11 +156,13 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY0MTM1NzI0NTcx/details",
     descricao: "Resolução de um problema de engenharia escolhido entre dois propostos.",
+    enunciado: "Implementação em Python e auditoria comparativa de IAs para a resolução de um problema complexo de engenharia (Treliças Planas ou Sistemas de Abastecimento). O projeto utilizou estruturas de dados dinâmicas (vetores/listas de tamanho variável), exibição de resultados em tabelas e gráficos, além de uma análise técnica do desempenho do mesmo prompt em três LLMs distintas.",
     arquivos: [
       { nome: "codigos_gemini.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/10-problema-engenharia-um/1782251037598-codigos_gemini.py" },
       { nome: "codigos_chatgpt.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/10-problema-engenharia-um/1782251038725-codigos_chatgpt.py" },
       { nome: "codigos_claude.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/10-problema-engenharia-um/1782251039731-codigos_claude.py" },
     ],
+    tecnologias: ["claude", "gemini", "chatgpt"],
   },
   {
     titulo: "Atividade: entregar o outro dos dois problemas de engenharia propostos da aula passada",
