@@ -44,7 +44,7 @@ const atividades = [
     titulo: "Lista de 10 Exercícios da INTRODUCAO A ALGORITMOS com Python by Claude.ai",
     data: "2026-04-10",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk2OTk2MzY4ODI0/details",
+    link: "",
     descricao: "Exercícios introdutórios de algoritmos em Python.",
     enunciado: "Seleção e resolução em Python de no mínimo 10 exercícios extraídos da apostila \"Introdução a Algoritmos com Python\" (desenvolvida via Claude.ai), focando na aplicação prática da linguagem de programação e na correção textual de caracteres e acentuações.",
     arquivos: [
