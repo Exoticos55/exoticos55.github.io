@@ -219,8 +219,9 @@ const atividades = [
     titulo: "Escreva um breve relato sincero sobre as entrevistas",
     data: "2026-06-09",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY3NDY1MDE4ODMy/details",
+    link: "",
     descricao: "Relato sincero sobre as entrevistas realizadas.",
+    enunciado: "Submissão de feedback analítico e transparente sobre a experiência em processos de entrevista técnica e acadêmica. O relato cobriu aspectos de inteligência emocional, clareza das arguições, postura da banca examinadora e gestão do tempo, visando a melhoria contínua dos processos seletivos da instituição.",
     arquivos: [
       { nome: "feedback_entrevista.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782249891904-feedback_entrevista.pdf" },
     ],
