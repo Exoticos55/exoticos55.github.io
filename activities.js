@@ -181,11 +181,13 @@ const atividades = [
     titulo: "Escolher e resolver um problema de engenharia",
     data: "2026-05-19",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3ODY4MDAzNTI3/details",
+    link: "",
     descricao: "Escolha e resolução de um novo problema de engenharia.",
+    enunciado: "Desenvolvimento de uma solução autônoma de engenharia com total liberdade de escopo, utilizando Inteligência Artificial. O projeto consistiu na modelagem completa do problema escolhido, desenvolvimento do código-fonte em Python e criação de dashboards visuais com gráficos, tabelas e simulações para validação dos resultados.",
     arquivos: [
       { nome: "Apresentacao_Matheus_Peres_Final.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250178092-Apresentacao_Matheus_Peres_Final.pdf" },
     ],
+    tecnologias: ["claude"],
   },
   {
     titulo: "Evolução técnica da solução desenvolvida na atividade anterior",
