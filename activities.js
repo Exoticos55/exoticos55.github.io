@@ -155,7 +155,7 @@ const atividades = [
     titulo: "Atividade: escolher e entregar 1 dos dois problemas de engenharia propostos",
     data: "2026-05-12",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY0MTM1NzI0NTcx/details",
+    link: "",
     descricao: "Resolução de um problema de engenharia escolhido entre dois propostos.",
     enunciado: "Implementação em Python e auditoria comparativa de IAs para a resolução de um problema complexo de engenharia (Treliças Planas ou Sistemas de Abastecimento). O projeto utilizou estruturas de dados dinâmicas (vetores/listas de tamanho variável), exibição de resultados em tabelas e gráficos, além de uma análise técnica do desempenho do mesmo prompt em três LLMs distintas.",
     arquivos: [
