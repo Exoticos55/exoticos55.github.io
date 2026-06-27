@@ -21,7 +21,7 @@ const atividades = [
     titulo: "Preenchimento do formulário de diagnóstico inicial",
     data: "2026-03-17",
     status: "enviada",
-    link: "",
+    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU2MTY4NzMyMjIw/details",
     descricao: "Formulário inicial de diagnóstico da disciplina.",
     arquivos: [
       { nome: "Questionário Diagnóstico - Algoritmos e Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254122282-Questionario-Diagnostico---Algoritmos-e-Programacao.pdf" },
@@ -248,7 +248,7 @@ const atividades = [
     titulo: "Quiz – Lógica de Programação (Preparatório em aula)",
     data: "2026-03-20",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk2NjkyMTA3NDYx/details",
+    link: "",
     descricao: "Quiz preparatório de lógica de programação, feito em aula.",
     nota: "Atividade foi realizada e marcada como concluída no site do quiz, mas não foi printada/confirmada no Classroom a tempo. Ficou registrada como não entregue.",
     arquivos: [
