@@ -70,8 +70,9 @@ const atividades = [
     titulo: "Quiz de Avaliação da Atividade: Uso de LLMs em Algoritmos e Programação",
     data: "2026-04-10",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU4NTI5MjQ2OTE1/details",
+    link: "",
     descricao: "Quiz avaliativo sobre o uso de LLMs na disciplina.",
+    enunciado: "Estudo de caso e preenchimento de questionário analítico focado na avaliação do uso de LLMs no ensino de algoritmos. O projeto envolveu documentar a percepção de aprendizado, identificar limitações técnicas das IAs e propor melhorias pedagógicas para a integração de ferramentas generativas na engenharia.",
     arquivos: [
       { nome: "Quiz de Avaliação da Atividade_ Uso de LLMs em Algoritmos e Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254797581-Quiz-de-Avaliacao-da-Atividade_-Uso-de-LLMs-em-Algoritmos-e-Programacao.pdf" },
     ],
