@@ -124,6 +124,7 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODYzMDE2ODMyNDUy/details",
     descricao: "Iteração de versões do código até obter resultados visuais consistentes.",
+    enunciado: "Desenvolvimento iterativo de um algoritmo de otimização de rotas e consumo logístico para a Engenharia de Produção. O projeto focou em comparar o trajeto sequencial versus a heurística do \"Vizinho Mais Próximo\" em Python, validando o consumo de combustível e a autonomia do veículo por meio de visualizações de dados consistentes.",
     arquivos: [
       { nome: "exercicio3_v4_com_graficos.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251393818-exercicio3_v4_com_graficos.py" },
       { nome: "exercicio3_v3_avancada.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251395126-exercicio3_v3_avancada.py" },
