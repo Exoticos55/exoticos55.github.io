@@ -55,14 +55,16 @@ const atividades = [
     titulo: "Geração e Avaliação de Exercícios de Algoritmos com LLMs",
     data: "2026-04-10",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU4NTI5NjQyNzU0/details",
+    link: "",
     descricao: "Uso de LLMs para gerar e avaliar exercícios de algoritmos.",
+    enunciado: "Análise comparativa qualitativa de três LLMs na geração de problemas de algoritmos aplicados às Engenharias Elétrica, Mecânica e de Telecomunicações. O projeto avaliou a precisão de enunciados realistas, pseudocódigos e códigos Python produzidos por cada IA.",
     arquivos: [
       { nome: "exercicios_gemini.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782255404553-exercicios_gemini.py" },
       { nome: "exercicios_chatgpt.docx", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782255405843-exercicios_chatgpt.docx" },
       { nome: "analise_comparativa_llms.docx", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782255407165-analise_comparativa_llms.docx" },
       { nome: "exercicios_claude.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782255408402-exercicios_claude.py" },
     ],
+    tecnologias: ["python"],
   },
   {
     titulo: "Quiz de Avaliação da Atividade: Uso de LLMs em Algoritmos e Programação",
