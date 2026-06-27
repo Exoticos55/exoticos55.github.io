@@ -108,9 +108,9 @@ const atividades = [
     arquivos: [
       { nome: "IMG_20260424_142216.jpg", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251630505-IMG_20260424_142216.jpg" },
       { nome: "IMG_20260424_142226.jpg", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251638977-IMG_20260424_142226.jpg" },
-      { nome: "exercicios_papel_com_codigo.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782517510632-exercicios_papel_com_codigo.pdf" },
-      { nome: "problema2_resistores.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782517518595-problema2_resistores.py" },
-      { nome: "problema1_tensao.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782517520566-problema1_tensao.py" },
+      { nome: "exercicios_papel_com_codigo.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782579055776-exercicios_papel_com_codigo.pdf" },
+      { nome: "problema1_tensao.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782579058795-problema1_tensao.py" },
+      { nome: "problema2_resistores.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782579059817-problema2_resistores.py" },
     ],
   },
   {
