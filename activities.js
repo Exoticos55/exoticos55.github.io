@@ -122,7 +122,7 @@ const atividades = [
     titulo: "Atividade: Gerar as diferentes versões do código até ter resultados visuais interessantes e consistentes",
     data: "2026-05-05",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODYzMDE2ODMyNDUy/details",
+    link: "",
     descricao: "Iteração de versões do código até obter resultados visuais consistentes.",
     enunciado: "Desenvolvimento iterativo de um algoritmo de otimização de rotas e consumo logístico para a Engenharia de Produção. O projeto focou em comparar o trajeto sequencial versus a heurística do \"Vizinho Mais Próximo\" em Python, validando o consumo de combustível e a autonomia do veículo por meio de visualizações de dados consistentes.",
     arquivos: [
