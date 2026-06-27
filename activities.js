@@ -36,7 +36,6 @@ const atividades = [
     enunciado: "Seleção ou geração via IA de 15 exercícios de lógica e algoritmos básicos com estruturas condicionais simples, aplicados à área de Engenharia, acompanhados de suas respectivas resoluções completas (em formato digital ou manuscrito).\n\nApostila usada; https://drive.google.com/file/d/1S0NM66Rm18fJjp0sNm6gcpFJDR8qUjdU/view?usp=sharing",
     arquivos: [
       { nome: "15atividades.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782252190595-15atividades.pdf" },
-      { nome: "Apostila_de_Logica_de_Programacao1.pdf", url: "arquivos/1782520352068-Apostila_de_Logica_de_Programacao1.pdf" },
     ],
     tecnologias: ["python"],
   },
