@@ -242,11 +242,13 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjE2NjI2NzM2/details",
     descricao: "Desenvolvimento assistido por IA para o portal Alegrete.org.",
+    enunciado: "Desenvolvimento de soluções em Python assistidas por IA para automação de dados e enriquecimento do portal alegrete.org. O projeto focou na engenharia de prompts iterativa para construir aplicações funcionais como raspagem de eventos, tratamento de imagens ou catálogos digitais, documentando o código em repositório GitHub.",
     arquivos: [
       { nome: "sitehtml.html", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/17-dev-ia-alegrete/1782249620120-sitehtml.html" },
       { nome: "codigopy.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/17-dev-ia-alegrete/1782249628913-codigopy.py" },
       { nome: "documento.txt", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/17-dev-ia-alegrete/1782249636087-documento.txt" },
     ],
+    tecnologias: ["python"],
   },
   {
     titulo: "Postar o link e um print do seu site .github.io",
