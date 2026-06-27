@@ -48,20 +48,18 @@ async function abrirModalArquivo(nome, url) {
   overlay.classList.remove("hidden");
 
   const tipo = detectarTipoArquivo(nome);
-  if (tipo === "pdf") {
-    // Visualização nativa do navegador, sem depender do Google Docs Viewer
-    // (que às vezes falha em buscar arquivos hospedados fora do Google Drive).
+  if (tipo === "pdf" || tipo === "documento") {
+    // O GitHub bloqueia ativamente (x-frame-options: deny) qualquer tentativa
+    // de embutir arquivos do raw.githubusercontent.com em iframe/object/embed.
+    // Não há contorno possível para isso: a única opção confiável é abrir
+    // o arquivo em outra aba, onde o navegador (ou um app local) renderiza direto.
+    const rotulo = tipo === "pdf" ? "PDF" : "documento";
     body.innerHTML = `
-      <object data="${url}" type="application/pdf" class="file-pdf-native">
-        <div class="file-modal-fallback">
-          Não consegui exibir o PDF aqui dentro.<br/>
-          Use "Abrir em outra aba" para ver o arquivo.
-        </div>
-      </object>
+      <div class="file-modal-open-prompt">
+        <p>Este ${rotulo} não pode ser exibido aqui dentro por uma restrição de segurança do GitHub.</p>
+        <a href="${url}" target="_blank" rel="noopener" class="file-open-btn">Abrir ${rotulo} em outra aba</a>
+      </div>
     `;
-  } else if (tipo === "documento") {
-    const urlVisualizacao = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(url)}`;
-    body.innerHTML = `<iframe src="${urlVisualizacao}" title="${nome}"></iframe>`;
   } else if (tipo === "imagem") {
     body.innerHTML = `
       <div class="file-image-wrap">
