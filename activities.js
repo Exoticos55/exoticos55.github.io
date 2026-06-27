@@ -205,13 +205,15 @@ const atividades = [
     titulo: "Modularização de Código e Avaliação de LLMs (em aula)",
     data: "2026-06-09",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MTQzMjAxNjY2/details",
+    link: "",
     descricao: "Modularização de código com avaliação de LLMs, feita em aula.",
+    enunciado: "Esta atividade foca no desenvolvimento de um sistema de monitoramento de engenharia, priorizando a modularização de código e a avaliação crítica de soluções geradas por LLMs. O objetivo é comparar a qualidade, a estruturação e a legibilidade do código em Python produzido por diferentes IAs, consolidando a análise em um relatório técnico",
     arquivos: [
       { nome: "codigos_copilot.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250018139-codigos_copilot.py" },
       { nome: "codigos_chatgpt.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250028937-codigos_chatgpt.py" },
       { nome: "Relatorio_Final_Modularizacao_Eletrica.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250038717-Relatorio_Final_Modularizacao_Eletrica.pdf" },
     ],
+    tecnologias: ["chatgpt", "copilot", "gemini"],
   },
   {
     titulo: "Escreva um breve relato sincero sobre as entrevistas",
