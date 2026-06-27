@@ -219,9 +219,8 @@ const atividades = [
     titulo: "Escreva um breve relato sincero sobre as entrevistas",
     data: "2026-06-09",
     status: "enviada",
-    link: "",
+    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY3NDY1MDE4ODMy/details",
     descricao: "Relato sincero sobre as entrevistas realizadas.",
-    enunciado: "Submissão de feedback analítico e transparente sobre a experiência em processos de entrevista técnica e acadêmica. O relato cobriu aspectos de inteligência emocional, clareza das arguições, postura da banca examinadora e gestão do tempo, visando a melhoria contínua dos processos seletivos da instituição.",
     arquivos: [
       { nome: "feedback_entrevista.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782249891904-feedback_entrevista.pdf" },
     ],
@@ -230,8 +229,9 @@ const atividades = [
     titulo: "Avaliar criticamente o site alegrete.org",
     data: "2026-06-16",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjE2NTk1NDU0/details",
+    link: "",
     descricao: "Avaliação crítica do site alegrete.org.",
+    enunciado: "Auditoria técnica e funcional do portal institucional alegrete.org, com foco em Engenharia de Usabilidade e UX/UI. O projeto resultou em um relatório analítico contendo o mapeamento de pontos fortes, gargalos de acessibilidade e propostas de novos serviços digitais para estudantes, turistas e cidadãos.",
     arquivos: [
       { nome: "Relatorio_Avaliacao_Alegrete.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782249860527-Relatorio_Avaliacao_Alegrete.pdf" },
     ],
