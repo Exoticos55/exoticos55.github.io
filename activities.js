@@ -47,8 +47,7 @@ const atividades = [
     descricao: "Exercícios introdutórios de algoritmos em Python.",
     enunciado: "Seleção e resolução em Python de no mínimo 10 exercícios extraídos da apostila \"Introdução a Algoritmos com Python\" (desenvolvida via Claude.ai), focando na aplicação prática da linguagem de programação e na correção textual de caracteres e acentuações.",
     arquivos: [
-      { nome: "10atividadespy.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/03-lista-10-exercicios-python/1782251919434-10atividadespy.pdf" },
-      { nome: "Apostila_de_Logica_de_Programacao.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/03-lista-10-exercicios-python/1782520541306-Apostila_de_Logica_de_Programacao.pdf" },
+      { nome: "10atividadespy.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/03-lista-10-exercicios-python/1782251847798-10atividadespy.pdf" },
     ],
   },
   {
@@ -131,8 +130,8 @@ const atividades = [
       { nome: "exercicio3_v2_intermediaria.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251396478-exercicio3_v2_intermediaria.py" },
       { nome: "exercicio3_v1_basica.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251397561-exercicio3_v1_basica.py" },
       { nome: "rota usando alegrete como exemplo.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251409509-rota-usando-alegrete-como-exemplo.pdf" },
-      { nome: "mapa_simples_rota_otimizada.png.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251411509-mapa_simples_rota_otimizada.png.pdf" },
-      { nome: "mapa_simples_rota_original.png.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251413007-mapa_simples_rota_original.png.pdf" },
+      { nome: "mapa_simples_rota_otimizada.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251411509-mapa_simples_rota_otimizada.pdf" },
+      { nome: "mapa_simples_rota_original.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251413007-mapa_simples_rota_original.pdf" },
     ],
   },
   {
