@@ -24,7 +24,7 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU2MTY4NzMyMjIw/details",
     descricao: "Formulário inicial de diagnóstico da disciplina.",
     arquivos: [
-      { nome: "Questionário Diagnóstico - Algoritmos e Programação.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/01-diagnostico-inicial/1782254122282-Questionario-Diagnostico---Algoritmos-e-Programacao.pdf" },
+      { nome: "Questionário Diagnóstico - Algoritmos e Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254122282-Questionario-Diagnostico---Algoritmos-e-Programacao.pdf" },
     ],
   },
   {
@@ -35,7 +35,7 @@ const atividades = [
     descricao: "Cada aluno deverá escolher e resolver no mínimo 15 exercícios a partir das apostilas, livros e sites cujos links estão disponíveis no Classroom.",
     enunciado: "Seleção ou geração via IA de 15 exercícios de lógica e algoritmos básicos com estruturas condicionais simples, aplicados à área de Engenharia, acompanhados de suas respectivas resoluções completas (em formato digital ou manuscrito).\n\nApostila usada; https://drive.google.com/file/d/1S0NM66Rm18fJjp0sNm6gcpFJDR8qUjdU/view?usp=sharing",
     arquivos: [
-      { nome: "15atividades.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/02-lista-15-exercicios/1782252190595-15atividades.pdf" },
+      { nome: "15atividades.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782252190595-15atividades.pdf" },
     ],
     tecnologias: ["python"],
   },
@@ -47,8 +47,8 @@ const atividades = [
     descricao: "Exercícios introdutórios de algoritmos em Python.",
     enunciado: "Seleção e resolução em Python de no mínimo 10 exercícios extraídos da apostila \"Introdução a Algoritmos com Python\" (desenvolvida via Claude.ai), focando na aplicação prática da linguagem de programação e na correção textual de caracteres e acentuações.",
     arquivos: [
-      { nome: "10atividadespy.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/03-lista-10-exercicios-python/1782251919434-10atividadespy.pdf" },
-      { nome: "Apostila_de_Logica_de_Programacao.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/03-lista-10-exercicios-python/1782520541306-Apostila_de_Logica_de_Programacao.pdf" },
+      { nome: "10atividadespy.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251919434-10atividadespy.pdf" },
+      { nome: "Apostila_de_Logica_de_Programacao.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782520541306-Apostila_de_Logica_de_Programacao.pdf" },
     ],
   },
   {
@@ -58,10 +58,10 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU4NTI5NjQyNzU0/details",
     descricao: "Uso de LLMs para gerar e avaliar exercícios de algoritmos.",
     arquivos: [
-      { nome: "exercicios_gemini.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/04-geracao-avaliacao-llms/1782255404553-exercicios_gemini.py" },
-      { nome: "exercicios_chatgpt.docx", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/04-geracao-avaliacao-llms/1782255405843-exercicios_chatgpt.docx" },
-      { nome: "analise_comparativa_llms.docx", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/04-geracao-avaliacao-llms/1782255407165-analise_comparativa_llms.docx" },
-      { nome: "exercicios_claude.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/04-geracao-avaliacao-llms/1782255408402-exercicios_claude.py" },
+      { nome: "exercicios_gemini.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782255404553-exercicios_gemini.py" },
+      { nome: "exercicios_chatgpt.docx", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782255405843-exercicios_chatgpt.docx" },
+      { nome: "analise_comparativa_llms.docx", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782255407165-analise_comparativa_llms.docx" },
+      { nome: "exercicios_claude.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782255408402-exercicios_claude.py" },
     ],
   },
   {
@@ -71,7 +71,7 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU4NTI5MjQ2OTE1/details",
     descricao: "Quiz avaliativo sobre o uso de LLMs na disciplina.",
     arquivos: [
-      { nome: "Quiz de Avaliação da Atividade_ Uso de LLMs em Algoritmos e Programação.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/05-quiz-avaliacao-llms/1782254797581-Quiz-de-Avaliacao-da-Atividade_-Uso-de-LLMs-em-Algoritmos-e-Programacao.pdf" },
+      { nome: "Quiz de Avaliação da Atividade_ Uso de LLMs em Algoritmos e Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254797581-Quiz-de-Avaliacao-da-Atividade_-Uso-de-LLMs-em-Algoritmos-e-Programacao.pdf" },
     ],
   },
   {
@@ -81,11 +81,7 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3MjMyNjQ5OTYz/details",
     descricao: "Exercícios resolvidos manualmente, em papel.",
     arquivos: [
-      { nome: "CodigosgeradosporLLM.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/06-exercicios-papel/1782251787582-CodigosgeradosporLLM.pdf" },
-      { nome: "IMG_20260418_163328.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/06-exercicios-papel/1782251789542-IMG_20260418_163328.jpg" },
-      { nome: "IMG_20260418_170031.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/06-exercicios-papel/1782251799011-IMG_20260418_170031.jpg" },
-      { nome: "IMG_20260418_164248.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/06-exercicios-papel/1782251807157-IMG_20260418_164248.jpg" },
-      { nome: "IMG_20260418_164959.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/06-exercicios-papel/1782251815731-IMG_20260418_164959.jpg" },
+      { nome: "CodigosgeradosporLLM.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251787582-CodigosgeradosporLLM.pdf" },
     ],
   },
   {
@@ -95,7 +91,7 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3MjM1NDcyNTQ0/details",
     descricao: "Exercícios práticos de listas, vetores e arrays em Python.",
     arquivos: [
-      { nome: "listasvetoresarrays.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/07-listas-vetores-arrays/1782251698424-listasvetoresarrays.pdf" },
+      { nome: "listasvetoresarrays.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251698424-listasvetoresarrays.pdf" },
     ],
   },
   {
@@ -106,11 +102,11 @@ const atividades = [
     descricao: "Problemas com vetores/listas formulados e resolvidos com apoio de LLMs.",
     enunciado: "Formulação de dois problemas práticos de Engenharia envolvendo operações com vetores/listas com apoio de LLM, seguidos de suas respectivas resoluções algorítmicas feitas de forma totalmente manual.",
     arquivos: [
-      { nome: "IMG_20260424_142216.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/23-vetores-listas-llms/1782251630505-IMG_20260424_142216.jpg" },
-      { nome: "IMG_20260424_142226.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/23-vetores-listas-llms/1782251638977-IMG_20260424_142226.jpg" },
-      { nome: "exercicios_papel_com_codigo.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/23-vetores-listas-llms/1782579055776-exercicios_papel_com_codigo.pdf" },
-      { nome: "problema1_tensao.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/23-vetores-listas-llms/1782579058795-problema1_tensao.py" },
-      { nome: "problema2_resistores.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/23-vetores-listas-llms/1782579059817-problema2_resistores.py" },
+      { nome: "IMG_20260424_142216.jpg", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251630505-IMG_20260424_142216.jpg" },
+      { nome: "IMG_20260424_142226.jpg", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251638977-IMG_20260424_142226.jpg" },
+      { nome: "exercicios_papel_com_codigo.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782579055776-exercicios_papel_com_codigo.pdf" },
+      { nome: "problema1_tensao.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782579058795-problema1_tensao.py" },
+      { nome: "problema2_resistores.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782579059817-problema2_resistores.py" },
     ],
   },
   {
@@ -120,13 +116,13 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODYzMDE2ODMyNDUy/details",
     descricao: "Iteração de versões do código até obter resultados visuais consistentes.",
     arquivos: [
-      { nome: "exercicio3_v4_com_graficos.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251393818-exercicio3_v4_com_graficos.py" },
-      { nome: "exercicio3_v3_avancada.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251395126-exercicio3_v3_avancada.py" },
-      { nome: "exercicio3_v2_intermediaria.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251396478-exercicio3_v2_intermediaria.py" },
-      { nome: "exercicio3_v1_basica.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251397561-exercicio3_v1_basica.py" },
-      { nome: "rota usando alegrete como exemplo.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251409509-rota-usando-alegrete-como-exemplo.pdf" },
-      { nome: "mapa_simples_rota_otimizada.png.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251411509-mapa_simples_rota_otimizada.pdf" },
-      { nome: "mapa_simples_rota_original.png.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/08-versoes-codigo-visuais/1782251413007-mapa_simples_rota_original.pdf" },
+      { nome: "exercicio3_v4_com_graficos.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251393818-exercicio3_v4_com_graficos.py" },
+      { nome: "exercicio3_v3_avancada.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251395126-exercicio3_v3_avancada.py" },
+      { nome: "exercicio3_v2_intermediaria.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251396478-exercicio3_v2_intermediaria.py" },
+      { nome: "exercicio3_v1_basica.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251397561-exercicio3_v1_basica.py" },
+      { nome: "rota usando alegrete como exemplo.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251409509-rota-usando-alegrete-como-exemplo.pdf" },
+      { nome: "mapa_simples_rota_otimizada.png.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251411509-mapa_simples_rota_otimizada.png.pdf" },
+      { nome: "mapa_simples_rota_original.png.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251413007-mapa_simples_rota_original.png.pdf" },
     ],
   },
   {
@@ -136,11 +132,11 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODYzNjU2NzEyMTk1/details",
     descricao: "Resolução de problemas de outras disciplinas com múltiplas abordagens.",
     arquivos: [
-      { nome: "grafico_comparativo.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/09-problemas-outras-disciplinas/1782251149932-grafico_comparativo.py" },
-      { nome: "abordagem2_simpson.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/09-problemas-outras-disciplinas/1782251151018-abordagem2_simpson.py" },
-      { nome: "abordagem1_riemann.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/09-problemas-outras-disciplinas/1782251152254-abordagem1_riemann.py" },
-      { nome: "abordagem3_scipy.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/09-problemas-outras-disciplinas/1782251153341-abordagem3_scipy.py" },
-      { nome: "atividade_calculo.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/09-problemas-outras-disciplinas/1782251154414-atividade_calculo.pdf" },
+      { nome: "grafico_comparativo.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251149932-grafico_comparativo.py" },
+      { nome: "abordagem2_simpson.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251151018-abordagem2_simpson.py" },
+      { nome: "abordagem1_riemann.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251152254-abordagem1_riemann.py" },
+      { nome: "abordagem3_scipy.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251153341-abordagem3_scipy.py" },
+      { nome: "atividade_calculo.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251154414-atividade_calculo.pdf" },
     ],
   },
   {
@@ -150,9 +146,9 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY0MTM1NzI0NTcx/details",
     descricao: "Resolução de um problema de engenharia escolhido entre dois propostos.",
     arquivos: [
-      { nome: "codigos_gemini.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/10-problema-engenharia-um/1782251037598-codigos_gemini.py" },
-      { nome: "codigos_chatgpt.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/10-problema-engenharia-um/1782251038725-codigos_chatgpt.py" },
-      { nome: "codigos_claude.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/10-problema-engenharia-um/1782251039731-codigos_claude.py" },
+      { nome: "codigos_gemini.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251037598-codigos_gemini.py" },
+      { nome: "codigos_chatgpt.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251038725-codigos_chatgpt.py" },
+      { nome: "codigos_claude.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251039731-codigos_claude.py" },
     ],
   },
   {
@@ -162,10 +158,10 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3ODMwODA3ODA5/details",
     descricao: "Resolução do segundo problema de engenharia da dupla proposta.",
     arquivos: [
-      { nome: "comparação_das_LLM_e_prompt.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/11-problema-engenharia-dois/1782250243914-comparacao_das_LLM_e_prompt.pdf" },
-      { nome: "codigo.chatgpt.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/11-problema-engenharia-dois/1782250252515-codigo.chatgpt.py" },
-      { nome: "codigo.claude.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/11-problema-engenharia-dois/1782250263236-codigo.claude.py" },
-      { nome: "codigo.gemini.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/11-problema-engenharia-dois/1782250272824-codigo.gemini.py" },
+      { nome: "comparação_das_LLM_e_prompt.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250243914-comparacao_das_LLM_e_prompt.pdf" },
+      { nome: "codigo.chatgpt.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250252515-codigo.chatgpt.py" },
+      { nome: "codigo.claude.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250263236-codigo.claude.py" },
+      { nome: "codigo.gemini.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250272824-codigo.gemini.py" },
     ],
   },
   {
@@ -175,7 +171,7 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3ODY4MDAzNTI3/details",
     descricao: "Escolha e resolução de um novo problema de engenharia.",
     arquivos: [
-      { nome: "Apresentacao_Matheus_Peres_Final.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/12-problema-engenharia-escolhido/1782250178092-Apresentacao_Matheus_Peres_Final.pdf" },
+      { nome: "Apresentacao_Matheus_Peres_Final.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250178092-Apresentacao_Matheus_Peres_Final.pdf" },
     ],
   },
   {
@@ -185,7 +181,7 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY1NzkxMDYxODM4/details",
     descricao: "Aprimoramento técnico da solução da atividade anterior.",
     arquivos: [
-      { nome: "telemetria.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/13-evolucao-tecnica/1782250142205-telemetria.py" },
+      { nome: "telemetria.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250142205-telemetria.py" },
     ],
   },
   {
@@ -195,9 +191,9 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MTQzMjAxNjY2/details",
     descricao: "Modularização de código com avaliação de LLMs, feita em aula.",
     arquivos: [
-      { nome: "codigos_copilot.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/14-modularizacao-codigo-llms/1782250018139-codigos_copilot.py" },
-      { nome: "codigos_chatgpt.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/14-modularizacao-codigo-llms/1782250028937-codigos_chatgpt.py" },
-      { nome: "Relatorio_Final_Modularizacao_Eletrica.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/14-modularizacao-codigo-llms/1782250038717-Relatorio_Final_Modularizacao_Eletrica.pdf" },
+      { nome: "codigos_copilot.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250018139-codigos_copilot.py" },
+      { nome: "codigos_chatgpt.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250028937-codigos_chatgpt.py" },
+      { nome: "Relatorio_Final_Modularizacao_Eletrica.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250038717-Relatorio_Final_Modularizacao_Eletrica.pdf" },
     ],
   },
   {
@@ -207,7 +203,7 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY3NDY1MDE4ODMy/details",
     descricao: "Relato sincero sobre as entrevistas realizadas.",
     arquivos: [
-      { nome: "feedback_entrevista.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/15-relato-entrevistas/1782249891904-feedback_entrevista.pdf" },
+      { nome: "feedback_entrevista.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782249891904-feedback_entrevista.pdf" },
     ],
   },
   {
@@ -217,7 +213,7 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjE2NTk1NDU0/details",
     descricao: "Avaliação crítica do site alegrete.org.",
     arquivos: [
-      { nome: "Relatorio_Avaliacao_Alegrete.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/16-avaliacao-alegrete/1782249860527-Relatorio_Avaliacao_Alegrete.pdf" },
+      { nome: "Relatorio_Avaliacao_Alegrete.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782249860527-Relatorio_Avaliacao_Alegrete.pdf" },
     ],
   },
   {
@@ -227,9 +223,9 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjE2NjI2NzM2/details",
     descricao: "Desenvolvimento assistido por IA para o portal Alegrete.org.",
     arquivos: [
-      { nome: "sitehtml.html", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/17-dev-ia-alegrete/1782249620120-sitehtml.html" },
-      { nome: "codigopy.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/17-dev-ia-alegrete/1782249628913-codigopy.py" },
-      { nome: "documento.txt", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/17-dev-ia-alegrete/1782249636087-documento.txt" },
+      { nome: "sitehtml.html", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782249620120-sitehtml.html" },
+      { nome: "codigopy.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782249628913-codigopy.py" },
+      { nome: "documento.txt", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782249636087-documento.txt" },
     ],
   },
   {
@@ -239,7 +235,7 @@ const atividades = [
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjU3ODA0MTc5/details",
     descricao: "Publicação do link e print do site pessoal no GitHub Pages.",
     arquivos: [
-      { nome: "primeira versao site.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/18-print-site-github/1782249530839-primeira-versao-site.pdf" },
+      { nome: "primeira versao site.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782249530839-primeira-versao-site.pdf" },
     ],
   },
   {
@@ -250,7 +246,7 @@ const atividades = [
     descricao: "Quiz preparatório de lógica de programação, feito em aula.",
     nota: "Atividade foi realizada e marcada como concluída no site do quiz, mas não foi printada/confirmada no Classroom a tempo. Ficou registrada como não entregue.",
     arquivos: [
-      { nome: "QUIZ – Lógica de Programação (Preparatório).pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/19-quiz-preparatorio/1782254242934-QUIZ---Logica-de-Programacao--Preparatorio-.pdf" },
+      { nome: "QUIZ – Lógica de Programação (Preparatório).pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254242934-QUIZ---Logica-de-Programacao--Preparatorio-.pdf" },
     ],
   },
   {
@@ -261,7 +257,7 @@ const atividades = [
     descricao: "Quiz diagnóstico de lógica de programação.",
     nota: "Atividade foi realizada e marcada como concluída no site do quiz, mas não foi printada/confirmada no Classroom a tempo. Ficou registrada como não entregue.",
     arquivos: [
-      { nome: "QUIZ – Diagnóstico de Lógica de Programação.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/20-quiz-diagnostico/1782254197515-QUIZ---Diagnostico-de-Logica-de-Programacao.pdf" },
+      { nome: "QUIZ – Diagnóstico de Lógica de Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254197515-QUIZ---Diagnostico-de-Logica-de-Programacao.pdf" },
     ],
   },
   {
@@ -272,7 +268,7 @@ const atividades = [
     descricao: "Cada aluno deverá desenvolver um site de portfólio contendo todas as entregas realizadas ao longo do semestre",
     nota: "Esta versão servirá como base para o desenvolvimento da versão final do projeto, que deverá conter todas as entregas da disciplina organizadas e documentadas de forma completa.",
     arquivos: [
-      { nome: "sitev1.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/21-portfolio-v1/1782254950886-sitev1.pdf" },
+      { nome: "sitev1.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782254950886-sitev1.pdf" },
     ],
   },
   {
@@ -283,7 +279,7 @@ const atividades = [
     descricao: "Nesta atividade, cada aluno deverá evoluir o site do portfólio desenvolvido anteriormente.",
     nota: "Antes de realizar as alterações, converse com pelo menos dois colegas sobre seus portfólios. Apresente o seu site, conheça as soluções adotadas por eles e troque sugestões de organização, design, navegação e apresentação das entregas.\n\nCom base nessa troca de ideias, implemente pelo menos uma melhoria no seu portfólio e publique uma nova versão no GitHub.io. Identifiquem no site do portifólio todas as tecnologias que vocês estão utilizando, como GPT Versão X, Claude Versão Y, Gemini Versão Z, etc. Tecnologias Web (e.g., HTML, CSS, etc.). A própria IA pode ser utilizada para apresentar as tecnologias utilizadas para criar o site do portifólio de vocês.",
     arquivos: [
-      { nome: "sitev2.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/22-portfolio-v2/1782496876914-sitev2.pdf" },
+      { nome: "sitev2.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782496876914-sitev2.pdf" },
     ],
   },
 ];
