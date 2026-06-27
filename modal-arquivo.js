@@ -49,13 +49,38 @@ async function abrirModalArquivo(nome, url) {
 
   const tipo = detectarTipoArquivo(nome);
   if (tipo === "pdf") {
-    const urlVisualizacao = `https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`;
-    body.innerHTML = `<iframe src="${urlVisualizacao}" title="${nome}"></iframe>`;
+    // Visualização nativa do navegador, sem depender do Google Docs Viewer
+    // (que às vezes falha em buscar arquivos hospedados fora do Google Drive).
+    body.innerHTML = `
+      <object data="${url}" type="application/pdf" class="file-pdf-native">
+        <div class="file-modal-fallback">
+          Não consegui exibir o PDF aqui dentro.<br/>
+          Use "Abrir em outra aba" para ver o arquivo.
+        </div>
+      </object>
+    `;
   } else if (tipo === "documento") {
     const urlVisualizacao = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(url)}`;
     body.innerHTML = `<iframe src="${urlVisualizacao}" title="${nome}"></iframe>`;
   } else if (tipo === "imagem") {
-    body.innerHTML = `<img src="${url}" alt="${nome}" />`;
+    body.innerHTML = `
+      <div class="file-image-wrap">
+        <img src="${url}" alt="${nome}" id="file-modal-img" />
+      </div>
+    `;
+    const imgEl = document.getElementById("file-modal-img");
+    imgEl.addEventListener("error", () => {
+      body.innerHTML = `
+        <div class="file-modal-fallback">
+          Não consegui carregar a imagem agora.<br/>
+          Pode ser instabilidade momentânea de conexão.<br/><br/>
+          <button type="button" class="code-copy-btn" id="img-retry-btn">Tentar de novo</button>
+        </div>
+      `;
+      document.getElementById("img-retry-btn").addEventListener("click", () => {
+        abrirModalArquivo(nome, url);
+      });
+    });
   } else if (tipo === "codigo") {
     body.innerHTML = `<div class="file-modal-fallback">Carregando conteúdo...</div>`;
     try {
