@@ -193,11 +193,13 @@ const atividades = [
     titulo: "Evolução técnica da solução desenvolvida na atividade anterior",
     data: "2026-05-22",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY1NzkxMDYxODM4/details",
+    link: "",
     descricao: "Aprimoramento técnico da solução da atividade anterior.",
+    enunciado: "Refatoração e evolução técnica de uma prova de conceito de engenharia para um software robusto focado em experiência do usuário. O projeto envolveu a melhoria da interface, otimização de gráficos, organização do código-fonte e mapeamento de limitações sob a ótica de usabilidade e confiabilidade.",
     arquivos: [
       { nome: "telemetria.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782250142205-telemetria.py" },
     ],
+    tecnologias: ["python"],
   },
   {
     titulo: "Modularização de Código e Avaliação de LLMs (em aula)",
