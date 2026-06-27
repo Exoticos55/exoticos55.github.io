@@ -48,15 +48,23 @@ async function abrirModalArquivo(nome, url) {
   overlay.classList.remove("hidden");
 
   const tipo = detectarTipoArquivo(nome);
-  if (tipo === "pdf" || tipo === "documento") {
-    // O GitHub bloqueia ativamente (x-frame-options: deny) qualquer tentativa
-    // de embutir arquivos do raw.githubusercontent.com em iframe/object/embed.
-    // Não há contorno possível para isso: a única opção confiável é abrir
-    // o arquivo em outra aba, onde o navegador (ou um app local) renderiza direto.
-    const rotulo = tipo === "pdf" ? "PDF" : "documento";
+  if (tipo === "pdf") {
+    // Funciona porque os arquivos agora são servidos pelo domínio do GitHub Pages
+    // (exoticos55.github.io), que não tem a restrição x-frame-options do
+    // raw.githubusercontent.com. Mantém um fallback por segurança.
+    body.innerHTML = `
+      <object data="${url}" type="application/pdf" class="file-pdf-native">
+        <div class="file-modal-open-prompt">
+          <p>Não consegui exibir o PDF aqui dentro.</p>
+          <a href="${url}" target="_blank" rel="noopener" class="file-open-btn">Abrir PDF em outra aba</a>
+        </div>
+      </object>
+    `;
+  } else if (tipo === "documento") {
+    const rotulo = "documento";
     body.innerHTML = `
       <div class="file-modal-open-prompt">
-        <p>Este ${rotulo} não pode ser exibido aqui dentro por uma restrição de segurança do GitHub.</p>
+        <p>Este ${rotulo} não pode ser exibido aqui dentro por uma restrição de segurança do visualizador.</p>
         <a href="${url}" target="_blank" rel="noopener" class="file-open-btn">Abrir ${rotulo} em outra aba</a>
       </div>
     `;
