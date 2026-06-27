@@ -111,11 +111,11 @@ const atividades = [
     descricao: "Problemas com vetores/listas formulados e resolvidos com apoio de LLMs.",
     enunciado: "Formulação de dois problemas práticos de Engenharia envolvendo operações com vetores/listas com apoio de LLM, seguidos de suas respectivas resoluções algorítmicas feitas de forma totalmente manual.",
     arquivos: [
-      { nome: "IMG_20260424_142216.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/23-vetores-listas-llms/1782251630505-IMG_20260424_142216.jpg" },
-      { nome: "IMG_20260424_142226.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/23-vetores-listas-llms/1782251638977-IMG_20260424_142226.jpg" },
       { nome: "exercicios_papel_com_codigo.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/23-vetores-listas-llms/1782579055776-exercicios_papel_com_codigo.pdf" },
       { nome: "problema1_tensao.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/23-vetores-listas-llms/1782579058795-problema1_tensao.py" },
       { nome: "problema2_resistores.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/23-vetores-listas-llms/1782579059817-problema2_resistores.py" },
+      { nome: "IMG_20260424_142216.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/23-vetores-listas-llms/IMG_20260424_142216.jpg" },
+      { nome: "IMG_20260424_142226.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/23-vetores-listas-llms/IMG_20260424_142226.jpg" },
     ],
   },
   {
