@@ -33,10 +33,11 @@ const atividades = [
     status: "enviada",
     link: "",
     descricao: "Cada aluno deverá escolher e resolver no mínimo 15 exercícios a partir das apostilas, livros e sites cujos links estão disponíveis no Classroom.",
-    enunciado: "Seleção ou geração via IA de 15 exercícios de lógica e algoritmos básicos com estruturas condicionais simples, aplicados à área de Engenharia, acompanhados de suas respectivas resoluções completas (em formato digital ou manuscrito).",
+    enunciado: "Seleção ou geração via IA de 15 exercícios de lógica e algoritmos básicos com estruturas condicionais simples, aplicados à área de Engenharia, acompanhados de suas respectivas resoluções completas (em formato digital ou manuscrito).\n\nApostila usada; https://drive.google.com/file/d/1S0NM66Rm18fJjp0sNm6gcpFJDR8qUjdU/view?usp=sharing",
     arquivos: [
       { nome: "15atividades.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782252190595-15atividades.pdf" },
     ],
+    tecnologias: ["python"],
   },
   {
     titulo: "Lista de 10 Exercícios da INTRODUCAO A ALGORITMOS com Python by Claude.ai",
