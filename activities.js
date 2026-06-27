@@ -21,7 +21,7 @@ const atividades = [
     titulo: "Preenchimento do formulário de diagnóstico inicial",
     data: "2026-03-17",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU2MTY4NzMyMjIw/details",
+    link: "",
     descricao: "Formulário inicial de diagnóstico da disciplina.",
     arquivos: [
       { nome: "Questionário Diagnóstico - Algoritmos e Programação.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782254122282-Questionario-Diagnostico---Algoritmos-e-Programacao.pdf" },
