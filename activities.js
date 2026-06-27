@@ -219,8 +219,9 @@ const atividades = [
     titulo: "Escreva um breve relato sincero sobre as entrevistas",
     data: "2026-06-09",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY3NDY1MDE4ODMy/details",
+    link: "",
     descricao: "Relato sincero sobre as entrevistas realizadas.",
+    enunciado: "Submissão de feedback analítico e transparente sobre a experiência em processos de entrevista técnica e acadêmica. O relato cobriu aspectos de inteligência emocional, clareza das arguições, postura da banca examinadora e gestão do tempo, visando a melhoria contínua dos processos seletivos da instituição.",
     arquivos: [
       { nome: "feedback_entrevista.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/15-relato-entrevistas/1782249891904-feedback_entrevista.pdf" },
     ],
@@ -242,13 +243,11 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjE2NjI2NzM2/details",
     descricao: "Desenvolvimento assistido por IA para o portal Alegrete.org.",
-    enunciado: "Desenvolvimento de soluções em Python assistidas por IA para automação de dados e enriquecimento do portal alegrete.org. O projeto focou na engenharia de prompts iterativa para construir aplicações funcionais como raspagem de eventos, tratamento de imagens ou catálogos digitais, documentando o código em repositório GitHub.",
     arquivos: [
       { nome: "sitehtml.html", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/17-dev-ia-alegrete/1782249620120-sitehtml.html" },
       { nome: "codigopy.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/17-dev-ia-alegrete/1782249628913-codigopy.py" },
       { nome: "documento.txt", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/17-dev-ia-alegrete/1782249636087-documento.txt" },
     ],
-    tecnologias: ["python"],
   },
   {
     titulo: "Postar o link e um print do seu site .github.io",
