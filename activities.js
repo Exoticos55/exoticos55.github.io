@@ -81,8 +81,9 @@ const atividades = [
     titulo: "Resolver os 5 exercícios em papel",
     data: "2026-04-21",
     status: "enviada",
-    link: "",
+    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3MjMyNjQ5OTYz/details",
     descricao: "Exercícios resolvidos manualmente, em papel.",
+    enunciado: "Resolução analógica e manuscrita de 5 problemas de lógica algorítmica, seguida de um processo de auditoria por Inteligência Artificial. O projeto consistiu em submeter as imagens das resoluções a duas LLMs distintas para validação de lógica, interpretação visual e geração comparativa de código Python.",
     arquivos: [
       { nome: "CodigosgeradosporLLM.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/06-exercicios-papel/1782251787582-CodigosgeradosporLLM.pdf" },
       { nome: "IMG_20260418_163328.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/06-exercicios-papel/IMG_20260418_163328.jpg" },
@@ -90,6 +91,7 @@ const atividades = [
       { nome: "IMG_20260418_164959.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/06-exercicios-papel/IMG_20260418_164959.jpg" },
       { nome: "IMG_20260418_170031.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/06-exercicios-papel/IMG_20260418_170031.jpg" },
     ],
+    tecnologias: ["python"],
   },
   {
     titulo: "Resolver os exercícios de listas/vetores/arrays em Python",
@@ -122,8 +124,9 @@ const atividades = [
     titulo: "Atividade: Gerar as diferentes versões do código até ter resultados visuais interessantes e consistentes",
     data: "2026-05-05",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODYzMDE2ODMyNDUy/details",
+    link: "",
     descricao: "Iteração de versões do código até obter resultados visuais consistentes.",
+    enunciado: "Desenvolvimento iterativo de um algoritmo de otimização de rotas e consumo logística para a Engenharia de Produção. O projeto foca em comparar o trajeto sequencial versus a heurística do \"Vizinho Mais Próximo\" em Python, validando o consumo de combustível e a autonomia do veículo por meio de visualizações de dados consistentes.",
     arquivos: [
       { nome: "exercicio3_v4_com_graficos.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251393818-exercicio3_v4_com_graficos.py" },
       { nome: "exercicio3_v3_avancada.py", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782251395126-exercicio3_v3_avancada.py" },
