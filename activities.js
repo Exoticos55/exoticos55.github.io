@@ -219,8 +219,9 @@ const atividades = [
     titulo: "Escreva um breve relato sincero sobre as entrevistas",
     data: "2026-06-09",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY3NDY1MDE4ODMy/details",
+    link: "",
     descricao: "Relato sincero sobre as entrevistas realizadas.",
+    enunciado: "Submissão de feedback analítico e transparente sobre a experiência em processos de entrevista técnica e acadêmica. O relato cobriu aspectos de inteligência emocional, clareza das arguições, postura da banca examinadora e gestão do tempo, visando a melhoria contínua dos processos seletivos da instituição.",
     arquivos: [
       { nome: "feedback_entrevista.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782249891904-feedback_entrevista.pdf" },
     ],
@@ -229,9 +230,8 @@ const atividades = [
     titulo: "Avaliar criticamente o site alegrete.org",
     data: "2026-06-16",
     status: "enviada",
-    link: "",
+    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjE2NTk1NDU0/details",
     descricao: "Avaliação crítica do site alegrete.org.",
-    enunciado: "Auditoria técnica e funcional do portal institucional alegrete.org, com foco em Engenharia de Usabilidade e UX/UI. O projeto resultou em um relatório analítico contendo o mapeamento de pontos fortes, gargalos de acessibilidade e propostas de novos serviços digitais para estudantes, turistas e cidadãos.",
     arquivos: [
       { nome: "Relatorio_Avaliacao_Alegrete.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782249860527-Relatorio_Avaliacao_Alegrete.pdf" },
     ],
@@ -240,13 +240,15 @@ const atividades = [
     titulo: "Atividade: Desenvolvimento Assistido por IA para o Portal Alegrete.org",
     data: "2026-06-16",
     status: "enviada",
-    link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjE2NjI2NzM2/details",
+    link: "",
     descricao: "Desenvolvimento assistido por IA para o portal Alegrete.org.",
+    enunciado: "Desenvolvimento de soluções em Python assistidas por IA para automação de dados e enriquecimento do portal alegrete.org. O projeto focou na engenharia de prompts iterativa para construir aplicações funcionais (como raspagem de eventos, tratamento de imagens ou catálogos digitais), documentando o código em repositório GitHub.",
     arquivos: [
       { nome: "sitehtml.html", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782249620120-sitehtml.html" },
       { nome: "codigopy.py", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782249628913-codigopy.py" },
       { nome: "documento.txt", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/1782249636087-documento.txt" },
     ],
+    tecnologias: ["python", "claude", "gemini", "copilot"],
   },
   {
     titulo: "Postar o link e um print do seu site .github.io",
