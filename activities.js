@@ -83,6 +83,7 @@ const atividades = [
     status: "enviada",
     link: "https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3MjMyNjQ5OTYz/details",
     descricao: "Exercícios resolvidos manualmente, em papel.",
+    enunciado: "Resolução analógica e manuscrita de 5 problemas de lógica algorítmica, seguida de um processo de auditoria por Inteligência Artificial. O projeto consistiu em submeter as imagens das resoluções a duas LLMs distintas para validação de lógica, interpretação visual e geração comparativa de código Python.",
     arquivos: [
       { nome: "CodigosgeradosporLLM.pdf", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/06-exercicios-papel/1782251787582-CodigosgeradosporLLM.pdf" },
       { nome: "IMG_20260418_163328.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/06-exercicios-papel/IMG_20260418_163328.jpg" },
@@ -90,6 +91,7 @@ const atividades = [
       { nome: "IMG_20260418_164959.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/06-exercicios-papel/IMG_20260418_164959.jpg" },
       { nome: "IMG_20260418_170031.jpg", url: "https://raw.githubusercontent.com/Exoticos55/exoticos55.github.io/main/arquivos/06-exercicios-papel/IMG_20260418_170031.jpg" },
     ],
+    tecnologias: ["python"],
   },
   {
     titulo: "Resolver os exercícios de listas/vetores/arrays em Python",
