@@ -188,7 +188,6 @@ const atividades = [
     enunciado: "Desenvolvimento de uma solução autônoma de engenharia com total liberdade de escopo, utilizando Inteligência Artificial. O projeto consistiu na modelagem completa do problema escolhido, desenvolvimento do código-fonte em Python e criação de dashboards visuais com gráficos, tabelas e simulações para validação dos resultados.",
     arquivos: [
       { nome: "Apresentacao_Matheus_Peres_Final.pdf", url: "https://exoticos55.github.io/arquivos/12-problema-engenharia-escolhido/1782250178092-Apresentacao_Matheus_Peres_Final.pdf" },
-      { nome: "relatorio_falhas.csv", url: "https://exoticos55.github.io/arquivos/12-problema-engenharia-escolhido/relatorio_falhas.csv" },
       { nome: "deteccao_sobrecarga.py", url: "https://exoticos55.github.io/arquivos/12-problema-engenharia-escolhido/deteccao_sobrecarga.py" },
       { nome: "sobrecarga.pdf", url: "https://exoticos55.github.io/arquivos/12-problema-engenharia-escolhido/sobrecarga.pdf" },
     ],
