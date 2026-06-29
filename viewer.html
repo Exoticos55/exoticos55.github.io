@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Executar código — Algoritmos</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  :root{
+    --viewer-bg: var(--bg, #0b0f17);
+    --viewer-panel: var(--card-bg, #11161f);
+    --viewer-border: var(--border-color, #232a36);
+    --viewer-text: var(--text-color, #e5e9f0);
+    --viewer-muted: var(--muted-color, #8a93a6);
+    --viewer-accent: var(--accent-color, #3a7bd5);
+    --viewer-accent-strong: var(--accent-strong, #5b9bff);
+    --viewer-ok: #3ddc84;
+    --viewer-err: #ff6b6b;
+  }
+
+  .viewer-wrap{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+    font-family: ui-monospace, "JetBrains Mono", "Fira Code", Consolas, monospace;
+    color: var(--viewer-text);
+  }
+
+  .viewer-back{
+    display:inline-block;
+    color: var(--viewer-muted);
+    text-decoration:none;
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+  .viewer-back:hover{ color: var(--viewer-accent-strong); }
+
+  .viewer-card{
+    background: var(--viewer-panel);
+    border: 1px solid var(--viewer-border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .viewer-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--viewer-border);
+    background: rgba(255,255,255,0.02);
+  }
+
+  .viewer-title{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    font-size: 14px;
+  }
+  .viewer-title .dot{
+    width:10px; height:10px; border-radius:50%;
+    background: var(--viewer-accent);
+    display:inline-block;
+  }
+  .viewer-filename{ font-weight: 600; }
+  .viewer-tag{
+    font-size: 11px;
+    color: var(--viewer-muted);
+    border: 1px solid var(--viewer-border);
+    border-radius: 999px;
+    padding: 2px 9px;
+  }
+
+  .viewer-actions{ display:flex; gap:8px; flex-wrap: wrap; }
+
+  .vbtn{
+    font-family: inherit;
+    font-size: 12.5px;
+    color: var(--viewer-text);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--viewer-border);
+    border-radius: 8px;
+    padding: 7px 12px;
+    cursor: pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition: background .15s, border-color .15s;
+  }
+  .vbtn:hover{ background: rgba(255,255,255,0.08); border-color: var(--viewer-accent); }
+  .vbtn:disabled{ opacity:.5; cursor: not-allowed; }
+  .vbtn.primary{
+    background: var(--viewer-accent);
+    border-color: var(--viewer-accent);
+    color: #fff;
+    font-weight: 600;
+  }
+  .vbtn.primary:hover{ background: var(--viewer-accent-strong); }
+
+  pre.code-block{
+    margin: 0;
+    padding: 18px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.55;
+    max-height: 480px;
+  }
+  pre.code-block code{ font-family: inherit; }
+
+  .viewer-section-label{
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--viewer-muted);
+    padding: 12px 18px 0;
+  }
+
+  .viewer-stdin{
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.25);
+    color: var(--viewer-text);
+    border: 1px solid var(--viewer-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 12.5px;
+    resize: vertical;
+    min-height: 54px;
+  }
+  .viewer-stdin-hint{
+    font-size: 11px;
+    color: var(--viewer-muted);
+    padding: 4px 18px 14px;
+  }
+
+  .viewer-console{
+    margin: 0;
+    padding: 16px 18px 18px;
+    font-size: 12.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+    border-top: 1px solid var(--viewer-border);
+    min-height: 90px;
+    max-height: 360px;
+    overflow-y: auto;
+    background: rgba(0,0,0,0.18);
+  }
+  .console-line-error{ color: var(--viewer-err); }
+  .console-line-info{ color: var(--viewer-muted); }
+  .console-line-ok{ color: var(--viewer-ok); }
+
+  .viewer-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 10px 18px;
+    border-top: 1px solid var(--viewer-border);
+    font-size: 11px;
+    color: var(--viewer-muted);
+  }
+
+  .spinner{
+    width:13px; height:13px;
+    border-radius:50%;
+    border: 2px solid rgba(255,255,255,0.25);
+    border-top-color: #fff;
+    animation: viewer-spin .7s linear infinite;
+    display:inline-block;
+  }
+  @keyframes viewer-spin{ to{ transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div class="viewer-wrap">
+  <a class="viewer-back" href="javascript:history.back()">&larr; voltar para a atividade</a>
+
+  <div class="viewer-card">
+    <div class="viewer-header">
+      <div class="viewer-title">
+        <span class="dot"></span>
+        <span class="viewer-filename" id="viewer-filename">arquivo.py</span>
+        <span class="viewer-tag">Python · Pyodide</span>
+      </div>
+      <div class="viewer-actions">
+        <button class="vbtn primary" id="btn-run" disabled>
+          <span id="run-icon">&#9654;</span> <span id="run-label">Carregando...</span>
+        </button>
+        <button class="vbtn" id="btn-copy">&#128203; Copiar</button>
+        <button class="vbtn" id="btn-download">&#11015; Baixar</button>
+        <button class="vbtn" id="btn-clear">&#128465; Limpar console</button>
+      </div>
+    </div>
+
+    <pre class="code-block"><code id="code-content">Carregando código...</code></pre>
+
+    <div class="viewer-section-label">Entrada (input()) — opcional</div>
+    <textarea class="viewer-stdin" id="stdin-box" placeholder="Se o programa usa input(), escreva aqui um valor por linha..."></textarea>
+    <div class="viewer-stdin-hint">Cada linha digitada aqui será consumida, em ordem, por cada chamada de <code>input()</code> do programa.</div>
+
+    <div class="viewer-section-label">Saída do programa</div>
+    <pre class="viewer-console" id="console-output"><span class="console-line-info">Console pronto. Clique em Executar para rodar o código.</span></pre>
+
+    <div class="viewer-footer">
+      <span>Executado localmente no seu navegador via WebAssembly — nenhum código é enviado a um servidor.</span>
+      <span id="exec-time"></span>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.1/full/pyodide.js"></script>
+
+<script>
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const fileUrl = params.get("file");
+  const fileName = params.get("name") || "arquivo.py";
+
+  const elFilename = document.getElementById("viewer-filename");
+  const elCode = document.getElementById("code-content");
+  const elConsole = document.getElementById("console-output");
+  const elStdin = document.getElementById("stdin-box");
+  const elRunBtn = document.getElementById("btn-run");
+  const elRunLabel = document.getElementById("run-label");
+  const elRunIcon = document.getElementById("run-icon");
+  const elExecTime = document.getElementById("exec-time");
+
+  elFilename.textContent = fileName;
+  document.title = `${fileName} — Executar — Algoritmos`;
+
+  let sourceCode = "";
+  let pyodideInstance = null;
+
+  function logLine(text, cls) {
+    const span = document.createElement("span");
+    if (cls) span.className = cls;
+    span.textContent = text;
+    elConsole.appendChild(span);
+    elConsole.appendChild(document.createTextNode("\n"));
+    elConsole.scrollTop = elConsole.scrollHeight;
+  }
+
+  function clearConsole() {
+    elConsole.innerHTML = "";
+    logLine("Console limpo.", "console-line-info");
+  }
+
+  async function loadSource() {
+    if (!fileUrl) {
+      elCode.textContent = "Nenhum arquivo informado na URL (parâmetro ?file=).";
+      return;
+    }
+    try {
+      const res = await fetch(fileUrl);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      sourceCode = await res.text();
+      elCode.textContent = sourceCode;
+      if (window.hljs) {
+        elCode.className = "language-python";
+        window.hljs.highlightElement(elCode);
+      }
+    } catch (err) {
+      elCode.textContent = `Não foi possível carregar o arquivo: ${err.message}`;
+    }
+  }
+
+  async function loadPyodide() {
+    try {
+      pyodideInstance = await window.loadPyodide();
+      elRunLabel.textContent = "Executar";
+      elRunBtn.disabled = false;
+    } catch (err) {
+      elRunLabel.textContent = "Erro ao carregar";
+      logLine(`Falha ao iniciar o ambiente Python: ${err.message}`, "console-line-error");
+    }
+  }
+
+  function buildStdinFeeder() {
+    const lines = elStdin.value.split("\n");
+    let idx = 0;
+    return function nextLine() {
+      if (idx < lines.length) {
+        const v = lines[idx];
+        idx += 1;
+        return v;
+      }
+      throw new Error("EOFError: não há mais entradas disponíveis em input()");
+    };
+  }
+
+  async function runCode() {
+    if (!pyodideInstance || !sourceCode) return;
+
+    elRunBtn.disabled = true;
+    elRunIcon.innerHTML = '<span class="spinner"></span>';
+    elRunLabel.textContent = "Executando...";
+    clearConsole();
+
+    const startedAt = performance.now();
+    const feeder = buildStdinFeeder();
+
+    pyodideInstance.globals.set("__feed_input", feeder);
+
+    pyodideInstance.setStdout({
+      batched: (text) => {
+        if (text.length) logLine(text);
+      },
+    });
+    pyodideInstance.setStderr({
+      batched: (text) => {
+        if (text.length) logLine(text, "console-line-error");
+      },
+    });
+
+    const wrapper = `
+import builtins
+def __input_override(prompt=""):
+    if prompt:
+        print(prompt, end="")
+    try:
+        return __feed_input()
+    except Exception as e:
+        raise EOFError(str(e))
+builtins.input = __input_override
+`;
+
+    try {
+      await pyodideInstance.runPythonAsync(wrapper);
+      await pyodideInstance.runPythonAsync(sourceCode);
+      const elapsed = ((performance.now() - startedAt) / 1000).toFixed(2);
+      elExecTime.textContent = `última execução: ${elapsed}s`;
+      logLine("Execução finalizada.", "console-line-ok");
+    } catch (err) {
+      logLine(String(err), "console-line-error");
+    } finally {
+      elRunBtn.disabled = false;
+      elRunIcon.textContent = "▶";
+      elRunLabel.textContent = "Executar";
+    }
+  }
+
+  document.getElementById("btn-run").addEventListener("click", runCode);
+  document.getElementById("btn-clear").addEventListener("click", clearConsole);
+
+  document.getElementById("btn-copy").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(sourceCode);
+      logLine("Código copiado para a área de transferência.", "console-line-ok");
+    } catch (e) {
+      logLine("Não foi possível copiar automaticamente.", "console-line-error");
+    }
+  });
+
+  document.getElementById("btn-download").addEventListener("click", () => {
+    const blob = new Blob([sourceCode], { type: "text/x-python" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  loadSource();
+  loadPyodide();
+})();
+</script>
+
+</body>
+</html>

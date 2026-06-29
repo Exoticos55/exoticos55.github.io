@@ -1,0 +1,19 @@
+/* ===================================================================
+   Botão "Executar" para arquivos .py (adicionar ao final do style.css)
+   Reutiliza a classe .file-chip já existente e adiciona uma variação
+   .file-chip-run com destaque verde, sem alterar o chip padrão.
+   =================================================================== */
+
+.file-chip-run {
+  border-color: rgba(61, 220, 132, 0.45);
+  color: #3ddc84;
+}
+
+.file-chip-run:hover {
+  background: rgba(61, 220, 132, 0.12);
+  border-color: #3ddc84;
+}
+
+.file-chip-run svg {
+  color: #3ddc84;
+}
