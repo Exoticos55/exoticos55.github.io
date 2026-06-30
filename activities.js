@@ -313,6 +313,17 @@ const atividades = [
     ],
     tecnologias: ["github"],
   },
+  {
+    titulo: "Avaliação por Pares dos Portfólios",
+    data: "2026-06-30",
+    status: "enviada",
+    link: "",
+    descricao: "",
+    enunciado: "O objetivo da atividade de hoje é realizar uma avaliação construtiva de portfólios desenvolvidos por colegas da disciplina. Esta atividade faz parte da preparação para a entrega final do projeto e tem como propósito identificar pontos fortes, oportunidades de melhoria e possíveis ajustes antes da versão definitiva.\n\nCada aluno deverá avaliar o portfólio de **três colegas** e encaminhar o feedback diretamente para cada um deles. O foco deve ser ajudar os colegas a melhorar a qualidade, a organização, a apresentação e a completude de seus portfólios.",
+    arquivos: [
+      { nome: "avaliacao_por_pares_matheus.pdf", url: "https://raw.githubusercontent.com/exoticos55/exoticos55.github.io/main/arquivos/1782830739133-avaliacao_por_pares_matheus.pdf" },
+    ],
+  },
 ];
 
 // Não precisa editar nada abaixo desta linha.
